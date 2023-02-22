@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.cloudynotes.io/blog/first/</loc>
+         <lastmod>2023-02-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.cloudynotes.io/blog/init/</loc>
          <lastmod>2023-02-22</lastmod>
          <changefreq>daily</changefreq>
