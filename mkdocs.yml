@@ -1,0 +1,65 @@
+site_name: CloudyNotes
+site_url: https://cloudynotes.io
+repo_url: https://github.com/cloudynotes/www.cloudynotes.io
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+    - navigation.tracking
+    - navigation.top
+    - navigation.footer
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: cyan
+      toggle:
+        icon: material/toggle-switch 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)" 
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+
+  logo: assets/logo.png
+
+extra:
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+  social:
+    - icon: fontawesome/brands/linkedin 
+      link: https://www.linkedin.com/in/meraj-kashi/
+    - icon: fontawesome/brands/twitter 
+      link: https://twitter.com/Meroojak
+  generator: false
+copyright: Copyright &copy; 2023 Meraj Kashi
+
+# https://liang2kl.cn/mkdocs-blogging-plugin/template/
+plugins:
+  - search
+  - offline
+  - blogging:
+      dirs: # The directories to be included
+        - blog
+      features:
+        tags: {}
+      size: 5
+      sort:
+        from: new
+        by: creation
+      theme:             # Use a predefined theme
+        name: card
+      paging: false      # Disable paging
+      show_total: false
+      suppress_warnings: true
+      
+nav:
+  - Blog:
+    - blog/init.md
