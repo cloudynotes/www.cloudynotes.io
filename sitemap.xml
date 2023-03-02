@@ -2,52 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://cloudynotes.io/index.html</loc>
-         <lastmod>2023-02-28</lastmod>
+         <lastmod>2023-03-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/blog/first.html</loc>
-         <lastmod>2023-02-28</lastmod>
+         <lastmod>2023-03-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/blog/forth.html</loc>
-         <lastmod>2023-02-28</lastmod>
+         <lastmod>2023-03-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/blog/init.html</loc>
-         <lastmod>2023-02-28</lastmod>
+         <lastmod>2023-03-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/blog/latest.html</loc>
-         <lastmod>2023-02-28</lastmod>
+         <lastmod>2023-03-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/blog/second.html</loc>
-         <lastmod>2023-02-28</lastmod>
+         <lastmod>2023-03-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/blog/test.html</loc>
-         <lastmod>2023-02-28</lastmod>
+         <lastmod>2023-03-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/blog/third.html</loc>
-         <lastmod>2023-02-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cloudynotes.io/kubernetes/intro/installation.html</loc>
-         <lastmod>2023-02-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cloudynotes.io/kubernetes/intro/introduction.html</loc>
-         <lastmod>2023-02-28</lastmod>
+         <lastmod>2023-03-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
