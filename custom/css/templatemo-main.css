@@ -754,3 +754,8 @@ body.lb-disable-scrolling {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
+
+.about-us {
+  width: 200px;
+  height: 150px;
+}
