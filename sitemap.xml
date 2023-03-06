@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://cloudynotes.io/index.html</loc>
-         <lastmod>2023-03-05</lastmod>
+         <lastmod>2023-03-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cloudynotes.io/blog/first.html</loc>
-         <lastmod>2023-03-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cloudynotes.io/blog/init.html</loc>
-         <lastmod>2023-03-05</lastmod>
+         <loc>https://cloudynotes.io/blog/main.html</loc>
+         <lastmod>2023-03-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/blog/tags.html</loc>
-         <lastmod>2023-03-05</lastmod>
+         <lastmod>2023-03-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cloudynotes.io/blog/tf-mars.html</loc>
+         <lastmod>2023-03-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
