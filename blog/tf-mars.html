@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="HashiCorp Terraform moving state file">
+        <meta name="description" content="Moving HCP Terraform state file">
       
       
         <meta name="author" content="Meraj Kashi">
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hashicorp-terraform-moving-state-file" class="md-skip">
+        <a href="#moving-hashicorp-terraform-state-file" class="md-skip">
           Skip to content
         </a>
       
@@ -297,6 +297,75 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-state-file" class="md-nav__link">
+    Terraform state file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-backend" class="md-nav__link">
+    Terraform backend
+  </a>
+  
+    <nav class="md-nav" aria-label="Terraform backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-backend" class="md-nav__link">
+    Default backend
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-to-a-remote-backend" class="md-nav__link">
+    Migrating to a remote backend
+  </a>
+  
+    <nav class="md-nav" aria-label="Migrating to a remote backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-s3-bucket" class="md-nav__link">
+    Changing the S3 Bucket
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    Best practices
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -310,12 +379,232 @@
                   
 
 
-<h1 id="hashicorp-terraform-moving-state-file">HashiCorp Terraform moving state file</h1>
+<h1 id="moving-hashicorp-terraform-state-file">Moving HashiCorp Terraform state file</h1>
 <p><img alt="Terraforming Mars" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/tf-mars/tf-mars.jpg?raw=true" /></p>
 <p>This isn't a blog about board games, but HashiCorp Terraform makes me think of the Terraforming Mars board game!</p>
 <blockquote>
 <p>Terraforming Mars is a board game designed by Jacob Fryxelius and published by FryxGames in 2016. The game is set in the future, where players take on the role of corporations that work together to terraform Mars and make it habitable for human life. You can check more here: <a href="https://boardgamegeek.com/boardgame/167791/terraforming-mars">BoardGameGeek</a></p>
 </blockquote>
+<h2 id="terraform-state-file">Terraform state file</h2>
+<p>Infrastructure as Code (IaC) enables us to use code to manage infrastructure resources. This approach makes it easier to manage complex infrastructures, reduce manual errors, and increase efficiency.</p>
+<p>These days HashiCorp Terraform is one of the popular IaC tool. It supports a wide range of Cloud provider and services including AWS, Azure, GCP, K8S, and many others. This enables infrastructure engineers to manage their infrastructure resources in a consistent way, regardless of the cloud provider they are using.</p>
+<p>Terraform provides a state management mechanism to track the state of the infrastructure resources. This allows us to understand the current state of the infrastructure, identify changes that have been made, and easily make updates. Terraform stores the current state of the infrastructure in a file called tfstate. This state is used by Terraform to map real world resources to the configuration, keep track of metadata, and to improve performance for large infrastructures.</p>
+<p>This state file is stored locally by default in a file called <code>terraform.tfstate</code>. Terraform utilizes the state file to generate plan and carry out modifications to the infrastructure. Terraform performs a refresh before carrying out any action to update the state with the current state of the infrastructure. That’s why we see <code>Refreshing state…</code> in each Terraform plan output.</p>
+<pre><code>$ terraform plan
+aws_dynamodb_table.dynamodb_locktable: Refreshing state... [id=terraforming-mars-locktable]
+aws_s3_bucket.s3_tfstate: Refreshing state... [id=terraforming-mars-tfstate]
+</code></pre>
+<p>You can read more about Terraform state purpose here: <a href="https://developer.hashicorp.com/terraform/language/state/purpose">Purpose of Terraform State</a></p>
+<h2 id="terraform-backend">Terraform backend</h2>
+<p>Terraform enables us to collaborate with other members of our team by using version control systems such as Git. This makes it easier to share infrastructure code, review changes, and ensure that everyone is working on the same version of the infrastructure. However, using a local Terraform state file can be challenging because everyone must make sure to pull the latest tfstate file locally and ensure that nobody else is running Terraform at the same time.</p>
+<p>To solve this issue, Terraform introduces remote state. Using remote state, the state file can be written to a remote data store. Now, teammates can collaborate on a project without any concern about the latest tfstate file version. Remote state is implemented by a backend or by Terraform Cloud.</p>
+<p>Terraform supports various types of backends, including AWS S3, Azure Blob Storage, and HashiCorp Consul. These backends provide remote storage for Terraform state files, making it easier to manage infrastructure resources across teams and environments. When using a remote backend, Terraform can read the current state and apply changes to the infrastructure based on that state.</p>
+<p>However, what if Terraform executed concurrently? Terraform has an ability to lock the state file. Whenever there is a possibility of writing state, the process of state locking occurs automatically. Backends are responsible for providing an API for state locking and state locking is optional.</p>
+<h3 id="default-backend">Default backend</h3>
+<p>Terraform uses a backend called <code>local</code> as the default option, which stores the state data locally as a file on the disk. It means that we do not need to add backend block configuration. For example, the below code block shows the terraform block configured with aws provider:</p>
+<pre><code>terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+    }
+  }
+}
+</code></pre>
+<p>The state file in Terraform is typically stored locally in the current project directory. However, you may wonder how to store the tfstate file in a different location. This can be accomplished by specifying a backend configuration in your Terraform code, which tells Terraform where to store the state file:</p>
+<pre><code>terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+    }
+  }
+  backend "local" {
+    path = "local_path/terraform.tfstate"
+  }
+}
+</code></pre>
+<p>By adding the backend configuration block and running <code>terraform init</code>, you will get an error message indicates change in backend configuration:</p>
+<pre><code>$ terraform init
+Initializing the backend...
+Error: Backend configuration changed
+
+A change in the backend configuration has been detected, which may require migrating existing state.
+
+If you wish to attempt automatic migration of the state, use "terraform init -migrate-state".
+If you wish to store the current configuration with no changes to the state, use "terraform init -reconfigure".
+</code></pre>
+<p>The error message simply explains the root cause and the possible solutions. The <code>-migrate-state</code> option will attempt to copy existing state to the new backend, and depending on what changed, may result in interactive prompts to confirm migration of workspace states. On the other hand, the <code>-reconfigure</code> option disregards any existing configuration, preventing migration of any existing state.  </p>
+<blockquote>
+<p>If you are trying to move the state file from the default working directory to your custom directory, <code>-migrate-state</code> is the correct option.</p>
+</blockquote>
+<h2 id="migrating-to-a-remote-backend">Migrating to a remote backend</h2>
+<p><img alt="Migrating to a remote backend" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/tf-mars/mars_landing.jpg?raw=true" />
+Now, how can we move the local state file of a current project to a remote backend? As we understood, using a remote backend can help improve collaboration, scalability, security, and ease of management when working with Terraform.</p>
+<p>I would like to divide the supported backends into two categories: <strong>Local</strong> and <strong>Remote</strong>. In the Local group, the state file is stored locally (default, or using a local configuration). The Remote group includes options such as Terraform cloud, AWS S3, Azurerm, and others.</p>
+<blockquote>
+<p>HashiCorp says that remote backend is a unique among all other Terraform backends. Read more about it here: <a href="https://developer.hashicorp.com/terraform/language/settings/backends/remote">Terraform Remote Backend</a></p>
+</blockquote>
+<p>In this demonstration, I try to use <a href="https://developer.hashicorp.com/terraform/language/settings/backends/s3">AWS S3 backend</a>. AWS S3 backend supports state locking via AWS DynamoDB. It means that it doesn’t support state locking out of the box.</p>
+<blockquote>
+<p>As an exmaple for in the box locking feature, Azurerm supports state locking and consistency checking with Azure Blob Storage native capabilities.</p>
+</blockquote>
+<h3 id="implementation">Implementation</h3>
+<p>In the first step, let's create resources an AWS to support storing Terraform project state file and status. Based on a project experience, I have a project called <code>iac-base</code> includes all the base infrastructure for other projects deployment. The below code block shows <code>iac-base</code> resources:  </p>
+<pre><code># S3 bucket 
+resource "aws_s3_bucket" "s3_tfstate" {
+  bucket = "terraforming-mars-tfstate"
+}
+
+# S3 bucket ACL
+resource "aws_s3_bucket_acl" "s3_acl" {
+  bucket = aws_s3_bucket.s3_tfstate.id
+  acl    = "private"
+}
+
+# S3 bucket encryption
+resource "aws_s3_bucket_server_side_encryption_configuration" "s3_encryption" {
+  bucket = aws_s3_bucket.s3_tfstate.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "aws:kms"
+    }
+  }
+}
+
+resource "aws_s3_bucket_versioning" "s3_bucket_versioning" {
+  bucket = aws_s3_bucket.s3_tfstate.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+resource "aws_s3_bucket_lifecycle_configuration" "s3_bucket_retention_policy" {
+  bucket     = aws_s3_bucket.s3_tfstate.id
+  depends_on = [aws_s3_bucket_versioning.s3_bucket_versioning]
+
+
+  rule {
+    status = "Enabled"
+    id     = "retention_policy"
+    noncurrent_version_expiration {
+      noncurrent_days = 180
+    }
+
+  }
+}
+
+resource "aws_s3_bucket_public_access_block" "bucket_block_public" {
+  bucket = aws_s3_bucket.s3_tfstate.id
+
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+
+# DynamoDB 
+resource "aws_dynamodb_table" "dynamodb_locktable" {
+  name           = "terraforming-mars-locktable"
+  hash_key       = "LockID"
+  billing_mode   = "PROVISIONED"
+  write_capacity = 1
+  read_capacity  = 1
+
+  attribute {
+    name = "LockID"
+    type = "S"
+  }
+}
+</code></pre>
+<p>The above code block creats a AWS S3 bucket based on the best practices and a DynamoDB table for state locking. After applying the configuration, your base resources to store projects state files is ready. Now we are ready to migrate projects state file from local to AWS S3 remote backend. Modify your Terraform code block to add AWS remote backend configuration:</p>
+<pre><code>terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+    }
+  }
+  backend "s3" {
+    bucket         = "terraforming-mars-tfstate"
+    key            = "terraform.state"
+    region         = "eu-west-1"
+    encrypt        = true
+    dynamodb_table = "terraforming-mars-locktable"
+  }
+}
+</code></pre>
+<blockquote>
+<p>I created base resporces in <code>eu-west-1</code> region. You should use the correct region based on your configuration.</p>
+<p>I also migrate <code>iac-base</code> Terraform state file to this remote backend.</p>
+</blockquote>
+<p>Migration from local to a remote backend is EASIER than moving resources from Earth to Mars. You only need to run <code>terraform init</code>. Terraform detects the new backend configuration, and asks about migrating:  </p>
+<pre><code>terraform init                                                                                                                  ✔  8783  21:28:48
+
+Initializing the backend...
+Do you want to copy existing state to the new backend?
+  Pre-existing state was found while migrating the previous "local" backend to the
+  newly configured "s3" backend. No existing state was found in the newly
+  configured "s3" backend. Do you want to copy this state to the new "s3"
+  backend? Enter "yes" to copy and "no" to start with an empty state.
+
+  Enter a value: yes
+
+Releasing state lock. This may take a few moments...
+
+Successfully configured the backend "s3"! Terraform will automatically
+use this backend unless the backend configuration changes.
+
+Initializing provider plugins...
+- Reusing previous version of hashicorp/aws from the dependency lock file
+- Using previously-installed hashicorp/aws v4.57.0
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+</code></pre>
+<blockquote>
+<p>One of the core concepts of the IaC is about writing one time, and use several times. For example, you can use the same resource implementation to deploy in several environments such as Development, Test, Stage, or Production. Then it comes to a concept called multi-account and multi-backend architecture. I will discuss this concept in a separate blog. </p>
+</blockquote>
+<h3 id="changing-the-s3-bucket">Changing the S3 Bucket</h3>
+<p>I always say it is better to consider all details before implementation. A design document including all the project details can prevent most future issues. For instance, naming conventions is one of my criteria. But it might happen that you should change the state S3 bucket to another bucket. In this case, Terraform can move your state file from one bucket to another bucket using <code>terraform init -migrate-state</code>. In the below code block, I try to move state file from <code>terraforming-mars-tfstate</code> bucket to <code>terraforming-venus-next-tfstate</code>:  </p>
+<pre><code>terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+    }
+  }
+  backend "s3" {
+    bucket         = "terraforming-venus-next-tfstate"
+    key            = "terraform.state"
+    region         = "eu-west-1"
+    encrypt        = true
+    dynamodb_table = "terraforming-venus-next-locktable"
+  }
+}
+</code></pre>
+<h2 id="best-practices">Best practices</h2>
+<p><strong>Enable encryption for S3 bucket:</strong> Using encryption for the state file in the S3 bucket. State files can contain secrets, keys, etc. in plaintext. So, it is important to keep it encrypted. AWS S3 backend supports different encryption methods:<br />
+- <code>encrypt</code> - Enable server side encryption of the state file.<br />
+- <code>kms_key_id</code> - Amazon Resource Name (ARN) of a Key Management Service (KMS) Key to use for encrypting the state. Note that if this value is specified, Terraform will need kms:Encrypt, kms:Decrypt and kms:GenerateDataKey permissions on this KMS key.<br />
+- <code>sse_customer_key</code> - The key to use for encrypting state with Server-Side Encryption with Customer-Provided Keys (SSE-C). This is the base64-encoded value of the key, which must decode to 256 bits. This can also be sourced from the <code>AWS_SSE_CUSTOMER_KEY</code> environment variable, which is recommended due to the sensitivity of the value. Setting it inside a terraform file will cause it to be persisted to disk in terraform.tfstate.  </p>
+<p><strong>Enable S3 bucket versioning:</strong> Enabling bucket versioning on the S3 bucket is strongly advised as it enables recovery of the state in case of unintended deletions and mistakes.  </p>
+<p><strong>Enable retention lifecycle policy:</strong> As S3 bucket versioning enables, it is wise to have a retention lifecycle policy to delete the old state file objects. You can add <code>noncurrent_version_expiration</code> policy based on your project/organization definition.  </p>
+<p><strong>Suggested structure for single-environment projects:</strong> This is only a suggestion based on my experience with how to have a structure for your Terraform projects. As we discussed it is a good idea to have a project called <code>iac-based</code> including all your base configurations. For example, resources for your Terraform backend:</p>
+<pre><code>$ tree                                                                               
+.
+├── iac-base
+│   ├── search-planet-x-state.tf
+│   ├── tf-mars-state.tf
+│   └── tf-venus-state.tf
+├── searching-for-planet-x
+├── terraforming-mars
+└── terraforming-venus
+</code></pre>
 
   <hr>
 <div class="md-source-file">
