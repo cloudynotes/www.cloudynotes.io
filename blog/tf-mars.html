@@ -387,7 +387,7 @@
 </blockquote>
 <h2 id="terraform-state-file">Terraform state file</h2>
 <p>Infrastructure as Code (IaC) enables us to use code to manage infrastructure resources. This approach makes it easier to manage complex infrastructures, reduce manual errors, and increase efficiency.</p>
-<p>These days HashiCorp Terraform is one of the popular IaC tool. It supports a wide range of Cloud provider and services including AWS, Azure, GCP, K8S, and many others. This enables infrastructure engineers to manage their infrastructure resources in a consistent way, regardless of the cloud provider they are using.</p>
+<p>These days HashiCorp Terraform is one of the popular IaC tools. It supports a wide range of Cloud providers and services including AWS, Azure, GCP, K8S, and many others. This enables infrastructure engineers to manage their infrastructure resources in a consistent way, regardless of the cloud provider they are using.</p>
 <p>Terraform provides a state management mechanism to track the state of the infrastructure resources. This allows us to understand the current state of the infrastructure, identify changes that have been made, and easily make updates. Terraform stores the current state of the infrastructure in a file called tfstate. This state is used by Terraform to map real world resources to the configuration, keep track of metadata, and to improve performance for large infrastructures.</p>
 <p>This state file is stored locally by default in a file called <code>terraform.tfstate</code>. Terraform utilizes the state file to generate plan and carry out modifications to the infrastructure. Terraform performs a refresh before carrying out any action to update the state with the current state of the infrastructure. That’s why we see <code>Refreshing state…</code> in each Terraform plan output.</p>
 <pre><code>$ terraform plan
@@ -439,13 +439,13 @@ If you wish to store the current configuration with no changes to the state, use
 <h2 id="migrating-to-a-remote-backend">Migrating to a remote backend</h2>
 <p><img alt="Migrating to a remote backend" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/tf-mars/mars_landing.jpg?raw=true" />
 Now, how can we move the local state file of a current project to a remote backend? As we understood, using a remote backend can help improve collaboration, scalability, security, and ease of management when working with Terraform.</p>
-<p>I would like to divide the supported backends into two categories: <strong>Local</strong> and <strong>Remote</strong>. In the Local group, the state file is stored locally (default, or using a local configuration). The Remote group includes options such as Terraform cloud, AWS S3, Azurerm, and others.</p>
+<p>I would like to divide the supported backends into two categories: <strong>Local</strong> and <strong>Remote</strong>. In the Local group, the state file is stored locally (default or using a local configuration). The Remote group includes options such as Terraform Cloud, AWS S3, Azurerm, and others.</p>
 <blockquote>
-<p>HashiCorp says that remote backend is a unique among all other Terraform backends. Read more about it here: <a href="https://developer.hashicorp.com/terraform/language/settings/backends/remote">Terraform Remote Backend</a></p>
+<p>HashiCorp says that remote backend is unique among all other Terraform backends. Read more about it here: <a href="https://developer.hashicorp.com/terraform/language/settings/backends/remote">Terraform Remote Backend</a></p>
 </blockquote>
 <p>In this demonstration, I try to use <a href="https://developer.hashicorp.com/terraform/language/settings/backends/s3">AWS S3 backend</a>. AWS S3 backend supports state locking via AWS DynamoDB. It means that it doesn’t support state locking out of the box.</p>
 <blockquote>
-<p>As an exmaple for in the box locking feature, Azurerm supports state locking and consistency checking with Azure Blob Storage native capabilities.</p>
+<p>As an example of an in-the-box locking feature, Azurerm supports state locking and consistency checking with Azure Blob Storage native capabilities.</p>
 </blockquote>
 <h3 id="implementation">Implementation</h3>
 <p>In the first step, let's create resources an AWS to support storing Terraform project state file and status. Based on a project experience, I have a project called <code>iac-base</code> includes all the base infrastructure for other projects deployment. The below code block shows <code>iac-base</code> resources:  </p>
@@ -533,7 +533,7 @@ resource "aws_dynamodb_table" "dynamodb_locktable" {
 }
 </code></pre>
 <blockquote>
-<p>I created base resporces in <code>eu-west-1</code> region. You should use the correct region based on your configuration.</p>
+<p>I created base resources in <code>eu-west-1</code> region. You should use the correct region based on your configuration.</p>
 <p>I also migrate <code>iac-base</code> Terraform state file to this remote backend.</p>
 </blockquote>
 <p>Migration from local to a remote backend is EASIER than moving resources from Earth to Mars. You only need to run <code>terraform init</code>. Terraform detects the new backend configuration, and asks about migrating:  </p>
@@ -611,7 +611,7 @@ commands will detect it and remind you to do so if necessary.
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 19, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 21, 2023</span>
       
     
   </small>
