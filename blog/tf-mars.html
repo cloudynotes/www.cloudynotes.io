@@ -380,7 +380,7 @@
 
 
 <h1 id="moving-hashicorp-terraform-state-file">Moving HashiCorp Terraform state file</h1>
-<p><img alt="Terraforming Mars" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/tf-mars/tf-mars.jpg?raw=true" /></p>
+<p><img alt="Terraforming Mars" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/tf-mars/tf-mars.jpg?raw=true" /></p>
 <p>This isn't a blog about board games, but HashiCorp Terraform makes me think of the Terraforming Mars board game!</p>
 <blockquote>
 <p>Terraforming Mars is a board game designed by Jacob Fryxelius and published by FryxGames in 2016. The game is set in the future, where players take on the role of corporations that work together to terraform Mars and make it habitable for human life. You can check more here: <a href="https://boardgamegeek.com/boardgame/167791/terraforming-mars">BoardGameGeek</a></p>
@@ -437,7 +437,7 @@ If you wish to store the current configuration with no changes to the state, use
 <p>If you are trying to move the state file from the default working directory to your custom directory, <code>-migrate-state</code> is the correct option.</p>
 </blockquote>
 <h2 id="migrating-to-a-remote-backend">Migrating to a remote backend</h2>
-<p><img alt="Migrating to a remote backend" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/tf-mars/mars_landing.jpg?raw=true" />
+<p><img alt="Migrating to a remote backend" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/tf-mars/mars_landing.jpg?raw=true" />
 Now, how can we move the local state file of a current project to a remote backend? As we understood, using a remote backend can help improve collaboration, scalability, security, and ease of management when working with Terraform.</p>
 <p>I would like to divide the supported backends into two categories: <strong>Local</strong> and <strong>Remote</strong>. In the Local group, the state file is stored locally (default or using a local configuration). The Remote group includes options such as Terraform Cloud, AWS S3, Azurerm, and others.</p>
 <blockquote>
@@ -537,7 +537,7 @@ resource "aws_dynamodb_table" "dynamodb_locktable" {
 <p>I also migrate <code>iac-base</code> Terraform state file to this remote backend.</p>
 </blockquote>
 <p>Migration from local to a remote backend is EASIER than moving resources from Earth to Mars. You only need to run <code>terraform init</code>. Terraform detects the new backend configuration, and asks about migrating:  </p>
-<pre><code>terraform init                                                                                                                  ✔  8783  21:28:48
+<pre><code>$ terraform init
 
 Initializing the backend...
 Do you want to copy existing state to the new backend?
@@ -611,7 +611,7 @@ commands will detect it and remind you to do so if necessary.
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 21, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 29, 2023</span>
       
     
   </small>
