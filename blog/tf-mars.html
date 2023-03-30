@@ -588,10 +588,12 @@ Now, how can we move the local state file of a current project to a remote backe
     }
 </code></pre>
 <h2 id="best-practices">Best practices</h2>
-<p><strong>Enable encryption for S3 bucket:</strong> Using encryption for the state file in the S3 bucket. State files can contain secrets, keys, etc. in plaintext. So, it is important to keep it encrypted. AWS S3 backend supports different encryption methods:<br />
-- <code>encrypt</code> - Enable server side encryption of the state file.<br />
-- <code>kms_key_id</code> - Amazon Resource Name (ARN) of a Key Management Service (KMS) Key to use for encrypting the state. Note that if this value is specified, Terraform will need kms:Encrypt, kms:Decrypt and kms:GenerateDataKey permissions on this KMS key.<br />
-- <code>sse_customer_key</code> - The key to use for encrypting state with Server-Side Encryption with Customer-Provided Keys (SSE-C). This is the base64-encoded value of the key, which must decode to 256 bits. This can also be sourced from the <code>AWS_SSE_CUSTOMER_KEY</code> environment variable, which is recommended due to the sensitivity of the value. Setting it inside a terraform file will cause it to be persisted to disk in terraform.tfstate.  </p>
+<p><strong>Enable encryption for S3 bucket:</strong> Using encryption for the state file in the S3 bucket. State files can contain secrets, keys, etc. in plaintext. So, it is important to keep it encrypted. AWS S3 backend supports different encryption methods: </p>
+<ul>
+<li><code>encrypt</code> - Enable server side encryption of the state file.  </li>
+<li><code>kms_key_id</code> - Amazon Resource Name (ARN) of a Key Management Service (KMS) Key to use for encrypting the state. Note that if this value is specified, Terraform will need kms:Encrypt, kms:Decrypt and kms:GenerateDataKey permissions on this KMS key.  </li>
+<li><code>sse_customer_key</code> - The key to use for encrypting state with Server-Side Encryption with Customer-Provided Keys (SSE-C). This is the base64-encoded value of the key, which must decode to 256 bits. This can also be sourced from the <code>AWS_SSE_CUSTOMER_KEY</code> environment variable, which is recommended due to the sensitivity of the value. Setting it inside a terraform file will cause it to be persisted to disk in terraform.tfstate.  </li>
+</ul>
 <p><strong>Enable S3 bucket versioning:</strong> Enabling bucket versioning on the S3 bucket is strongly advised as it enables recovery of the state in case of unintended deletions and mistakes.  </p>
 <p><strong>Enable retention lifecycle policy:</strong> As S3 bucket versioning enables, it is wise to have a retention lifecycle policy to delete the old state file objects. You can add <code>noncurrent_version_expiration</code> policy based on your project/organization definition.  </p>
 <p><strong>Suggested structure for single-environment projects:</strong> This is only a suggestion based on my experience with how to have a structure for your Terraform projects. As we discussed it is a good idea to have a project called <code>iac-based</code> including all your base configurations. For example, resources for your Terraform backend:</p>
@@ -611,7 +613,7 @@ Now, how can we move the local state file of a current project to a remote backe
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 29, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 30, 2023</span>
       
     
   </small>

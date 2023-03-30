@@ -324,6 +324,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#reference-materials" class="md-nav__link">
+    Reference materials
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discussions" class="md-nav__link">
+    Discussions
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -352,16 +366,19 @@
 <p><strong>It doesn’t matter how good your product is, because if its documentation is not good enough, people will not use it.</strong>  <br />
 documentation.divio.com </p>
 </blockquote>
-<p>According to the framework, there are four distinct components of documentation, rather than one monolithic entity:<br />
--   Tutorials<br />
--   How-to guide<br />
--   Discussions<br />
--   Reference materials  </p>
+<p>According to the framework, there are four distinct components of documentation, rather than one monolithic entity:  </p>
+<ul>
+<li>Tutorials  </li>
+<li>How-to guide  </li>
+<li>Reference materials  </li>
+<li>Discussions  </li>
+</ul>
 <p>By recognizing and addressing each of these components separately, we can create more effective and targeted documentation that meets the needs of both authors and readers.  </p>
 <h2 id="tutorials">Tutorials</h2>
-<p><img align="left" alt="The law of Root" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/rulebook/root-law.png?raw=true" />
-Tutorials are instructional lessons that guide readers through a series of steps to complete a project. They are geared towards learning how to do something, rather than just learning about it. As a product owner, it is important to ensure that the end goal of the tutorial is both meaningful and achievable for a beginner user. A good tutorial can help learners make sense of the product, while a bad or missing tutorial can hinder the acquisition of new users. Writing and maintaining tutorials can be time-consuming, but they are essential for helping users to successfully navigate and utilize a project.  </p>
-<p>The list below shows the main points of tutorial documents (<em>The list might be adujsted in the future based on experience and use cases!</em>)  </p>
+<p><img align="left" alt="The law of Root" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/rulebook/root-law.png?raw=true" />  </p>
+<hr />
+<p>Tutorials are instructional lessons that guide readers through a series of steps to complete a project. They are geared towards learning how to do something, rather than just learning about it. As a product owner, it is important to ensure that the end goal of the tutorial is both meaningful and achievable for a beginner user. A good tutorial can help learners make sense of the product, while a bad or missing tutorial can hinder the acquisition of new users. Writing and maintaining tutorials can be time-consuming, but they are essential for helping users to successfully navigate and utilize a project. </p>
+<p>The list below shows the main points of tutorial documents: (<em>The list might be adujsted in the future based on experience and use cases!</em>)  </p>
 <ul>
 <li>Writing should be clear and easy to understand for the reader.  </li>
 <li>Provide a hands-on experience that inspires the reader.  </li>
@@ -376,11 +393,31 @@ Tutorials are instructional lessons that guide readers through a series of steps
 <li>Demonstrate to newcomers that it is possible to learn and that the tutorial is oriented towards learning.  </li>
 </ul>
 <h2 id="how-to-guide">How-to guide</h2>
-<p><img align="right" alt="The law of Root" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/rulebook/how-to-root.png?raw=true" /> 
-The purpose of how-to guides is to provide a step-by-step process for solving real-world problems. They are goal-oriented and provide specific instructions for achieving a particular outcome. For example, how to setup your company VPN, or how to add a new SSH key. Unlike tutorials, how-to guides assume some level of prior knowledge and experience from the user. While tutorials are designed for beginners and cover basic concepts, how-to guides are intended to answer more advanced questions. In the realm of software documentation, how-to guides are typically well-executed and enjoyable to write.  </p>
+<p><img align="right" alt="The law of Root" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/rulebook/how-to-root.png?raw=true" />  </p>
+<hr />
+<p>The purpose of how-to guides is to provide a step-by-step process for solving real-world problems. They are goal-oriented and provide specific instructions for achieving a particular outcome. For example, how to setup your company VPN, or how to add a new SSH key. Unlike tutorials, how-to guides assume some level of prior knowledge and experience from the user. While tutorials are designed for beginners and cover basic concepts, how-to guides are intended to answer more advanced questions. In the realm of software documentation, how-to guides are typically well-executed and enjoyable to write.  </p>
 <blockquote>
 <p>Based on a project experience, how-to guides also called <code>runbooks</code>. Each runbook has a specific goal and guides the reader to implement that goal.  </p>
 </blockquote>
+<p>The following list outlines the key points covered in the tutorial documents: (<em>The list might be adujsted in the future based on experience and use cases!</em>)  </p>
+<ul>
+<li>How-to documentation is problem-oriented.  </li>
+<li>It focuses on achieving a specific result through a step-by-step guide.  </li>
+<li>How-to guides are entirely practical.  </li>
+<li>They are easy to write for technical/product owners.  </li>
+<li>Readers should have some basic knowledge before starting the guide.  </li>
+<li>How-to documents can be linked together. Therefore, if one document depends on another, readers can easily navigate between them.  </li>
+<li>Choose an appropriate title for the guide.  </li>
+</ul>
+<h2 id="reference-materials">Reference materials</h2>
+<p>Reference guides provide technical descriptions of machinery and how to operate it. Unlike how-to guides, reference material focuses solely on information, providing details about functions, fields, attributes, and methods. It may include basic descriptions of how to use the machinery, but it should not attempt to explain basic concepts or provide instructions on how to achieve common tasks. Reference material is straightforward and austere, and may be generated automatically to some extent, but it is never sufficient on its own. For some developers, reference guides are the only kind of documentation they can imagine, assuming that others only need technical information about the software.  </p>
+<blockquote>
+<p>We use references every day! References can include API endpoints, Linux commands and their switches, Python packages, and more.</p>
+</blockquote>
+<p>Their main purpose is to describe code elements such as key classes, functions, APIs, and their usage. </p>
+<h2 id="discussions">Discussions</h2>
+<p>Discussions or explanations in documentation clarify and broaden the coverage of a particular topic, providing a higher-level perspective and illuminating the subject matter. Unlike how-to guides or reference material, explanations are understanding-oriented and discursive in nature, often scattered among other sections rather than explicitly created. Discussions can be challenging to create as they require a broader view of the software and a deeper understanding of the subject matter. The division of topics for discussion can sometimes be arbitrary, defined by what the author thinks is a reasonable area to cover at one time rather than a specific task or learning objective.  </p>
+<p><img alt="Framework model" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/rulebook/PyCon.png?raw=true" /></p>
 
   <hr>
 <div class="md-source-file">
