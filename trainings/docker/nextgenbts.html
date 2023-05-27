@@ -6,29 +6,29 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Yo-Yo attacks on cloud auto-scaling">
-      
-      
-        <meta name="author" content="Meraj Kashi">
-      
-      
-        <link rel="canonical" href="https://cloudynotes.io/blog/camelup.html">
+        <meta name="description" content="A demo application">
       
       
       
-      <link rel="icon" href="../assets/logo.png">
+        <link rel="canonical" href="https://cloudynotes.io/trainings/docker/nextgenbts.html">
+      
+      
+        <link rel="prev" href="intro.html">
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
     
     
       
-        <title>Camel Up - CloudyNotes</title>
+        <title>NextGenBTS - CloudyNotes</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ffa9267a.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ffa9267a.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -44,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#yo-yo-attacks-on-cloud-auto-scaling" class="md-skip">
+        <a href="#nextgenbts" class="md-skip">
           Skip to content
         </a>
       
@@ -99,9 +99,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="CloudyNotes" class="md-header__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
+    <a href="../.." title="CloudyNotes" class="md-header__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
       
-  <img src="../assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Camel Up
+              NextGenBTS
             
           </span>
         </div>
@@ -204,9 +204,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="CloudyNotes" class="md-nav__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
+    <a href="../.." title="CloudyNotes" class="md-nav__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
       
-  <img src="../assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     CloudyNotes
@@ -249,7 +249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="main.html" class="md-nav__link">
+      <a href="../../blog/main.html" class="md-nav__link">
         Latest
       </a>
     </li>
@@ -263,7 +263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tags.html" class="md-nav__link">
+      <a href="../../blog/tags.html" class="md-nav__link">
         All
       </a>
     </li>
@@ -283,14 +283,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
       
@@ -299,7 +301,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Notes
@@ -310,14 +312,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
       
       
       
@@ -326,7 +330,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_1">
           <span class="md-nav__icon md-icon"></span>
           Docker
@@ -339,7 +343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trainings/docker/intro.html" class="md-nav__link">
+      <a href="intro.html" class="md-nav__link">
         Intro
       </a>
     </li>
@@ -351,11 +355,120 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../trainings/docker/nextgenbts.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          NextGenBTS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="nextgenbts.html" class="md-nav__link md-nav__link--active">
         NextGenBTS
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nextgenbts-overview" class="md-nav__link">
+    NextGenBTS Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-lab" class="md-nav__link">
+    Connecting to lab
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-docker" class="md-nav__link">
+    Install Docker
+  </a>
+  
+    <nav class="md-nav" aria-label="Install Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uninstall-old-versions" class="md-nav__link">
+    Uninstall old versions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-up-the-repository" class="md-nav__link">
+    Set up the repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-docker-engine" class="md-nav__link">
+    Install Docker Engine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-installation-steps" class="md-nav__link">
+    post-installation steps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-nextgenbts" class="md-nav__link">
+    Setup NextGenBTS
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup NextGenBTS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#downloading-and-setup" class="md-nav__link">
+    Downloading and Setup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -394,6 +507,89 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nextgenbts-overview" class="md-nav__link">
+    NextGenBTS Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-lab" class="md-nav__link">
+    Connecting to lab
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-docker" class="md-nav__link">
+    Install Docker
+  </a>
+  
+    <nav class="md-nav" aria-label="Install Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uninstall-old-versions" class="md-nav__link">
+    Uninstall old versions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-up-the-repository" class="md-nav__link">
+    Set up the repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-docker-engine" class="md-nav__link">
+    Install Docker Engine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-installation-steps" class="md-nav__link">
+    post-installation steps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-nextgenbts" class="md-nav__link">
+    Setup NextGenBTS
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup NextGenBTS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#downloading-and-setup" class="md-nav__link">
+    Downloading and Setup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -407,15 +603,104 @@
                   
 
 
-<h1 id="yo-yo-attacks-on-cloud-auto-scaling">Yo-Yo attacks on cloud auto-scaling</h1>
-<p><img alt="Camel Up" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/camelup/camelup.jpeg?raw=true" /></p>
+<h1 id="nextgenbts">NextGenBTS</h1>
+<h2 id="nextgenbts-overview">NextGenBTS Overview</h2>
+<p>NextGenBTS is an innovative project that leverages Docker to develop a demo BTS application. This training structure provides a hands-on experience in working with Docker and implementing NextGenBTS.  </p>
+<p>The application consists of three components:  </p>
+<p><img alt="NextGenBTS" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/nextgenbts.png?raw=true" />  </p>
+<ul>
+<li><strong>Core:</strong> Python flask application <a href="https://flask.palletsprojects.com/">More info</a>  </li>
+<li><strong>Secret manager:</strong> HashiCorp Vault <a href="https://developer.hashicorp.com/vault/docs">More info</a>  </li>
+<li><strong>Database:</strong> MongoDB Database <a href="https://www.mongodb.com/docs/">More info</a>  </li>
+</ul>
+<h2 id="connecting-to-lab">Connecting to lab</h2>
+<blockquote>
+<p>Connecting to the lab is an optional step, if you don't want to run the demo on your environment. </p>
+</blockquote>
+<p>To connecting to the lab platform, you should have the SSH key. The key is being shared during the session. Use the below commands to connect to the lab:  </p>
+<pre><code>chmod 400 lab.pem
+ssh -i &quot;lab.pem&quot; -o IdentitiesOnly=yes ubuntu@&lt;IP&gt;
+</code></pre>
+<p>Instaructure is sharing the screen with <a href="https://github.com/tmux/tmux/wiki">tmux</a>. Check the active <code>tmux</code> sessions using the below command:  </p>
+<pre><code>tmux ls
+</code></pre>
+<p>A session called <code>lab</code> is ready to attach. You should attach to the session in read-only mode using the below command: </p>
+<pre><code>tmux attach-session -t lab -r
+</code></pre>
+<blockquote>
+<p>To exit the session use <code>Ctr + b + d</code></p>
+</blockquote>
+<h2 id="install-docker">Install Docker</h2>
+<p>Docker Engine is available on a variety of Linux distros, macOS, and Windows 10 through Docker Desktop, and as a static binary installation. Find your preferred operating system and follow the structure based on <a href="https://docs.docker.com/engine/install/">official Docker installation guide</a>.</p>
+<blockquote>
+<p>The lab platform is based on Ubuntu version. The following guides show how to install Docker on Ubuntu step-by-step. Ref: <a href="https://docs.docker.com/engine/install/ubuntu/">Install Docker Engine on Ubuntu</a></p>
+</blockquote>
+<h3 id="uninstall-old-versions">Uninstall old versions</h3>
+<p>Older versions of Docker went by the names of docker, docker.io, or docker-engine, you might also have installations of containerd or runc. Uninstall any such older versions before attempting to install a new version:  </p>
+<pre><code>sudo apt-get remove docker docker-engine docker.io containerd runc
+</code></pre>
+<h3 id="set-up-the-repository">Set up the repository</h3>
+<p>Update the apt package index and install packages to allow apt to use a repository over HTTPS:  </p>
+<pre><code>sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg
+</code></pre>
+<p>Add Docker’s official GPG key:  </p>
+<pre><code>sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+</code></pre>
+<h3 id="install-docker-engine">Install Docker Engine</h3>
+<p>Update the apt package index:</p>
+<pre><code>sudo apt-get update
+</code></pre>
+<p>Install the latest version of Docker Engine, containerd, and Docker Compose. </p>
+<pre><code>sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+</code></pre>
+<h3 id="post-installation-steps">post-installation steps</h3>
+<p>These optional post-installation procedures shows you how to configure your Linux host machine to work better with Docker. The Docker daemon binds to a Unix socket, not a TCP port. By default it’s the root user that owns the Unix socket, and other users can only access it using sudo. The Docker daemon always runs as the root user.</p>
+<p>If you don’t want to preface the docker command with sudo, create a Unix group called docker and add users to it. When the Docker daemon starts, it creates a Unix socket accessible by members of the docker group. On some Linux distributions, the system automatically creates this group when installing Docker Engine using a package manager. In that case, there is no need for you to manually create the group.  </p>
+<p>Create the docker group:</p>
+<pre><code>sudo groupadd docker
+</code></pre>
+<p>Add your user to the docker group:</p>
+<pre><code>sudo usermod -aG docker $USER
+</code></pre>
+<p>Reboot the system:</p>
+<pre><code>sudo reboot
+</code></pre>
+<blockquote>
+<p>After reboot you should follow the steps to connect to the lab and attach to the session.</p>
+</blockquote>
+<p>We can verify the installtion by running:  </p>
+<pre><code>docker system info
+</code></pre>
+<blockquote>
+<p>Which information does the command provide to us?</p>
+</blockquote>
+<h2 id="setup-nextgenbts">Setup NextGenBTS</h2>
+<h3 id="downloading-and-setup">Downloading and Setup</h3>
+<p>To download and set up the NextGenBTS project, follow these steps:  </p>
+<p>Clone the NextGenBTS Repository:</p>
+<pre><code>git clone https://github.com/meraj-kashi/NextGenBTS.git
+</code></pre>
+<p>Navigate to the cloned repository directory:</p>
+<pre><code>cd NextGenBTS/docker-compose
+</code></pre>
+<p>Run the script to deploy NextGenBTS application:</p>
+<pre><code>./run.sh
+</code></pre>
+<p>Verify the NextGenBTS is up and running by navihating to the below url in your browser: </p>
+<pre><code>http://&lt;IP&gt;:5000
+</code></pre>
+<p><img alt="NextGenBTS UI" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/demo-ui.png?raw=true" />  </p>
+<p>Congradulations! You deployed NextGenBTS successfully!</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 30, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 27, 2023</span>
       
     
   </small>
@@ -490,6 +775,27 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="intro.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Intro" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Previous
+                </span>
+                Intro
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -584,10 +890,10 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      <script src="../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
       
     
   </body>
