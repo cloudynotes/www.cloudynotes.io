@@ -410,6 +410,74 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#docker-high-level-design" class="md-nav__link">
+    Docker High-level Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker High-level Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-docker-daemon" class="md-nav__link">
+    The Docker daemon
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-docker-client" class="md-nav__link">
+    The Docker client
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-engine-api" class="md-nav__link">
+    Docker Engine API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-registries" class="md-nav__link">
+    Docker registries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-objects" class="md-nav__link">
+    Docker objects
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#images" class="md-nav__link">
+    Images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#containers" class="md-nav__link">
+    Containers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -492,6 +560,74 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#docker-high-level-design" class="md-nav__link">
+    Docker High-level Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker High-level Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-docker-daemon" class="md-nav__link">
+    The Docker daemon
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-docker-client" class="md-nav__link">
+    The Docker client
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-engine-api" class="md-nav__link">
+    Docker Engine API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-registries" class="md-nav__link">
+    Docker registries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-objects" class="md-nav__link">
+    Docker objects
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#images" class="md-nav__link">
+    Images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#containers" class="md-nav__link">
+    Containers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -550,6 +686,28 @@ Like virtualization, the container workflow shares a lot of similarities on the 
 </li>
 </ul>
 <p><img alt="Cloud Service Model" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/cloud-services.png?raw=true" />  </p>
+<h2 id="docker-high-level-design">Docker High-level Design</h2>
+<p>Docker is a powerful technology, and that often means something that comes with a high level of complexity. But the fundamental architecture of Docker is a simple client/server model, with only one executable that acts as both components, depending on how you invoke the docker command. Underneath this simple exterior, Docker heavily leverages kernel mechanisms such as iptables, virtual bridging, cgroups, namespaces, and various filesystem drivers.  </p>
+<p>Docker uses a client-server architecture. The Docker client talks to the Docker daemon, which does the heavy lifting of building, running, and distributing your Docker containers. The Docker client and daemon can run on the same system, or you can connect a Docker client to a remote Docker daemon. The Docker client and daemon communicate using a REST API, over UNIX sockets or a network interface. </p>
+<p><img alt="Docker High-Level" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/docker-hl.png?raw=true" /> </p>
+<h3 id="the-docker-daemon">The Docker daemon</h3>
+<p>The Docker daemon (dockerd) listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes. A daemon can also communicate with other daemons to manage Docker services.</p>
+<h3 id="the-docker-client">The Docker client</h3>
+<p>The Docker client (docker) is the primary way that many Docker users interact with Docker. When you use commands such as docker run, the client sends these commands to dockerd, which carries them out. The docker command uses the Docker API. The Docker client can communicate with more than one daemon.  </p>
+<h3 id="docker-engine-api">Docker Engine API</h3>
+<p>Docker provides an API for interacting with the Docker daemon (called the Docker Engine API), as well as SDKs for Go and Python. The SDKs allow you to build and scale Docker apps and solutions quickly and easily. If Go or Python don’t work for you, you can use the Docker Engine API directly.  </p>
+<p>The Docker Engine API is a RESTful API accessed by an HTTP client such as wget or curl, or the HTTP library which is part of most modern programming languages.  </p>
+<h3 id="docker-registries">Docker registries</h3>
+<p>A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use, and Docker is configured to look for images on Docker Hub by default. You can even run your own private registry.</p>
+<h3 id="docker-objects">Docker objects</h3>
+<p>When you use Docker, you are creating and using images, containers, networks, volumes, plugins, and other objects. This section is a brief overview of some of those objects.</p>
+<h4 id="images">Images</h4>
+<p>An image is a read-only template with instructions for creating a Docker container. Often, an image is based on another image, with some additional customization. For example, you may build an image which is based on the ubuntu image, but installs the Apache web server and your application, as well as the configuration details needed to make your application run.</p>
+<p>You might create your own images or you might only use those created by others and published in a registry. To build your own image, you create a Dockerfile with a simple syntax for defining the steps needed to create the image and run it. Each instruction in a Dockerfile creates a layer in the image. When you change the Dockerfile and rebuild the image, only those layers which have changed are rebuilt. This is part of what makes images so lightweight, small, and fast, when compared to other virtualization technologies.</p>
+<h4 id="containers">Containers</h4>
+<p>A container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI. You can connect a container to one or more networks, attach storage to it, or even create a new image based on its current state.</p>
+<p>By default, a container is relatively well isolated from other containers and its host machine. You can control how isolated a container’s network, storage, or other underlying subsystems are from other containers or from the host machine.</p>
+<p>A container is defined by its image as well as any configuration options you provide to it when you create or start it. When a container is removed, any changes to its state that are not stored in persistent storage disappear.</p>
 
   <hr>
 <div class="md-source-file">
