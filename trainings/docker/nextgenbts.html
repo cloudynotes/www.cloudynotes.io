@@ -465,6 +465,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#docker-in-surface" class="md-nav__link">
+    Docker in surface
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -588,6 +595,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#docker-in-surface" class="md-nav__link">
+    Docker in surface
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -637,7 +651,7 @@ ssh -i &quot;lab.pem&quot; -o IdentitiesOnly=yes ubuntu@&lt;IP&gt;
 </blockquote>
 <h3 id="uninstall-old-versions">Uninstall old versions</h3>
 <p>Older versions of Docker went by the names of docker, docker.io, or docker-engine, you might also have installations of containerd or runc. Uninstall any such older versions before attempting to install a new version:  </p>
-<pre><code>sudo apt-get remove docker docker-engine docker.io containerd runc
+<pre><code>for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
 </code></pre>
 <h3 id="set-up-the-repository">Set up the repository</h3>
 <p>Update the apt package index and install packages to allow apt to use a repository over HTTPS:  </p>
@@ -649,12 +663,18 @@ sudo apt-get install ca-certificates curl gnupg
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 </code></pre>
+<p>Use the following command to set up the repository:</p>
+<pre><code>echo \
+  &quot;deb [arch=&quot;$(dpkg --print-architecture)&quot; signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  &quot;$(. /etc/os-release &amp;&amp; echo &quot;$VERSION_CODENAME&quot;)&quot; stable&quot; | \
+  sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+</code></pre>
 <h3 id="install-docker-engine">Install Docker Engine</h3>
 <p>Update the apt package index:</p>
 <pre><code>sudo apt-get update
 </code></pre>
 <p>Install the latest version of Docker Engine, containerd, and Docker Compose. </p>
-<pre><code>sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+<pre><code>sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose
 </code></pre>
 <h3 id="post-installation-steps">post-installation steps</h3>
 <p>These optional post-installation procedures shows you how to configure your Linux host machine to work better with Docker. The Docker daemon binds to a Unix socket, not a TCP port. By default it’s the root user that owns the Unix socket, and other users can only access it using sudo. The Docker daemon always runs as the root user.</p>
@@ -675,7 +695,8 @@ sudo chmod a+r /etc/apt/keyrings/docker.gpg
 <pre><code>docker system info
 </code></pre>
 <blockquote>
-<p>Which information does the command provide to us?</p>
+<p>Which information does the command provide to us?  </p>
+<p>Docker provides a script to install Docker automatically: <a href="https://get.docker.com/">get.docker.com</a></p>
 </blockquote>
 <h2 id="setup-nextgenbts">Setup NextGenBTS</h2>
 <h3 id="downloading-and-setup">Downloading and Setup</h3>
@@ -694,13 +715,55 @@ sudo chmod a+r /etc/apt/keyrings/docker.gpg
 </code></pre>
 <p><img alt="NextGenBTS UI" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/demo-ui.png?raw=true" />  </p>
 <p>Congradulations! You deployed NextGenBTS successfully!</p>
+<blockquote>
+<p>You are being provided the usernamer and password to explore the NextGenBTS.</p>
+</blockquote>
+<h2 id="docker-in-surface">Docker in surface</h2>
+<p>The below section shows some basic docker commands:  </p>
+<p>Check the system info again:  </p>
+<pre><code>docker system info
+</code></pre>
+<p>Check running containers:  </p>
+<pre><code>docker ps
+</code></pre>
+<p>Check local Docker images:  </p>
+<pre><code>docker image ls
+
+OR
+
+docker images
+</code></pre>
+<p>Run the below command to spin up the hello-world container:  </p>
+<pre><code>docker run hello-world
+</code></pre>
+<blockquote>
+<p>Check the output and steps!</p>
+</blockquote>
+<p>Now, check available Docker images.  </p>
+<p>Try to run an Ubuntu Docker container. (Hint: Find the image name from <a href="https://hub.docker.com/">docker hub</a>)  </p>
+<blockquote>
+<p>During deployment of Ubuntu container, try to use <code>-i</code> and <code>-t</code> switch. What is the best way to exit the container?  </p>
+</blockquote>
+<p>Now, re-run the command and add <code>-d</code> switch. Check number of running containers. </p>
+<p>Run the below command:  </p>
+<pre><code>docker ps -a
+</code></pre>
+<p>Why does it show more containers? Check status of containers!  </p>
+<p>Try to remove the exited containers using the below command:  </p>
+<pre><code>docker rm
+</code></pre>
+<p>Now, try to remove a running container, what is the result of <code>docker rm</code> on a running container?  </p>
+<blockquote>
+<p>Before using <code>--force</code> option, try to stop the container. </p>
+</blockquote>
+<p>What do you think about deleting Docker images? </p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 27, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 28, 2023</span>
       
     
   </small>
