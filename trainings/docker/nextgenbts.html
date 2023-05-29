@@ -472,6 +472,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#practice-your-knowledge" class="md-nav__link">
+    Practice your knowledge
+  </a>
+  
+    <nav class="md-nav" aria-label="Practice your knowledge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario1" class="md-nav__link">
+    Scenario1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario2" class="md-nav__link">
+    Scenario2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -602,6 +629,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#practice-your-knowledge" class="md-nav__link">
+    Practice your knowledge
+  </a>
+  
+    <nav class="md-nav" aria-label="Practice your knowledge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario1" class="md-nav__link">
+    Scenario1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario2" class="md-nav__link">
+    Scenario2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -696,7 +750,8 @@ sudo chmod a+r /etc/apt/keyrings/docker.gpg
 </code></pre>
 <blockquote>
 <p>Which information does the command provide to us?  </p>
-<p>Docker provides a script to install Docker automatically: <a href="https://get.docker.com/">get.docker.com</a></p>
+<p>Docker provides a script to install Docker automatically: <a href="https://get.docker.com/">get.docker.com</a>
+Run this command to install Docker automatically: <code>curl -fsSL https://get.docker.com | sh</code></p>
 </blockquote>
 <h2 id="setup-nextgenbts">Setup NextGenBTS</h2>
 <h3 id="downloading-and-setup">Downloading and Setup</h3>
@@ -757,13 +812,75 @@ docker images
 <p>Before using <code>--force</code> option, try to stop the container. </p>
 </blockquote>
 <p>What do you think about deleting Docker images? </p>
+<h2 id="practice-your-knowledge">Practice your knowledge</h2>
+<p>You can practice these tasks in a terminal or command prompt with Docker installed on your machine. Make sure you have Docker properly installed and configured before starting the practice scenario.</p>
+<p>Remember to refer to Docker's official documentation for detailed information on each command and its usage. Happy learning!  </p>
+<h3 id="scenario1">Scenario1</h3>
+<p><strong>Setting up a Web Server Container</strong></p>
+<p><strong>Task 1: Pull a Docker Image</strong>  </p>
+<p>Pull the official Nginx Docker image from the Docker Hub repository using the <code>docker pull</code> command.  </p>
+<p><strong>Task 2: Run a Container in Interactive Mode</strong>  </p>
+<p>Run a new Docker container using the Nginx image with the <code>docker run</code> command in interactive mode (<code>-it</code> flag).
+Map the container's port <code>80</code> to a port on your local machine (e.g., <code>8080</code>) using the <code>-p</code> flag.  </p>
+<p><strong>Task 3: Access the Web Server</strong>  </p>
+<p>Open a web browser and navigate to <code>http://localhost:8080</code> to access the Nginx web server running inside the Docker container.  </p>
+<p><strong>Task 4: Attach and Detach from a Running Container</strong>  </p>
+<p>While the container is running, detach from the container's console without stopping it using the <code>Ctrl + P, Ctrl + Q</code> key combination.  </p>
+<p><strong>Task 5: Execute Commands Inside the Container</strong>  </p>
+<p>Reattach to the running container's console using the <code>docker attach</code> command.<br />
+Once inside the container, execute commands like <code>ls</code>, <code>pwd</code>, etc., to explore the container's filesystem.<br />
+Exit the container's console by typing exit.  </p>
+<p><strong>Task 6: Copy Files to and from a Container</strong>  </p>
+<p>Copy a file from your local machine to the running container using the <code>docker cp</code> command.<br />
+Copy a file from the container to your local machine using the <code>docker cp</code> command.</p>
+<p><strong>Task 7: Stop and Start a Container</strong>  </p>
+<p>Stop the running container using the <code>docker stop</code> command.<br />
+Start the stopped container again using the <code>docker start</code> command.  </p>
+<p><strong>Task 8: Run a Container in Detached Mode</strong>    </p>
+<p>Run a new Docker container in detached mode (<code>-d</code> flag) using the Nginx image.<br />
+Map the container's port <code>80</code> to a port on your local machine (e.g., <code>8081</code>) using the <code>-p</code> flag.  </p>
+<h3 id="scenario2">Scenario2</h3>
+<p><strong>Docker exec vs. Docker attach</strong>  </p>
+<p><strong>Task 1: Run a Container with a Specific Name</strong>  </p>
+<ol>
+<li>Run a new Docker container from the Ubuntu image in detached mode (<code>-d</code> flag).</li>
+<li>Add a specific name to the container using the <code>--name</code> flag (e.g., "my-container").  </li>
+</ol>
+<p><strong>Task 2: View Container Processes</strong>  </p>
+<ol>
+<li>Use the <code>docker ps</code> command to view the running containers.</li>
+<li>Identify the process ID (PID) of the container named "my-container".  </li>
+</ol>
+<p><strong>Task 3: Execute Commands Inside the Container with <code>docker exec</code></strong>  </p>
+<ol>
+<li>Use the <code>docker exec</code> command to execute a command (e.g., <code>ls -l</code>) inside the running container named "my-container" using the container's PID.</li>
+<li>Verify that the command is executed successfully and observe the output.  </li>
+</ol>
+<p><strong>Task 4: Attach to the Container Console with <code>docker attach</code></strong>  </p>
+<ol>
+<li>Use the <code>docker attach</code> command to attach to the running container named "my-container".</li>
+<li>Inside the attached console, execute a command (e.g., <code>ls</code>) and observe the output.</li>
+<li>Detach from the container's console without stopping it using the <code>Ctrl + P, Ctrl + Q</code> key combination.  </li>
+</ol>
+<p><strong>Task 5: Delete a Container</strong>  </p>
+<ol>
+<li>Stop the running container named "my-container" using the <code>docker stop</code> command.</li>
+<li>Delete the stopped container using the <code>docker rm</code> command, specifying the container's name or ID.  </li>
+</ol>
+<p><strong>Task 6: Delete an Image</strong>  </p>
+<ol>
+<li>List all the Docker images on your system using the <code>docker images</code> command.</li>
+<li>Identify the ID of the image you want to delete.</li>
+<li>Delete the image using the <code>docker rmi</code> command, specifying the image's ID.  </li>
+</ol>
+<p>Understanding the differences between <code>docker exec</code> and <code>docker attach</code> will help you work with containers more effectively. Additionally, managing containers and images is crucial for maintaining your Docker environment.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 28, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 29, 2023</span>
       
     
   </small>
