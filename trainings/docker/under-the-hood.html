@@ -459,6 +459,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#demo" class="md-nav__link">
+    Demo
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -562,6 +569,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#demo" class="md-nav__link">
+    Demo
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -634,28 +648,69 @@ In a VERY high-level approach, containers can be considered as lightweight VMs (
 A subsystem is a kernel component that modifies the behavior of the processes in a cgroup.  Various subsystems have been implemented, making it possible to do things such as limiting the amount of CPU time and memory available to a cgroup, accounting for the CPU time used by a cgroup, and freezing and resuming execution of the processes in a cgroup.  Subsystems are sometimes also known as resource controllers (or simply, controllers).  </p>
 <p>The cgroups for a controller are arranged in a hierarchy.  This hierarchy is defined by creating, removing, and renaming subdirectories within the cgroup filesystem.  At each level of the hierarchy, attributes (e.g., limits) can be defined.  The limits, control, and accounting provided by cgroups generally have effect throughout the subhierarchy underneath the cgroup where the attributes are defined.  Thus, for example, the limits placed on a cgroup at a higher level in the hierarchy cannot be exceeded by descendant cgroups.  (Ref: <a href="https://man7.org/linux/man-pages/man7/cgroups.7.html">Linux man page</a>)  </p>
 <pre><code class="language-bash">docker ps
+ps aux | grep &lt;container-id&gt;
 cat /proc/[pid]/cgroup
 </code></pre>
-<p>hierarchy-ID::cgroup-path</p>
-<p>For the cgroups version 2 hierarchy, this field contains the value 0. 
-This field contains the pathname of the control group in the hierarchy to which the process belongs.  This pathname is relative to the mount point of the hierarchy.</p>
+<p>For each cgroup hierarchy of which the process is a member, there is one entry containing three colon-separated fields:</p>
+<p><strong>hierarchy-ID::cgroup-path</strong></p>
+<ul>
+<li>hierarchy-ID: For the cgroups version 2 hierarchy, this field contains the value 0. </li>
+<li>cgroup-path: This field contains the pathname of the control group in the hierarchy to which the process belongs.  This pathname is relative to the mount point of the hierarchy.</li>
+</ul>
 <pre><code class="language-bash">docker info | grep containerd
 </code></pre>
 <p>More info about containerd: https://containerd.io/</p>
 <p><img alt="Containerd" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/containerd.png?raw=true" /> </p>
+<p>more details about Linux cgroups:</p>
 <pre><code class="language-bash">systemd-cgls
 </code></pre>
 <pre><code class="language-bash">systemd-cgtop
 </code></pre>
 <pre><code class="language-bash">docker stat 
 </code></pre>
-<p>earn more about Docker and Linux capabilities <a href="https://dockerlabs.collabnix.com/advanced/security/cgroups/">here</a>.</p>
+<p>Learn more about Docker and Linux Cgroups <a href="https://dockerlabs.collabnix.com/advanced/security/cgroups/">here</a>.</p>
 <h3 id="namespaces">Namespaces</h3>
-<p>https://en.wikipedia.org/wiki/Linux_namespaces</p>
+<p>Namespaces are a feature of the Linux kernel that partitions kernel resources such that one set of processes sees one set of resources while another set of processes sees a different set of resources.  </p>
+<p>Starting from kernel version 5.6 onwards, there exist eight different types of namespaces. Regardless of the type, the functionality of namespaces remains consistent. Each process is linked to a specific namespace, restricting its access to only the resources associated with that particular namespace and any relevant descendant namespaces. As a result, every process or group of processes can have a distinct perspective on the available resources. The specific resource that is isolated depends on the type of namespace created for a particular process group. The below list shows different type of namespaces:  </p>
+<ul>
+<li>Mount (mnt)  </li>
+<li>Process ID (pid)  </li>
+<li>Network (net)  </li>
+<li>Inter-process Communication (ipc)  </li>
+<li>UNIX Time-Sharing (UTS)  </li>
+<li>User ID (user)  </li>
+<li>Control group (cgroup)  </li>
+<li>Time Namespace  </li>
+</ul>
+<p>To see the namespace example, pull the NextGenBTS project: (<code>https://github.com/meraj-kashi/NextGenBTS</code>), navigate to <code>dev/namespace/network</code>. Build the project:  </p>
+<pre><code class="language-bash">gcc -o network_namespace network_namespace.c
+</code></pre>
+<p>run the code and check ethernet interfaces:  </p>
+<pre><code class="language-bash">./network_namespace
+</code></pre>
 <h3 id="seccom">Seccom</h3>
-<p>https://gcore.com/learning/hardening-docker-container/</p>
+<p>Seccomp, short for Secure Computing Mode, is a feature in the Linux kernel that enhances multiple security aspects, providing a more secure environment for running Docker. More information <a href="https://gcore.com/learning/hardening-docker-container/">here</a>.  </p>
 <h3 id="apparmor">AppArmor</h3>
-<p>https://levelup.gitconnected.com/apparmor-for-docker-kubernetes-e82ef023a10c</p>
+<p>AppArmor is a security module integrated into the Linux kernel, which enables system administrators to impose restrictions on the capabilities of programs through per-program profiles. These profiles define what actions a program is allowed to perform, such as granting network access, raw socket access, and read, write, or execute permissions for specific file paths. Check this <a href="https://levelup.gitconnected.com/apparmor-for-docker-kubernetes-e82ef023a10c">blog</a> for more information.</p>
+<h2 id="demo">Demo</h2>
+<pre><code class="language-bash">mount --make-rprivate / 
+mkdir -p images containers
+btrfs subvol create images/alpine
+wget https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64/alpine-minirootfs-3.18.0-x86_64.tar.gz
+tar -C images/alpine/ -xf alpine-minirootfs-3.18.0-x86_64.tar.gz
+btrfs subvol snapshot images/alpine/ containers/nextgenbts
+chroot containers/nextgenbts/ sh
+exit
+unshare --mount --uts --ipc --net --pid --fork bash
+hostname nextgenbts
+exec bash
+ps
+pidof unshare
+kill &lt;pid&gt;
+mount -t proc none /proc
+ps aux
+ip a
+</code></pre>
 
   <hr>
 <div class="md-source-file">
