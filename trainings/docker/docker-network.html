@@ -6,24 +6,22 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Latest active blogs">
+        <meta name="description" content="Docker Network">
       
       
       
-        <link rel="canonical" href="https://cloudynotes.io/trainings/docker/intro.html">
+        <link rel="canonical" href="https://cloudynotes.io/trainings/docker/docker-network.html">
       
       
-        <link rel="prev" href="../../blog/tags.html">
+        <link rel="prev" href="docker-volume.html">
       
-      
-        <link rel="next" href="nextgenbts.html">
       
       <link rel="icon" href="../../assets/logo.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
     
     
       
-        <title>Intro - CloudyNotes</title>
+        <title>Docker Network - CloudyNotes</title>
       
     
     
@@ -87,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction-to-docker" class="md-skip">
+        <a href="#docker-networking" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Intro
+              Docker Network
             
           </span>
         </div>
@@ -343,147 +341,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Intro
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="intro.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="intro.html" class="md-nav__link">
         Intro
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-birth-of-the-docker" class="md-nav__link">
-    The birth of the Docker
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-docker" class="md-nav__link">
-    Why Docker
-  </a>
-  
-    <nav class="md-nav" aria-label="Why Docker">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#process-simplification" class="md-nav__link">
-    Process Simplification
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-docker-isnt" class="md-nav__link">
-    What Docker isn't
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#docker-high-level-design" class="md-nav__link">
-    Docker High-level Design
-  </a>
-  
-    <nav class="md-nav" aria-label="Docker High-level Design">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#the-docker-daemon" class="md-nav__link">
-    The Docker daemon
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the-docker-client" class="md-nav__link">
-    The Docker client
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#docker-engine-api" class="md-nav__link">
-    Docker Engine API
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#docker-registries" class="md-nav__link">
-    Docker registries
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#docker-objects" class="md-nav__link">
-    Docker objects
-  </a>
-  
-    <nav class="md-nav" aria-label="Docker objects">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#images" class="md-nav__link">
-    Images
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#containers" class="md-nav__link">
-    Containers
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -535,11 +397,120 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="docker-network.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Docker Network
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="docker-network.html" class="md-nav__link md-nav__link--active">
         Docker Network
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    Intro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-types" class="md-nav__link">
+    Network types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-networks" class="md-nav__link">
+    Inspect networks
+  </a>
+  
+    <nav class="md-nav" aria-label="Inspect networks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-network" class="md-nav__link">
+    Custom network
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-type" class="md-nav__link">
+    Host type
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exposing-ports" class="md-nav__link">
+    Exposing ports
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns-service" class="md-nav__link">
+    DNS Service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice-your-knowledge" class="md-nav__link">
+    Practice your knowledge
+  </a>
+  
+    <nav class="md-nav" aria-label="Practice your knowledge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario" class="md-nav__link">
+    Scenario
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -585,23 +556,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-birth-of-the-docker" class="md-nav__link">
-    The birth of the Docker
+  <a href="#intro" class="md-nav__link">
+    Intro
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-docker" class="md-nav__link">
-    Why Docker
+  <a href="#network-types" class="md-nav__link">
+    Network types
   </a>
   
-    <nav class="md-nav" aria-label="Why Docker">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-networks" class="md-nav__link">
+    Inspect networks
+  </a>
+  
+    <nav class="md-nav" aria-label="Inspect networks">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#process-simplification" class="md-nav__link">
-    Process Simplification
+  <a href="#custom-network" class="md-nav__link">
+    Custom network
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-type" class="md-nav__link">
+    Host type
   </a>
   
 </li>
@@ -612,72 +597,31 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-docker-isnt" class="md-nav__link">
-    What Docker isn't
+  <a href="#exposing-ports" class="md-nav__link">
+    Exposing ports
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#docker-high-level-design" class="md-nav__link">
-    Docker High-level Design
+  <a href="#dns-service" class="md-nav__link">
+    DNS Service
   </a>
   
-    <nav class="md-nav" aria-label="Docker High-level Design">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice-your-knowledge" class="md-nav__link">
+    Practice your knowledge
+  </a>
+  
+    <nav class="md-nav" aria-label="Practice your knowledge">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-docker-daemon" class="md-nav__link">
-    The Docker daemon
+  <a href="#scenario" class="md-nav__link">
+    Scenario
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the-docker-client" class="md-nav__link">
-    The Docker client
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#docker-engine-api" class="md-nav__link">
-    Docker Engine API
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#docker-registries" class="md-nav__link">
-    Docker registries
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#docker-objects" class="md-nav__link">
-    Docker objects
-  </a>
-  
-    <nav class="md-nav" aria-label="Docker objects">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#images" class="md-nav__link">
-    Images
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#containers" class="md-nav__link">
-    Containers
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -701,78 +645,143 @@
                   
 
 
-<h1 id="introduction-to-docker">Introduction to Docker</h1>
-<h2 id="the-birth-of-the-docker">The birth of the Docker</h2>
-<p>Docker was first introduced to the world—with no pre-announcement and little fanfare—by Solomon Hykes, founder and CEO of dotCloud, in a five-minute lightning talk at the Python Developers Conference in Santa Clara, California, on March 15, 2013. At the time of this announcement, only about 40 people outside dotCloud been given the opportunity to play with Docker.<br />
-It didn't take much time for the project to become famous among tech enthusiasts, and many developers started contributing to the project. It sparked a revolution in the field of software development.<br />
-Docker is a tool that promises to easily encapsulate the process of creating a distributable
-artifact for any application, deploying it at scale into any environment, and
-streamlining the workflow and responsiveness of agile software organizations.  </p>
+<h1 id="docker-networking">Docker Networking</h1>
+<h2 id="intro">Intro</h2>
+<p>Docker networking refers to the system that allows communication between Docker containers, as well as between containers and the host machine or external networks. Docker provides various networking options that enable containers to connect and communicate with each other, forming distributed applications or microservices.</p>
+<h2 id="network-types">Network types</h2>
+<p>Docker supports different types of networks, including bridge networks, host networks, overlay networks, and macvlan networks.</p>
+<ul>
+<li>
+<p>Bridge networks: This is the default networking mode in Docker. Containers connected to the same bridge network can communicate with each other, and the host machine can also communicate with containers on the bridge network.</p>
+</li>
+<li>
+<p>Host networks: In this mode, containers share the host machine's network stack directly. They use the host's IP address, and there is no isolation between the host and containers in terms of networking.</p>
+</li>
+<li>
+<p>Overlay networks: Overlay networks enable communication between containers across multiple Docker hosts, forming a swarm cluster. This allows you to create distributed applications that span multiple machines.</p>
+</li>
+<li>
+<p>Macvlan networks: Macvlan networks allow containers to have their own MAC addresses and appear as separate devices on the physical network. This can be useful in scenarios where you need containers to have direct access to the physical network.</p>
+</li>
+</ul>
+<h2 id="inspect-networks">Inspect networks</h2>
+<p>To check the existing Docker networks on your system, you can use the Docker CLI and run the following command:  </p>
+<pre><code class="language-bash">docker network ls
+</code></pre>
+<p>This command lists all the available Docker networks along with their details, such as the network ID, name, driver, and scope. For example:  </p>
+<pre><code>NETWORK ID     NAME            DRIVER    SCOPE
+cb86147a15bd   bridge          bridge    local
+5dab3e75f42d   host            host      local
+e8f44c5252de   none            null      local
+</code></pre>
+<p>In this example, you can see multiple networks listed, including the default bridge network (<code>bridge</code>), and host network (<code>host</code>). </p>
 <blockquote>
-<p>Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications. By taking advantage of Docker’s methodologies for shipping, testing, and deploying code quickly, you can significantly reduce the delay between writing code and running it in production. (https://docs.docker.com/)  </p>
+<p>In Docker, the <code>null</code> network type is a special type of network that provides a container with no networking capabilities. When a container is connected to the <code>null</code> network, it effectively isolates the container from all forms of network communication, including communication with other containers, the host machine, and external networks. We will see an example during the practice scenario.</p>
 </blockquote>
-<p><img alt="Docker history" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/docker-history.png?raw=true" /></p>
-<h2 id="why-docker">Why Docker</h2>
-<p>There are many reasons why Docker became popular in software development. To me, simplicity and cross-platform deployment are the main reasons. Docker simplifies architectural decisions because all applications essentially appear the same from the hosting system's perspective. Additionally, Docker makes tooling easier to write and share between applications. Here are some more of the things you get with Docker:  </p>
+<p>To get more detailed information about a specific network, you can use the <code>docker network inspect</code> command followed by the network name or ID. For example:</p>
+<pre><code class="language-bash">docker network inspect &lt;network&gt;
+</code></pre>
+<p>This command will display the detailed configuration and settings of the specefic network. By using these commands, you can easily check the available Docker networks and their associated properties on your system.</p>
+<p>You can apply inspect command on each container to find container network datails:  </p>
+<pre><code class="language-bash">docker inspect &lt;container_id_or_name&gt;
+</code></pre>
+<p>This command will provide detailed information about the container, including its network configuration. The output will include a section called <code>NetworkSettings</code> that contains the network-related details, such as the container's IP address, connected networks, exposed ports, and more:</p>
+<pre><code class="language-bash">[
+    {
+        ...
+        &quot;NetworkSettings&quot;: {
+            &quot;Networks&quot;: {
+                &quot;bridge&quot;: {
+                    &quot;IPAMConfig&quot;: null,
+                    &quot;Links&quot;: null,
+                    &quot;Aliases&quot;: [
+                        &quot;container_name&quot;
+                    ],
+                    &quot;NetworkID&quot;: &quot;network_id&quot;,
+                    &quot;EndpointID&quot;: &quot;endpoint_id&quot;,
+                    &quot;Gateway&quot;: &quot;gateway_ip&quot;,
+                    &quot;IPAddress&quot;: &quot;container_ip&quot;,
+                    &quot;IPPrefixLen&quot;: 24,
+                    ...
+                }
+            }
+        }
+        ...
+    }
+]
+
+</code></pre>
+<h3 id="custom-network">Custom network</h3>
+<p>Creating custom networks in Docker provides flexibility, better organization, and control over network communication within your containerized applications. It allows for easier management, improved security, and scalability, making it a valuable tool for various use cases.</p>
+<p>You can create a custom network using the belwo command: </p>
+<pre><code class="language-bash">docker network create &lt;network_name&gt;
+</code></pre>
+<p>The command creates a fresh network using the specified DRIVER , which can be either the built-in <code>bridge</code> or <code>overlay</code> network drivers. If you have a custom network driver installed, you can also specify it here. If no <code>--driver</code> option is provided, the command defaults to creating a bridge network (The above command). Upon Docker Engine installation, a bridge network is automatically created, corresponding to the <code>docker0</code> bridge that Engine traditionally relies on. When launching a container with docker run, it automatically connects to this default bridge network. Although the default bridge network cannot be removed, you can create additional networks using the network create command.</p>
+<p>Then you can assign the network to any conatiner using <code>--network</code> switch: </p>
+<pre><code class="language-bash">docker run --network=&lt;network_name&gt; &lt;image&gt;
+</code></pre>
+<blockquote>
+<p>If you want to add a container to a network after the container is already running, use the <code>docker network connect</code> subcommand.</p>
+</blockquote>
+<p>You can connect multiple containers to the same network. Once connected, the containers can communicate using only another container’s IP address or name.</p>
+<blockquote>
+<p>You can disconnect a container from a network using the <code>docker network disconnect</code> command.</p>
+</blockquote>
+<p>You can read more details about docker networking in <a href="https://docs.docker.com/network/">Docker Networking Overview</a> and find docker network create deatils here: <a href="https://docs.docker.com/engine/reference/commandline/network_create/">docker network create</a>.</p>
+<h3 id="host-type">Host type</h3>
+<p>The "host" network mode in Docker is primarily used in specific scenarios where you need maximum performance and want containers to share the network stack of the host machine. Here are a few common use cases for the "host" network mode:</p>
+<p>Performance Optimization: In some cases, you may have applications that require low latency and high network throughput. By using the "host" network mode, containers can directly leverage the host machine's network stack, eliminating any network virtualization overhead and achieving maximum performance.</p>
+<p>Host Networking Dependencies: Certain applications or services may have dependencies on specific network configurations or services running on the host machine. By using the "host" network mode, containers can directly access these host services without any additional network configuration. This can simplify the deployment and reduce potential networking issues.</p>
+<p>Network Troubleshooting and Monitoring: When troubleshooting or monitoring network-related issues, the "host" network mode can be beneficial. Containers in the "host" mode have visibility into the entire host network stack, allowing you to analyze network traffic, monitor network performance, or troubleshoot connectivity problems effectively.</p>
+<p>Limited Network Isolation Requirements: In some cases, network isolation may not be a requirement. For example, if you are running a single container on a host and network isolation is not necessary, using the "host" network mode can simplify the setup and eliminate the need for network configuration within the container.</p>
+<p>It's important to note that using the "host" network mode removes network isolation between containers and the host machine. Containers in the "host" mode share the same network namespace as the host, meaning they use the same IP address, network interfaces, and ports. This can potentially expose services within the containers to the host network, which may have security implications. Therefore, it's crucial to carefully consider the security requirements and potential risks before using the "host" network mode.</p>
+<h2 id="exposing-ports">Exposing ports</h2>
+<p>Docker port mapping and exposing are mechanisms that allow you to make specific ports within a container accessible to the host machine or external networks. They enable communication with services running inside the container from outside sources.</p>
 <ul>
-<li>Fast, consistent delivery of your applications  </li>
-<li>Packaging software in a way that leverages the skills developers already have  </li>
-<li>Bundling application software and required OS filesystems together in a single standardized image format  </li>
-<li>Running more workloads on the same hardware  </li>
-<li>Using packaged artifacts to test and deliver the exact same artifact to all systems in all environments  </li>
+<li>Port Mapping (Publishing):
+Port mapping, also known as port publishing, allows you to map a port exposed by a container to a port on the host machine or external network. It establishes a communication pathway between the host and the container.<br />
+When running a container, you can use the <code>-p</code> or <code>--publish</code> option with the docker run command to specify the port mapping. For example:  </li>
 </ul>
-<h3 id="process-simplification">Process Simplification</h3>
-<p>Docker can simplify both workflows and communication, and that usually starts with the deployment story. Traditionally, the cycle of getting an application to production often looks something like the following:  </p>
-<p><img alt="Traditional Deployment" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/deployment-traditional.png?raw=true" />  </p>
-<p>Our experience has shown that deploying a brand new application into production can take the better part of a week for a complex new system. That’s not very productive, and even though DevOps practices work to alleviate some of the barriers, it often requires a lot of effort and communication between teams of people. This process can often be both technically challenging and expensive, but even worse, it can limit the kinds of innovation that development teams will undertake in the future. If deploying software is hard, time-consuming, and requires resources from another team, then developers will often build everything into the existing application in order to avoid suffering the new deployment penalty.  </p>
-<p>Docker preaches an approach of “batteries included but removable.” Which means that they want their tools to come with everything most people need to get the job done, while still being built from interchangeable parts that can easily be swapped in and out to support custom solutions. By using an image repository as the hand-off point, Docker allows the responsibility of building the application image to be separated from the deployment and operation
-of the container.  </p>
-<p>What this means in practice is that development teams can build their application with all of its dependencies, run it in development and test environments, and then just ship the exact same bundle of application and dependencies to production. Because those bundles all look the same from the outside, operations engineers can then build or install standard tooling to deploy and run the applications.  </p>
-<p><img alt="Docker Deployment" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/deployment-docker.png?raw=true" />  </p>
-<h2 id="what-docker-isnt">What Docker isn't</h2>
-<p>Docker can be used to solve a wide breadth of challenges that other categories of tools have traditionally been enlisted to fix; however, Docker’s breadth of features often means that it lacks depth in specific functionality. In the following list, we explore some of
-the tool categories that Docker doesn’t directly replace but that can often be used in conjunction to achieve great results:  </p>
+<pre><code class="language-bash">docker run -p &lt;host_port&gt;:&lt;container_port&gt; &lt;image_name&gt;
+</code></pre>
+<p>Here, <code>&lt;host_port&gt;</code> represents the port on the host machine, and <code>&lt;container_port&gt;</code> represents the port exposed by the container. By specifying the port mapping, incoming connections to the host port will be forwarded to the corresponding container port.</p>
 <ul>
-<li>
-<p><strong>Virtualization Platform</strong><br />
-A container is not a virtual machine in the traditional sense. Virtual machines contain a complete operating system, running on top of the host operating system. The biggest advantage is that it is easy to run many virtual machines with radically different operating systems on a single host. With containers, both the host and the containers share the same kernel. This means that containers utilize fewer system resources, but must be based on the same underlying operating system.<br />
-<img alt="Docker Vs. VM" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/DockervsVM.png?raw=true" />  </p>
-</li>
-<li>
-<p><strong>Cloud Platform</strong><br />
-Like virtualization, the container workflow shares a lot of similarities on the surface with cloud platforms. Both are traditionally leveraged to allow applications to be horizontally scaled in response to changing demand. Docker, however, is not a cloud platform. It only handles deploying, running, and managing containers on pre-existing Docker hosts. It doesn’t allow you to create new host systems (instances), object stores, block storage, and the many other resources that are typically associated with a cloud platform.  </p>
-</li>
+<li>Port Exposing (Documenting):
+Port exposing, on the other hand, is used to document the ports that the container listens on. It is achieved using the <code>EXPOSE</code> instruction in the Dockerfile.</li>
 </ul>
-<p><img alt="Cloud Service Model" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/cloud-services.png?raw=true" />  </p>
-<h2 id="docker-high-level-design">Docker High-level Design</h2>
-<p>Docker is a powerful technology, and that often means something that comes with a high level of complexity. But the fundamental architecture of Docker is a simple client/server model, with only one executable that acts as both components, depending on how you invoke the docker command. Underneath this simple exterior, Docker heavily leverages kernel mechanisms such as iptables, virtual bridging, cgroups, namespaces, and various filesystem drivers.  </p>
-<p>Docker uses a client-server architecture. The Docker client talks to the Docker daemon, which does the heavy lifting of building, running, and distributing your Docker containers. The Docker client and daemon can run on the same system, or you can connect a Docker client to a remote Docker daemon. The Docker client and daemon communicate using a REST API, over UNIX sockets or a network interface. </p>
-<p><img alt="Docker High-Level" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/docker-hl.png?raw=true" /> </p>
-<h3 id="the-docker-daemon">The Docker daemon</h3>
-<p>The Docker daemon (dockerd) listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes. A daemon can also communicate with other daemons to manage Docker services.</p>
-<h3 id="the-docker-client">The Docker client</h3>
-<p>The Docker client (docker) is the primary way that many Docker users interact with Docker. When you use commands such as docker run, the client sends these commands to dockerd, which carries them out. The docker command uses the Docker API. The Docker client can communicate with more than one daemon.  </p>
-<h3 id="docker-engine-api">Docker Engine API</h3>
-<p>Docker provides an API for interacting with the Docker daemon (called the Docker Engine API), as well as SDKs for Go and Python. The SDKs allow you to build and scale Docker apps and solutions quickly and easily. If Go or Python don’t work for you, you can use the Docker Engine API directly.  </p>
-<p>The Docker Engine API is a RESTful API accessed by an HTTP client such as wget or curl, or the HTTP library which is part of most modern programming languages.  </p>
-<h3 id="docker-registries">Docker registries</h3>
-<p>A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use, and Docker is configured to look for images on Docker Hub by default. You can even run your own private registry.</p>
-<h3 id="docker-objects">Docker objects</h3>
-<p>When you use Docker, you are creating and using images, containers, networks, volumes, plugins, and other objects. This section is a brief overview of some of those objects.</p>
-<h4 id="images">Images</h4>
-<p>An image is a read-only template with instructions for creating a Docker container. Often, an image is based on another image, with some additional customization. For example, you may build an image which is based on the ubuntu image, but installs the Apache web server and your application, as well as the configuration details needed to make your application run.</p>
-<p>You might create your own images or you might only use those created by others and published in a registry. To build your own image, you create a Dockerfile with a simple syntax for defining the steps needed to create the image and run it. Each instruction in a Dockerfile creates a layer in the image. When you change the Dockerfile and rebuild the image, only those layers which have changed are rebuilt. This is part of what makes images so lightweight, small, and fast, when compared to other virtualization technologies.</p>
-<h4 id="containers">Containers</h4>
-<p>A container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI. You can connect a container to one or more networks, attach storage to it, or even create a new image based on its current state.</p>
-<p>By default, a container is relatively well isolated from other containers and its host machine. You can control how isolated a container’s network, storage, or other underlying subsystems are from other containers or from the host machine.</p>
-<p>A container is defined by its image as well as any configuration options you provide to it when you create or start it. When a container is removed, any changes to its state that are not stored in persistent storage disappear.</p>
+<p>The <code>EXPOSE</code> instruction informs Docker that the container listens on specific ports. It serves as documentation for other users, administrators, or developers to know which ports are intended to be used when interacting with the container.</p>
+<p>For example, in a Dockerfile:</p>
+<pre><code class="language-bash">...
+EXPOSE 8080
+EXPOSE 9000/tcp
+...
+</code></pre>
+<p>Here, the Dockerfile states that the container listens on ports 8080 and 9000.</p>
+<blockquote>
+<p>We will read more about Dockerfile in the next session.</p>
+</blockquote>
+<h2 id="dns-service">DNS Service</h2>
+<p>Different networks provide different communication patterns (for example by IP address only, or by container name) between containers depending on network type and whether it’s a Docker default or a user-defined network.</p>
+<p>By default, containers inherit the DNS settings of the host, as defined in the <code>/etc/resolv.conf</code> configuration file. Containers that attach to the default bridge network receive a copy of this file. Containers that attach to a custom network use Docker’s embedded DNS server. The embedded DNS server forwards external DNS lookups to the DNS servers configured on the host.</p>
+<p>You can configure DNS resolution on a per-container basis, using flags for the <code>docker run</code> or <code>docker create</code> command used to start the container. For example, the below command create a container with a custom DNS and hostname:  </p>
+<pre><code class="language-bash">docker run --dns &lt;custom_dns&gt; --hostname &lt;custom_hostname&gt; &lt;image_name&gt;
+</code></pre>
+<blockquote>
+<p><code>--hostname</code> is the hostname of the container. Defaults to the container’s ID if not specified. Custom hosts, defined in <code>/etc/hosts</code> on the host machine, aren’t inherited by containers. </p>
+</blockquote>
+<h2 id="practice-your-knowledge">Practice your knowledge</h2>
+<p>You can practice these tasks in a terminal or command prompt with Docker installed on your machine. Make sure you have Docker properly installed and configured before starting the practice scenario.</p>
+<p>Remember to refer to Docker's official documentation for detailed information on each command and its usage. Happy learning!  </p>
+<h3 id="scenario">Scenario</h3>
+<p>Implement the diagram below in your Docker lab:</p>
+<p><img alt="Docker networking scenario" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/docker-network.png?raw=true" /></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 28, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 23, 2023</span>
       
     
   </small>
@@ -852,7 +861,7 @@ Like virtualization, the container workflow shares a lot of similarities on the 
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../blog/tags.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: All" rel="prev">
+          <a href="docker-volume.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Docker Volume" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -861,26 +870,11 @@ Like virtualization, the container workflow shares a lot of similarities on the 
                 <span class="md-footer__direction">
                   Previous
                 </span>
-                All
+                Docker Volume
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="nextgenbts.html" class="md-footer__link md-footer__link--next" aria-label="Next: NextGenBTS" rel="next">
-            <div class="md-footer__title">
-              <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  Next
-                </span>
-                NextGenBTS
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
