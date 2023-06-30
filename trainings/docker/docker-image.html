@@ -755,7 +755,11 @@ sudo mkdir /merged
 <p>Remember to refer to Docker's official documentation for detailed information on each command and its usage. Happy learning!  </p>
 <h3 id="scenario">Scenario</h3>
 <p><strong>Task 1: Run an Ubuntu container</strong>  </p>
-<p>Run a container with the the latest version of Ubuntu image.</p>
+<p>Run a container with the the latest version of Ubuntu image. Export the below environment variables:  </p>
+<pre><code class="language-bash">VAR1=ubuntu
+VAR2=webserver
+</code></pre>
+<p>Map port <code>3000</code> of host to the container, and finally call the container <code>ubuntu001</code>.</p>
 <p><strong>Task 2: Customize the container</strong>   </p>
 <p>Try to intall the below packages:</p>
 <ul>
@@ -763,7 +767,7 @@ sudo mkdir /merged
 <li>Python</li>
 <li>Nginx</li>
 </ul>
-<p>Create a custom Nginx configuration to listen on port 3000, and show a custom welcome screen.</p>
+<p>Create a custom Nginx configuration to listen on port 3000, and show a custom welcome screen (Trying to copy <code>index.html</code> from host to the container).</p>
 <p><strong>Task 3: Docker commit</strong></p>
 <p>se the <code>docker commit</code> command to create a new image from the modified container, and verify the image is available.</p>
 <p><strong>Task 4: Docker save</strong></p>
@@ -776,7 +780,7 @@ sudo mkdir /merged
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 29, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 30, 2023</span>
       
     
   </small>
