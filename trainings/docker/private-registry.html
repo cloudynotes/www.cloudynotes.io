@@ -6,31 +6,29 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Initiate a blog post with mkdocs">
+        <meta name="description" content="Setting up a private Docker registry">
       
       
       
-        <link rel="canonical" href="https://cloudynotes.io/blog/tags.html">
+        <link rel="canonical" href="https://cloudynotes.io/trainings/docker/private-registry.html">
       
       
-        <link rel="prev" href="main.html">
+        <link rel="prev" href="docker-file.html">
       
       
-        <link rel="next" href="../trainings/docker/intro.html">
-      
-      <link rel="icon" href="../assets/logo.png">
+      <link rel="icon" href="../../assets/logo.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
     
     
       
-        <title>All - CloudyNotes</title>
+        <title>Private Registry - CloudyNotes</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ffa9267a.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ffa9267a.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -46,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -87,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#list-of-all-blogs" class="md-skip">
+        <a href="#private-registry" class="md-skip">
           Skip to content
         </a>
       
@@ -101,9 +99,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="CloudyNotes" class="md-header__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
+    <a href="../.." title="CloudyNotes" class="md-header__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
       
-  <img src="../assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -119,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              All
+              Private Registry
             
           </span>
         </div>
@@ -206,15 +204,78 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="CloudyNotes" class="md-nav__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
+    <a href="../.." title="CloudyNotes" class="md-nav__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
       
-  <img src="../assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     CloudyNotes
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Blog
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Blog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/main.html" class="md-nav__link">
+        Latest
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/tags.html" class="md-nav__link">
+        All
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
     
       
       
@@ -231,19 +292,48 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
       
-        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
-          Blog
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Notes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
-          Blog
+          Notes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -253,8 +343,92 @@
   
   
     <li class="md-nav__item">
-      <a href="main.html" class="md-nav__link">
-        Latest
+      <a href="intro.html" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="nextgenbts.html" class="md-nav__link">
+        NextGenBTS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="under-the-hood.html" class="md-nav__link">
+        Under the hood of Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docker-volume.html" class="md-nav__link">
+        Docker Volume
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docker-network.html" class="md-nav__link">
+        Docker Network
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docker-image.html" class="md-nav__link">
+        Docker Image
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docker-file.html" class="md-nav__link">
+        Dockerfile
       </a>
     </li>
   
@@ -276,184 +450,55 @@
         
       
       
-      <a href="tags.html" class="md-nav__link md-nav__link--active">
-        All
-      </a>
-      
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-          Notes
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Private Registry
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
-          Notes
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-          Docker
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_1">
-          <span class="md-nav__icon md-icon"></span>
-          Docker
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../trainings/docker/intro.html" class="md-nav__link">
-        Intro
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../trainings/docker/nextgenbts.html" class="md-nav__link">
-        NextGenBTS
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../trainings/docker/under-the-hood.html" class="md-nav__link">
-        Under the hood of Docker
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../trainings/docker/docker-volume.html" class="md-nav__link">
-        Docker Volume
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../trainings/docker/docker-network.html" class="md-nav__link">
-        Docker Network
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../trainings/docker/docker-image.html" class="md-nav__link">
-        Docker Image
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../trainings/docker/docker-file.html" class="md-nav__link">
-        Dockerfile
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../trainings/docker/private-registry.html" class="md-nav__link">
+      <a href="private-registry.html" class="md-nav__link md-nav__link--active">
         Private Registry
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    Intro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-and-configuring" class="md-nav__link">
+    Installing and configuring
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pushing-to-private-registry" class="md-nav__link">
+    Pushing to private registry
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -492,6 +537,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    Intro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-and-configuring" class="md-nav__link">
+    Installing and configuring
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pushing-to-private-registry" class="md-nav__link">
+    Pushing to private registry
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -505,75 +579,101 @@
                   
 
 
-<h1 id="list-of-all-blogs">List of all blogs</h1>
-<p>
-
-<div class="blogging-tags-grid">
-        
-        <a href="https://cloudynotes.io/tags.html#Cloud" class="blogging-tag"><code>#Cloud</code></a>
-        
-        <a href="https://cloudynotes.io/tags.html#General" class="blogging-tag"><code>#General</code></a>
-        
-        <a href="https://cloudynotes.io/tags.html#Terraform" class="blogging-tag"><code>#Terraform</code></a>
-        
-    </div>
-    
-
-
-
-
-<h3 id="Cloud">#Cloud</h3>
-    
-        
-            
-            
-        
-        <li>
-            <a href="https://cloudynotes.io/blog/camelup.html">Camel Up</a>
-            &nbsp;&nbsp;
-            <span style="color: var(--md-default-fg-color--light)">
-                2023-08-03 21:45:13
-            </span>
-        </li>
-    
-
-<h3 id="General">#General</h3>
-    
-        
-            
-            
-        
-        <li>
-            <a href="https://cloudynotes.io/blog/rulebook.html">Rulebook</a>
-            &nbsp;&nbsp;
-            <span style="color: var(--md-default-fg-color--light)">
-                2023-04-13 08:57:56
-            </span>
-        </li>
-    
-
-<h3 id="Terraform">#Terraform</h3>
-    
-        
-            
-            
-        
-        <li>
-            <a href="https://cloudynotes.io/blog/tf-mars.html">Terraforming Mars</a>
-            &nbsp;&nbsp;
-            <span style="color: var(--md-default-fg-color--light)">
-                2023-03-31 00:05:53
-            </span>
-        </li>
-    
-</p>
+<h1 id="private-registry">Private Registry</h1>
+<h2 id="intro">Intro</h2>
+<p>Docker registry is a crucial component in the Docker ecosystem that serves as a storage and distribution platform for Docker container images. It allows developers and organizations to store, share, and manage Docker images securely and efficiently.</p>
+<p>When you create a Docker image, it consists of layers that make up the file system for your container. These images can be quite large, and sharing them directly between developers or deploying them on various machines can be cumbersome. Docker registry provides a centralized and scalable solution for storing and sharing these images.</p>
+<p>The Docker registry can be either a public registry, such as Docker Hub, which allows users to share images publicly, or it can be a private registry set up by organizations for internal use or to secure their proprietary images.</p>
+<p>Private Docker registries offer several compelling reasons for organizations to use them instead of relying solely on public registries like Docker Hub. Some of the key reasons include:</p>
+<ol>
+<li>
+<p><strong>Security and Control</strong>: Private registries allow organizations to have full control over their container images and who can access them. This is particularly important for sensitive or proprietary applications where the code and configurations need to be tightly controlled.</p>
+</li>
+<li>
+<p><strong>Intellectual Property Protection</strong>: Companies often have valuable intellectual property contained within their Docker images. A private registry ensures that these images are only accessible to authorized users, minimizing the risk of data leaks or unauthorized usage.</p>
+</li>
+<li>
+<p><strong>Compliance and Data Privacy</strong>: In regulated industries or regions with strict data privacy laws, hosting sensitive data in public registries might not be compliant. Private registries enable organizations to adhere to regulatory requirements and keep their data within specific jurisdictions.</p>
+</li>
+<li>
+<p><strong>Performance and Bandwidth</strong>: Hosting large-scale Docker deployments might require significant bandwidth for image pulls. Private registries hosted within an organization's infrastructure can offer faster image retrieval and reduce reliance on external networks.</p>
+</li>
+<li>
+<p><strong>Offline Access</strong>: Private registries allow developers and systems to work with Docker images even when not connected to the internet, making it more convenient for internal development and testing.</p>
+</li>
+<li>
+<p><strong>Customization and Custom Plugins</strong>: Organizations can customize and extend private registries to meet their specific needs. They can integrate with existing authentication systems, implement custom security measures, and develop plugins to enhance functionality.</p>
+</li>
+<li>
+<p><strong>Dependency Management</strong>: Public registries might experience changes or removal of images, leading to unexpected issues for applications reliant on those images. A private registry can help manage dependencies more effectively by hosting specific versions of required images.</p>
+</li>
+<li>
+<p><strong>Quality Control</strong>: In a private registry, an organization can perform thorough testing and validation before making an image available for deployment. This ensures that only stable and tested images are used in production environments.</p>
+</li>
+<li>
+<p><strong>Reduced Vulnerabilities</strong>: Using public images from unknown sources can pose security risks. With a private registry, organizations can curate a set of trusted images, reducing the chance of deploying vulnerable or malicious containers.</p>
+</li>
+<li>
+<p><strong>Network Isolation</strong>: In certain scenarios, network isolation might be necessary. Private registries can be deployed within specific network boundaries, making it easier to control access and maintain security.</p>
+</li>
+</ol>
+<h2 id="installing-and-configuring">Installing and configuring</h2>
+<blockquote>
+<p>This procedure provides basic installation and configuration instructions for learning purposes and should not be used for production.</p>
+</blockquote>
+<p>Below is a step-by-step procedure to install and configure a private Docker registry using the open-source distribution of Docker called Docker CE (Community Edition). We'll assume you are setting up the registry on a Linux-based system. </p>
+<blockquote>
+<p>Make sure you have Docker installed on your system. If you don't have Docker already installed, you can follow the official Docker installation instructions for your Linux distribution: https://docs.docker.com/engine/install/.  </p>
+</blockquote>
+<p>First let's create a file contains the registry username and password:</p>
+<pre><code class="language-bash">mkdir auth
+</code></pre>
+<p>You can obtain the htpasswd utility by installing the apache2-utils package. Do so by running: </p>
+<pre><code class="language-bash">sudo apt install apache2-utils -y
+</code></pre>
+<p>Create a user, replacing username with the username you want to use. The <code>-B</code> flag orders the use of the bcrypt algorithm, which Docker requires:</p>
+<pre><code class="language-bash">htpasswd -Bc registry.password &lt;username&gt;
+</code></pre>
+<p>Now, let's run the Docker registry container command using the auth/htpasswd authentication file:</p>
+<pre><code class="language-bash">docker run -itd \
+  -p 5000:5000 \
+  --name registry \
+  -v &quot;$(pwd)&quot;/auth:/auth \
+  -e &quot;REGISTRY_AUTH=htpasswd&quot; \
+  -e &quot;REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm&quot; \
+  -e REGISTRY_AUTH_HTPASSWD_PATH=/auth/registry.password \
+  registry
+</code></pre>
+<p>To verify the Docker registry, you can navigate to the <code>http://localhost:5000/v2</code>. </p>
+<h2 id="pushing-to-private-registry">Pushing to private registry</h2>
+<p>Now that your Docker Registry server is running, you can try pushing an image to it. Docker, by default, attempts to push and pull from Docker Hub. Therefore, you need to log in to the new registry before using it.</p>
+<pre><code class="language-bash">docker login localhost:5000
+</code></pre>
+<blockquote>
+<p>The login has failed because we did not set up SSL/TLS for the private registry. To add security, you can generate a self-signed SSL certificate to secure your private registry. For the simplicity of the test, we can configure the Docker engine to deploy a plain HTTP registry. read more <a href="https://docs.docker.com/registry/insecure/">here</a>!</p>
+</blockquote>
+<p>This procedure configures Docker to entirely disregard security for your registry. This is very insecure and is not recommended. It exposes your registry to trivial man-in-the-middle (MITM) attacks. Only use this solution for isolated testing or in a tightly controlled, air-gapped environment.</p>
+<p>Edit the <code>daemon.json</code> file, whose default location is <code>/etc/docker/daemon.json</code>. If the daemon.json file does not exist, create it. Assuming there are no other settings in the file, it should have the following contents:</p>
+<pre><code class="language-bash">{
+  &quot;insecure-registries&quot; : [&quot;localhost:5000&quot;]
+}
+</code></pre>
+<blockquote>
+<p>Replace ip/url with the proper registry address/IP.</p>
+</blockquote>
+<p>Now try to login again: </p>
+<pre><code class="language-bash">docker login localhost:5000
+</code></pre>
+<p>You can simply push images to your private Docker registry:</p>
+<pre><code class="language-bash">docker push localhost:5000/my_image
+</code></pre>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 5, 2023</span>
       
     
   </small>
@@ -584,6 +684,53 @@
 
 
 
+
+  <h2 id="__comments">Comments</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+        data-repo="cloudynotes/comments"
+        data-repo-id="R_kgDOJAy0uA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJAy0uM4CUXOl"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
@@ -606,7 +753,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="main.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Latest" rel="prev">
+          <a href="docker-file.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Dockerfile" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -615,26 +762,11 @@
                 <span class="md-footer__direction">
                   Previous
                 </span>
-                Latest
+                Dockerfile
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../trainings/docker/intro.html" class="md-footer__link md-footer__link--next" aria-label="Next: Intro" rel="next">
-            <div class="md-footer__title">
-              <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  Next
-                </span>
-                Intro
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
@@ -731,10 +863,10 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      <script src="../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
       
     
   </body>
