@@ -1,0 +1,573 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Yo-Yo attacks on cloud auto-scaling">
+      
+      
+        <meta name="author" content="Meraj Kashi">
+      
+      
+        <link rel="canonical" href="https://cloudynotes.io/blog/camelup.html">
+      
+      
+      
+      <link rel="icon" href="../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
+    
+    
+      
+        <title>Camel Up - CloudyNotes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ffa9267a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-53DNYVDBH4"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-53DNYVDBH4",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-53DNYVDBH4",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="cyan" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#yo-yo-attacks-on-cloud-auto-scaling" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CloudyNotes" class="md-header__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CloudyNotes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Camel Up
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="cyan" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CloudyNotes" class="md-nav__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    CloudyNotes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Blog
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Blog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="main.html" class="md-nav__link">
+        Latest
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tags.html" class="md-nav__link">
+        All
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#story" class="md-nav__link">
+    Story
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yo-yo-attack" class="md-nav__link">
+    Yo-Yo attack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-studies" class="md-nav__link">
+    Related studies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    Results
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="yo-yo-attacks-on-cloud-auto-scaling">Yo-Yo attacks on cloud auto-scaling</h1>
+<p><img alt="Camel Up" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/camelup/camelup.jpeg?raw=true" /></p>
+<blockquote>
+<p>Camel Up is a popular board game designed by Steffen Bogen. It is a family-friendly, light-hearted, and entertaining game that revolves around a crazy camel racing event. What makes Camel Up particularly unique and enjoyable is the unpredictability of the race. The camels stack on top of each other when they land on the same space, creating a camel stack. The camels at the top of the stack move faster, while the ones at the bottom move slower. This adds an element of surprise and excitement, making it challenging to predict the winner until the very end.  </p>
+</blockquote>
+<p>Camel Up board game and auto-scaling in the cloud may appear as two completely distinct area. However, the camels' movement—going up and down—in the game reminds me of the process of scaling resources in cloud auto-scaling. </p>
+<p>Cloud auto-scaling is a very powerful tool, but it can also be a double-edged sword. Without the proper scaling configuration and testing it can cost cloud users a lot. So, auto-scaling is a trade of performance and cost.</p>
+<h2 id="story">Story</h2>
+<blockquote>
+<p>In this blog, the term <code>scale up/down</code> refers to scaling resources, encompassing both vertical and/or horizontal scaling.</p>
+</blockquote>
+<p>Over the past decades, DoS and DDoS attacks have emerged as a grave threat to the Internet's infrastructure. Recent data from Cloudflare indicates a dramatic surge in DDoS attacks over the past few years [<a href="https://www.comparitech.com/blog/information-security/ddos-statistics-facts/">comparitech.com</a>]. The increasing number of attacks has led to the emergence of new detection and mitigation solutions as well. In November 2020, the Alibaba Cloud Security Team detected the largest resources exhaustion DDoS attack on their cloud platform, with a peak of 5.369 million QPS (Queries Per Second). Microsoft mitigated upwards of 359,713 DDoS attacks against their Azure Cloud infrastructures during the second half of 2021 <a href="https://azure.microsoft.com/en-us/blog/azure-ddos-protection-2021-q3-and-q4-ddos-attack-trends//">[microsoft.com]</a>.</p>
+<p>On the other hand, attackers do not surrender. New kinds of DDoS attacks have emerged to exploit cloud anti-DDoS solutions. Burst attacks, also known as hit-and-run DDoS, are a new kind of DDoS attack where the attacker launches periodic bursts of traffic overload at random intervals on online targets. Burst attacks have grown significantly, to the extent that a comprehensive survey in 2017 revealed that half of the participants cited an increase in burst attacks. <a href="https://www.radware.com/blog/security/2018/02/burst-attack-protection/">[radware.com]</a>. </p>
+<p>Enterprises using cloud services mostly benefit from cloud features. Enhanced cloud scalability and elasticity through auto-scaling allow customers to dynamically scale their applications. Incoming traffic is distributed evenly across multiple endpoints, so individual backend services cannot be overwhelmed until the volume of traffic approaches the capacity of the entire network.  </p>
+<p>Hostile actors adjust their tactics to correspond to the realities posed by the cloud. The Yo-Yo attack is a new attack technique against the cloud autoscaling feature. In this method, attackers send a burst of request traffic to significantly increase the load on the cloud server, triggering the autoscaling mechanism, and causing the server to be scaled up. </p>
+<p>Therefore, during this confirmation period, the victim's system deploys resources that far exceed the required amount. Burst traffic will be stopped after scaling up and waiting for the auto-scaling mechanism to scale down the server. The attacker continues the latter attack procedure and forces the cloud services to scale up and scale down continuously. This adds extra load to the services to respond to the fake requests. In effect, the attacker forces the victim to pay for large amounts of resources that are not actually necessary to handle the legitimate workload. The Yo-Yo attack can affect any platform using auto-scaling mechanisms, such as container-based and Kubernetes platforms.</p>
+<h2 id="yo-yo-attack">Yo-Yo attack</h2>
+<p>The Yo-Yo attack is designed to exploit the cloud's auto-scaling mechanism. The attacker employs a specific strategy to create a significant load on the cloud by sending bursts of request traffic to a target running on the cloud. As a result, the auto-scaling mechanism triggers, attempting to scale up the cloud resources to handle the high traffic load.</p>
+<p>The attack operates in a cyclical manner. After the attacker notices the scaling-up process, they halt the burst attack and wait for the auto-scaling mechanism to scale down the resources. This crucial step is key to the success of the Yo-Yo attack. The attacker then resumes sending the burst traffic to trigger the auto-scaling mechanism to scale up again, perpetuating the cycle.</p>
+<p>The primary objective of the Yo-Yo attack is not necessarily to take the services offline but rather to inflict financial damage on the victim. Cloud service providers typically follow a consumption-based pricing model, wherein end-users pay for the resources they utilize. This model allows users to pay for additional resources as needed and stop paying for resources that are no longer required. The Yo-Yo attack aims to exploit this pricing model by forcing the victim's system to scale up and consume more resources during the attack cycles, leading to increased costs for the victim without actually providing any legitimate workload.</p>
+<p>During each cycle of the Yo-Yo attack, as the victim's system scales in resources, significant charges accumulate on the victim's account. The attacker forces the victim to pay for large amounts of resources that are not truly necessary to handle the current legitimate workload. For example, cloud providers like AWS charge for EC2 instances based on the time they are consumed, and partial instance-hours are billed per second. This means that after scaling in an instance, the service provider incurs charges per second, even if the scale down occurred due to a Yo-Yo attack. Consequently, the financial damage to the victim can be substantial, as they are billed for the extra resources forced upon them by the attacker during each cycle of the attack.</p>
+<blockquote>
+<p>The graph below shows the results of simulating a Yo-Yo attack towards AWS EC2 instances running on autoscaling groups. Please keep in mind that the test has been conducted under the <a href="https://aws.amazon.com/security/ddos-simulation-testing/">AWS DDoS simulation testing policy</a>.</p>
+</blockquote>
+<p><img alt="Yo-Yo attack" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/camelup/Yo-Yo.png?raw=true" /></p>
+<h2 id="related-studies">Related studies</h2>
+<p>The Yo-Yo attack is a new DDoS technique that has emerged due to the cloud auto-scaling feature. So, the number of studies in this area is very limited. In a <a href="https://ieeexplore.ieee.org/document/8057010">paper</a> published in 2017, Anat Bremler-Barr, Eli Brosh, and Mor Sides were the first to discuss the Yo-Yo attack on the autoscaling mechanism. This groundbreaking paper demonstrates that, apart from the economic effects of the attack, the Yo-Yo attack can inflict substantial performance damage.</p>
+<p>During the repetitive scale up process, which takes several minutes due to the instance startup process, the cloud service suffers from significant performance degradation. The article reveals that the autoscaling policy configuration is an important factor in minimizing the impact of the Yo-Yo attack. Therefore, the Yo-Yo attack can also be classified as a type of Reduction of Quality (RoQ) attack.</p>
+<p>Based on this study, another group published a <a href="https://www.sciencedirect.com/science/article/pii/S2352864819301440#:~:text=Efficient%20mitigation%20for%20the%20Yo,and%20launch%20Yo%2DYo%20attack.">paper</a> with the topic 'Towards Yo-Yo attack mitigation in cloud auto-scaling mechanisms'. The paper proposed a detection and mitigation system for Yo-Yo attacks in cloud auto-scaling mechanisms. The suggested approach is called Trust-based Adversarial Scanner Delaying (<code>TASD</code>). The <code>TASD</code> approach is inspired by two key factors. Firstly, in comparison to benign users, Yo-Yo attackers tend to initiate burst requests, leading to more frequent auto-scaling. Additionally, there is a substantial difference in request load between the scale up and scale down phases caused by the attackers. To address this, the <code>TASD</code> system assigns a trust value to each client based on their behavior, which represents their Quality of Service (QoS). Consequently, <code>TASD</code> introduces specific delays to suspicious requests within the QoS constraints. This manipulation of response times aims to deceive the attackers and mitigate the impact of the Yo-Yo attack.</p>
+<p>During my master's thesis, I implemented a realistic scenario to test the <code>TASD</code> approach and enhance the mitigation algorithm. In the original <code>TASD</code> system, an Additive Decrease method was used to update the trust value. To improve the system, I drew inspiration from TCP rate control mechanisms and introduced two optimization methods: <code>ADAI</code> (Additive Decrease/Additive Increase) and <code>MDAI</code> (Multiplicative Decrease/Additive Increase). These methods aim to optimize the <code>TASD</code> detection and mitigation system further.  I published the results in a paper that can be accessed <a href="https://github.com/meraj-kashi/Yo-Yo-attack-autoscaling/blob/main/paper/Yo_Yo_attack_IEEE_confernece_paper.pdf">here</a>. </p>
+<h2 id="results">Results</h2>
+<p>The study mainly focused on the difference between DDoS and Yo-Yo attacks on cloud autoscaling and implemented mitigation and detection methods. Surprisingly, I have found some interesting side results:</p>
+<ol>
+<li>
+<p>The warming time of scale up is the duration it takes for an instance (VM, Container, etc.) to get ready to function, while the warming time of scale down is the duration an instance allocates to close all services and release resources. The warming time plays a significant role in the damage, especially with a simple auto-scaling policy. Whenever the scaling metric threshold was selected close to the maximum capacity of the service (e.g., web application), the service degraded during scale up due to the warming time.</p>
+<p>To address this issue, several approaches can be considered. One approach is to minimize the warming time, but this may not be feasible for all scenarios, as some services require time to initialize properly. Another approach is to scale up in two steps, where the auto-scaling increases the number of instances by two. However, a potential bottleneck with this option is the need to keep some unused capacity available for a quick response, which can result in ongoing costs for the user.</p>
+<p>An alternative option is to adopt an early scale up strategy and a slow scale down approach, allowing ample time before immediately scaling in the instances.</p>
+</li>
+<li>
+<p>Yo-Yo attackers should approximate the auto-scaling state and configuration to maximize the damage. The attacker can send probe requests and compare response times to detect the scale up status. The same technique is suggested to detect scale down. However, the experiment's results revealed that using a probe request may not necessarily detect the scaling status accurately. For example, in my test scenario, the auto-scaling policy was configured to scale based on the<code>Request Count</code>, resulting in stable response times for the probe requests during the test. This stability prevented the attacker from effectively detecting the scaling process.</p>
+</li>
+</ol>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2023</span>
+      
+    
+  </small>
+</div>
+
+
+  
+
+
+
+
+  <h2 id="__comments">Comments</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+        data-repo="cloudynotes/comments"
+        data-repo-id="R_kgDOJAy0uA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJAy0uM4CUXOl"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Meraj Kashi
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/meraj-kashi/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      
+    
+  </body>
+</html>
