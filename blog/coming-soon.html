@@ -6,27 +6,27 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Docker Volume">
+        <meta name="description" content="A coming soon banner">
       
       
       
-        <link rel="canonical" href="https://cloudynotes.io/trainings/docker/docker-volume.html">
+        <link rel="canonical" href="https://cloudynotes.io/blog/coming-soon.html">
       
       
       
-      <link rel="icon" href="../../assets/logo.png">
+      <link rel="icon" href="../assets/logo.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
     
     
       
-        <title>Docker Volume - CloudyNotes</title>
+        <title>Coming Soon - CloudyNotes</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ffa9267a.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ffa9267a.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -42,7 +42,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -83,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker-volume" class="md-skip">
+        <a href="#the-blog-will-be-posted-soon" class="md-skip">
           Skip to content
         </a>
       
@@ -97,9 +97,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="CloudyNotes" class="md-header__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
+    <a href=".." title="CloudyNotes" class="md-header__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker Volume
+              Coming Soon
             
           </span>
         </div>
@@ -202,9 +202,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="CloudyNotes" class="md-nav__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
+    <a href=".." title="CloudyNotes" class="md-nav__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
     CloudyNotes
@@ -247,7 +247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/main.html" class="md-nav__link">
+      <a href="main.html" class="md-nav__link">
         Latest
       </a>
     </li>
@@ -261,7 +261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/tags.html" class="md-nav__link">
+      <a href="tags.html" class="md-nav__link">
         All
       </a>
     </li>
@@ -295,55 +295,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#intro" class="md-nav__link">
-    Intro
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unionfs" class="md-nav__link">
-    UnionFS
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#managing-volume" class="md-nav__link">
-    Managing volume
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#practice-your-knowledge" class="md-nav__link">
-    Practice your knowledge
-  </a>
-  
-    <nav class="md-nav" aria-label="Practice your knowledge">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario1" class="md-nav__link">
-    Scenario1
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -357,136 +308,15 @@
                   
 
 
-<h1 id="docker-volume">Docker Volume</h1>
-<h2 id="intro">Intro</h2>
-<p>In Docker, a volume is a mechanism for persistently storing and managing data generated by and used by Docker containers. It provides a way to share data between containers, as well as between the host machine and containers.  </p>
-<p>A Docker volume is a directory that is managed by Docker and is isolated from the container's file system. Volumes are typically created and managed using Docker commands or through Docker Compose files.  </p>
-<p>When a volume is created, it is associated with a specific container or multiple containers. The data stored in a volume persists even if the associated container is stopped or deleted. This allows for data to be shared and reused across different container instances.  </p>
-<p>Volumes have several advantages over other mechanisms, such as bind mounts. They are not dependent on the directory structure or operating system of the host machine, making them more portable. Volumes also support features like volume drivers, which enable integration with external storage systems, and can be easily managed and backed up by Docker.  </p>
-<p>Overall, volumes provide a flexible and efficient way to manage data in Docker containers, allowing for data persistence and sharing across containers and deployments.  </p>
-<h2 id="unionfs">UnionFS</h2>
-<p>Docker volumes are created and managed using a Linux kernel technology called <strong>Union File System</strong> or <strong>UnionFS</strong>. More specifically, Docker uses a copy-on-write (CoW) implementation of UnionFS, typically leveraging one of the following file system drivers:</p>
-<ul>
-<li>
-<p>aufs (Advanced Multi-Layered Unification File System): It was the original UnionFS implementation used by Docker. However, its support has been deprecated in recent versions of Docker.</p>
-</li>
-<li>
-<p>overlay and overlay2 : These are the current default UnionFS drivers used by Docker. They provide better performance and stability compared to aufs.</p>
-</li>
-<li>
-<p>btrfs (B-Tree File System): Docker can also use btrfs as a file system driver for volumes, but it requires specific configuration and may not be as widely used as overlay or overlay2.</p>
-</li>
-</ul>
-<p>These UnionFS file system drivers allow Docker to create lightweight, isolated, and efficient file system layers for containers. Docker volumes are essentially directories created within the UnionFS that are managed by Docker, providing a separate space for persistent data storage and sharing between containers.  </p>
-<blockquote>
-<p>We will learn more about UnionFS and container volumes in Docker images section.</p>
-</blockquote>
-<h2 id="managing-volume">Managing volume</h2>
-<p>This section includes some essential commands to provide a better understanding of Docker volumes. You may use the <a href="https://docs.docker.com/storage/volumes/">official Docker documentation</a> as a reference.  </p>
-<ul>
-<li>Run a Nginx container using the below command:  </li>
-</ul>
-<pre><code class="language-bash">docker run -it -d -p 8080:80 --name web nginx
-</code></pre>
-<p>Open a browser and navigate to <a href="http://localhost:8080">http://localhost:8080</a>. You should see the following NGINX welcome page.  </p>
-<p><img alt="Nginx Default" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/nginx-default.png?raw=true" /></p>
-<blockquote>
-<p>If you want to modify the HTML file, what is the solution? </p>
-</blockquote>
-<ul>
-<li>Adding custom HTML using bind mounting volume:  </li>
-</ul>
-<p>Nginx, by default, searches for files to serve in the <code>/usr/share/nginx/html</code> directory within the container. To place our HTML files in this directory, we can utilize a mounted volume. This method allows us to connect a directory on our local machine and map it to the running container.  </p>
-<p>To serve a custom HTML page using the Nginx image, follow these steps:  </p>
-<ul>
-<li>Create a directory called <code>html</code>.</li>
-<li>Within this directory, add an <code>index.html</code> file.</li>
-<li>Paste the following HTML content into the <code>index.html</code> file:</li>
-</ul>
-<pre><code class="language-bash">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;CloudyNotes&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Welcome to CloudyNotes.io&lt;/h1&gt;
-    &lt;p&gt;This is a Nginx container with a bind volume.&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<ul>
-<li>Run a new Nginx container with a bind volume: </li>
-</ul>
-<pre><code class="language-bash">docker run -it -d -p 8080:80 --name web -v &lt;path_to_html&gt;:/usr/share/nginx/html nginx
-</code></pre>
-<blockquote>
-<p>You should remove the other Nginx first.  </p>
-<p>Replace <path_to_html> to the path of the html directory.</p>
-</blockquote>
-<p>Now open the browser and navigate to <a href="http://localhost:8080">http://localhost:8080</a> and you should see the above html rendered in your browser window:  </p>
-<p><img alt="Nginx bind volume" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/nginx-volume.png?raw=true" /></p>
-<blockquote>
-<p>Try to modify the <code>index.html</code> and refresh the browser again. Are your changes applying on the ouput? </p>
-</blockquote>
-<ul>
-<li>Inspect the container and find the binding details:  </li>
-</ul>
-<pre><code class="language-bash">docker inspect web | grep Binds -A 5 -B 5
-</code></pre>
-<ul>
-<li>Now let's try to create a Docker volume:  </li>
-</ul>
-<pre><code class="language-bash">docker volume create my_volume
-</code></pre>
-<ul>
-<li>Test the volume by adding a file to it:  </li>
-</ul>
-<pre><code class="language-bash">echo &quot;Hello, Docker volume!&quot; | docker run -i --rm -v my_volume:/app busybox sh -c 'cat &gt; /app/test.txt'
-</code></pre>
-<blockquote>
-<p>This command creates a file named "test.txt" inside the volume using a Busybox container.</p>
-</blockquote>
-<ul>
-<li>Inspect the Docker volume:  </li>
-</ul>
-<pre><code class="language-bash">docker inspect my_volume
-</code></pre>
-<ul>
-<li>Navigate to the <code>Mountpoint</code> and check the content of the volume:  </li>
-</ul>
-<pre><code class="language-bash">sudo su
-cd /var/lib/docker/volumes/my_volume/_data
-ls
-</code></pre>
-<h2 id="practice-your-knowledge">Practice your knowledge</h2>
-<p>You can practice these tasks in a terminal or command prompt with Docker installed on your machine. Make sure you have Docker properly installed and configured before starting the practice scenario.</p>
-<p>Remember to refer to Docker's official documentation for detailed information on each command and its usage. Happy learning!  </p>
-<h3 id="scenario1">Scenario1</h3>
-<p><strong>Sharing Docker Volume Between Containers</strong></p>
-<p>In this scenario, you will practice creating a Docker volume, attaching it to two containers, and testing the sharing of the volume between the containers.  </p>
-<p><strong>Task 1: Create Docker volume</strong></p>
-<p>Create a new Docker volume named <code>my_volume</code>.</p>
-<p><strong>Task 2: Run containers with same volume</strong>  </p>
-<p>Run the first container named <code>container1</code> using the Nginx image. Attach the <code>my_volume</code> volume to the <code>/app</code> directory inside the container.</p>
-<p>Run the second container named <code>container2</code> using the Ubuntu image. Attach the same <code>my_volume</code> volume to the <code>/app</code> directory inside the container.</p>
-<p><strong>Task 3: Verify volume sharing</strong>  </p>
-<p>From <code>container1</code>, create a file named <code>test.txt</code> inside the volume with the content <code>Hello from container1</code>. </p>
-<blockquote>
-<p>Hint: <code>docker exec container1 sh -c 'echo "Hello from container1" &gt; /app/test.txt'</code></p>
-</blockquote>
-<p>Verify that the file is accessible from <code>container2</code> and display its content.</p>
-<p>Update the file from <code>container2</code> with the content <code>Hello from container2</code>.</p>
-<p>Verify that the changes are reflected when accessing the file from <code>container1</code>.</p>
-<blockquote>
-<p>There are several ways to share data between containers. The above scenario was an example of file sharing using a bind volume. You can find more information <a href="https://docs.docker.com/storage/volumes/#share-data-between-machines">here</a>.</p>
-</blockquote>
+<h1 id="the-blog-will-be-posted-soon">The blog will be posted soon!</h1>
+<p><img alt="Terraforming Mars" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/coming-soon.jpg?raw=true" /></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 15, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 12, 2023</span>
       
     
   </small>
@@ -497,53 +327,6 @@ ls
 
 
 
-
-  <h2 id="__comments">Comments</h2>
-  <!-- Insert generated snippet here -->
-  <script src="https://giscus.app/client.js"
-        data-repo="cloudynotes/comments"
-        data-repo-id="R_kgDOJAy0uA"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOJAy0uM4CUXOl"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
-</script>
-  <!-- Synchronize Giscus theme with palette -->
-  <script>
-    var giscus = document.querySelector("script[src*=giscus]")
-
-    /* Set palette on initial load */
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate" ? "dark" : "light"
-      giscus.setAttribute("data-theme", theme) 
-    }
-
-    /* Register event handlers after documented loaded */
-    document.addEventListener("DOMContentLoaded", function() {
-      var ref = document.querySelector("[data-md-component=palette]")
-      ref.addEventListener("change", function() {
-        var palette = __md_get("__palette")
-        if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate" ? "dark" : "light"
-
-          /* Instruct Giscus to change theme */
-          var frame = document.querySelector(".giscus-frame")
-          frame.contentWindow.postMessage(
-            { giscus: { setConfig: { theme } } },
-            "https://giscus.app"
-          )
-        }
-      })
-    })
-  </script>
 
                 
               </article>
@@ -655,10 +438,10 @@ ls
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      <script src="../assets/javascripts/bundle.2a6f1dda.min.js"></script>
       
     
   </body>
