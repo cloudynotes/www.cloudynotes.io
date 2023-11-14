@@ -327,12 +327,13 @@ Most Popular Style
 }
 
 .recent-published .item img {
-  margin-left: 50px;
-  border-radius: 23px;
-  width: 250px; /* Set a fixed width */
-  height: 150px; /* Set a fixed height */
+  margin-left: 20px;
+  border-radius: 15px;
+  width: 80%; /* Make width responsive */
+  height: auto; /* Adjust height automatically to maintain aspect ratio */
   object-fit: cover; /* Maintain aspect ratio and cover the container */
-  display: inline-block;
+  display: block;
+  overflow: hidden;
 }
 
 .recent-published .item h4 {
