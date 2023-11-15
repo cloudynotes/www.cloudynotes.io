@@ -347,8 +347,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#using-an-aws-sqs-as-a-midleware" class="md-nav__link">
-    Using an AWS SQS as a midleware
+  <a href="#using-an-aws-sqs-as-a-middleware" class="md-nav__link">
+    Using an AWS SQS as a middleware
   </a>
   
 </li>
@@ -461,7 +461,7 @@ def lambda_handler(event, context):
 <blockquote>
 <p>It is evident that programming mistakes or improper use of the service might lead to the Lambda function being triggered endlessly. </p>
 </blockquote>
-<h3 id="using-an-aws-sqs-as-a-midleware">Using an AWS SQS as a midleware</h3>
+<h3 id="using-an-aws-sqs-as-a-middleware">Using an AWS SQS as a middleware</h3>
 <p>Since AWS Lambda's built-in recursive loop supports invocation through AWS SQS, we can utilize AWS SQS to trigger a Lambda function, which in turn reads an object from S3. This approach effectively prevents unintentional recursive loops.</p>
 <p><img alt="s3-sqs-middle" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/sqs-middleware.png?raw=true" /></p>
 <h3 id="lambda-function-permissions">Lambda function permissions</h3>
