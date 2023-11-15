@@ -393,7 +393,7 @@
 <p>The purpose of this post is to illuminate the perilous potential of infinite loops within Lambda functions and to share strategies for averting, detecting, and halting such cycles before they spiral out of control.</p>
 <h2 id="invoking-lambda-and-recursive-loops">Invoking Lambda and recursive loops</h2>
 <p>AWS Lambda function is an event-driven compute service that runs the code when certain events occur. You can invoke Lambda functions directly using the Lambda console, a function URL HTTP(S) endpoint, the Lambda API, an AWS SDK, the AWS Command Line Interface (AWS CLI), and AWS toolkits. You can also configure other AWS services to invoke your function in response to events or external requests, or on a schedule. For another AWS service to invoke your function directly, you need to create a trigger for your Lambda. </p>
-<p>A trigger is a resource you configure to allow another AWS service to invoke your function when certain events or conditions occur. Your function can have multiple triggers. Each trigger acts as a client invoking your function independently, and each event that Lambda passes to your function has data from only one trigger.You can find a list of AWS services that can be used as Lambda triggers here: <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-services.html">Lambda invokers</a></p>
+<p>So, a trigger is a resource you configure to allow another AWS service to invoke your function when certain events or conditions occur. Your function can have multiple triggers. Each trigger acts as a client invoking your function independently, and each event that Lambda passes to your function has data from only one trigger. You can find a list of AWS services that can be used as Lambda triggers here: <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-services.html">Lambda invokers</a></p>
 <p>For example, when an item is added to an Amazon SQS queue or Amazon Simple Notification Service (Amazon SNS) topic. Lambda passes events to your function as JSON objects, which contain information about the change in the system state. When an event causes your function to run, this is called an invocation.</p>
 <p>An AWS Lambda recursive loop is an error that occurs when a Lambda function inadvertently calls itself repeatedly without an exit condition, leading to a potentially endless cycle of function invocations. </p>
 <p>Let's looking back to my infinitive subway lines with no station. Lambda recursive loop created by wrongly invoking the lambda function using S3 object put which then invokes the same function. This invocation causes the function to write another object into the same bucket, which in turn invokes the function again. </p>
@@ -401,7 +401,7 @@
 <h2 id="aws-built-in-recursive-loop-detection-method">AWS built-in recursive loop detection method</h2>
 <p>In Jul 13, 2023 AWS introduced a new <a href="https://aws.amazon.com/about-aws/whats-new/2023/07/aws-lambda-detects-recursive-loops-lambda-functions/">feature</a> to detect and stop recursive loops in lambda functions for certain supported AWS services and SDKs. </p>
 <p>Lambda uses an AWS X-Ray trace header primitive called <code>Lineage</code> to track the number of times a function has been invoked with an event. (You do not need to configure active X-Ray tracing for this feature to work.) If your function is invoked more than 16 times in the same chain of requests, then Lambda automatically stops the next function invocation in that request chain and notifies you. If your function is configured with multiple triggers, then invocations from other triggers aren't affected.</p>
-<p>At the time of writing this blog post, the feature detects recurisve loops between Lambda function and Amazon SQS, and Amazon SNS. Also it detects loops in Lambda functions, which may invoke each other synchronously or asynchronously.</p>
+<p>At the time of writing this blog post, the feature detects recurisve loops between Lambda function and <strong>Amazon SQS</strong>, and <strong>Amazon SNS</strong>. Also it detects loops in Lambda functions, which may invoke each other synchronously or asynchronously.</p>
 <p>Also the featute only works if the lambda function code using one of the below SDKs:<br />
 - Node.js<br />
 - Python<br />
@@ -416,8 +416,10 @@
 <p>As we can observe, there are still some services that could potentially trigger an infinite loop, which AWS has yet to provide detection support for. The problem I faced falls into one of these scenarios.</p>
 <p>In the scenario where a Lambda function is triggered by an S3 put event, it writes an object back to the S3 bucket. This action, in turn, triggers the same Lambda function again, creating a recursive loop of invocations and writings.</p>
 <p><img alt="S3-lambda-loop" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/s3-recursive.png?raw=true" /></p>
+<p>Below, I have gathered some possible approaches to prevent recursive loops when using AWS Lambda and S3:</p>
 <h3 id="vary-source-and-destination-locations">Vary source and destination locations</h3>
-<p>In my situation, I determined that the most effective way to prevent this issue was by using two separate S3 buckets: one for reading the original objects and another for storing the watermarked objects. By directing the output objects to a different bucket, I eliminated the risk of triggering additional events from the source bucket, thereby avoiding the recursive loop. But there are some scenarios that the object should write in the source bucket. The next solution describe some of them. (Ref: <a href="https://aws.amazon.com/blogs/compute/avoiding-recursive-invocation-with-amazon-s3-and-aws-lambda/">AWS blog</a>)</p>
+<p>In my endless subway project, I determined that the most effective way to prevent this issue was by using two separate S3 buckets: one for reading the original objects and another for storing the watermarked objects. By directing the output objects to a different bucket, I eliminated the risk of triggering additional events from the source bucket, thereby avoiding the recursive loop. </p>
+<p>There are some scenarios that the object should write in the source bucket. The next solution describe some of them. (Ref: <a href="https://aws.amazon.com/blogs/compute/avoiding-recursive-invocation-with-amazon-s3-and-aws-lambda/">AWS blog</a>)</p>
 <p><img alt="two-s3-buckets" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/two-buckets.png?raw=true" /></p>
 <h3 id="event-source-filtering">Event source filtering</h3>
 <p>Use S3 event source filtering to trigger the Lambda function only for objects that match certain prefix and/or suffix criteria. You can use naming convention to set a specific naming convention for files that should trigger the Lambda function. When the Lambda function processes a file, it can rename the file or move it to a different folder that does not trigger the function.</p>
@@ -427,6 +429,7 @@
 <h3 id="add-metadata-tagging">Add metadata tagging</h3>
 <p>The other solutin is to use metadata tagging. Add specific metadata to the S3 object after processing it. The Lambda function can check this metadata before processing to determine if the object has already been processed.</p>
 <p><img alt="s3-metadata" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/s3-metadata.png?raw=true" /></p>
+<p>Here is a sample Python code that can be used in a function to check object metadata:</p>
 <pre><code>import boto3
 import json
 s3 = boto3.client('s3')
@@ -460,7 +463,7 @@ def lambda_handler(event, context):
 </blockquote>
 <h3 id="using-an-aws-sqs-as-a-midleware">Using an AWS SQS as a midleware</h3>
 <p>Since AWS Lambda's built-in recursive loop supports invocation through AWS SQS, we can utilize AWS SQS to trigger a Lambda function, which in turn reads an object from S3. This approach effectively prevents unintentional recursive loops.</p>
-<p><img alt="s3-metadata" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/sqs-middleware.png?raw=true" /></p>
+<p><img alt="s3-sqs-middle" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/sqs-middleware.png?raw=true" /></p>
 <h3 id="lambda-function-permissions">Lambda function permissions</h3>
 <p>Restrict your Lambda function’s permissions so it can only read from or write to specific S3 paths. This can prevent it from accidentally processing unintended files.</p>
 <p>for example:  </p>
