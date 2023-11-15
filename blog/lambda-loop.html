@@ -304,15 +304,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#recursive-loops-in-lambda" class="md-nav__link">
-    Recursive loops in Lambda
+  <a href="#invoking-lambda" class="md-nav__link">
+    Invoking Lambda
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#invoking-lambda" class="md-nav__link">
-    Invoking Lambda
+  <a href="#recursive-loops-in-lambda" class="md-nav__link">
+    Recursive loops in Lambda
   </a>
   
 </li>
@@ -397,30 +397,39 @@
 <h1 id="unraveling-recursive-loops-in-aws-lambda">Unraveling Recursive Loops in AWS Lambda</h1>
 <p><img alt="Camel Up" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/lambda-loop.jpg?raw=true" /></p>
 <blockquote>
-<p>The Next Station board game series begins with a London edition, and the latest addition features Tokyo. This game tasks players with redesigning the city's underground subway system. The goal is to optimize connections, serve as many attractions as possible, and make efficient use of the tunnels beneath the city. A fundamental rule of the game is that players cannot circle back to the starting station – in other words, <strong>loops are not permitted</strong>. For more information, visit: <a href="https://boardgamegeek.com/boardgame/353545/next-station-london">boardgamegeek</a>  </p>
+<p>The Next Station board game series begins with a London edition, and the latest addition features Tokyo. This game tasks players with redesigning the city's underground subway system. The goal is to optimize connections, serve as many attractions as possible, and make efficient use of the tunnels under the city. One of the fundamental rule of the game is that players cannot circle back to the starting station – in other words, <strong>loop is not permitted</strong>. For more information, visit: <a href="https://boardgamegeek.com/boardgame/353545/next-station-london">boardgamegeek</a>  </p>
 </blockquote>
-<p>Last year, I awoke to a startling email from AWS's billing service. My personal AWS account had amassed charges amounting to USD 4,000. Initially, I dismissed it as a bizarre dream, a shepherd's nightmare, if you will. But reality struck—it was a genuine email. The AWS billing page echoed the same staggering figure.</p>
+<p>Last year, I awoke to a startling email from AWS billing service. My personal AWS account had amassed charges amounting to $4,000. Initially, I dismissed it as a bizarre dream, a shepherd's nightmare, if you will. But reality struck—it was a genuine email. The AWS billing page echoed the same staggering figure.</p>
 <p><img alt="billing" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/billing.jpg?raw=true" /></p>
 <p>My AWS account is typically a sandbox for experimentation, with monthly expenses hovering around $100. So, what triggered this financial avalanche?</p>
 <p>A closer inspection of the bill pinpointed an unexpected surge in costs associated with AWS S3 (Simple Storage Service) and AWS Lambda. It dawned on me—the culprit was my recent Lambda experiment. In an effort to automate object processing in a bucket, adding a watermark and re-storing, I had overlooked the need to dismantle my setup. A simple oversight, yet it nearly led to my financial undoing.</p>
 <p>Upon further investigation, the root of the problem became clear: an infinite loop. An S3 trigger was continuously invoking the Lambda function, which, in turn, saved the modified object back into the same bucket—a relentless cycle akin to an endless subway line with no stations.</p>
 <p>The purpose of this post is to illuminate the perilous potential of infinite loops within Lambda functions and to share strategies for averting, detecting, and halting such cycles before they spiral out of control.</p>
+<h2 id="invoking-lambda">Invoking Lambda</h2>
+<p><SHOULD BE MODIFIED>You can invoke Lambda functions directly using the Lambda console, a function URL HTTP(S) endpoint, the Lambda API, an AWS SDK, the AWS Command Line Interface (AWS CLI), and AWS toolkits. You can also configure other AWS services to invoke your function in response to events or external requests, or on a schedule. </p>
+<p>For another AWS service to invoke your function directly, you need to create a trigger for your Lambda. A trigger is a resource you configure to allow another AWS service to invoke your function when certain events or conditions occur. Your function can have multiple triggers. Each trigger acts as a client invoking your function independently, and each event that Lambda passes to your function has data from only one trigger.</p>
 <h2 id="recursive-loops-in-lambda">Recursive loops in Lambda</h2>
-<p>AWS Lambda function is an event-driven compute service that runs the code when certain events occur. For example, when an item is added to an Amazon SQS queue or Amazon Simple Notification Service (Amazon SNS) topic. Lambda passes events to your function as JSON objects, which contain information about the change in the system state. When an event causes your function to run, this is called an invocation An AWS Lambda recursive loop is an error that occurs when a Lambda function inadvertently calls itself repeatedly without an exit condition, leading to a potentially endless cycle of function invocations. </p>
+<p><We can say if it invoked!>AWS Lambda function is an event-driven compute service that runs the code when certain events occur. For example, when an item is added to an Amazon SQS queue or Amazon Simple Notification Service (Amazon SNS) topic. Lambda passes events to your function as JSON objects, which contain information about the change in the system state. When an event causes your function to run, this is called an invocation An AWS Lambda recursive loop is an error that occurs when a Lambda function inadvertently calls itself repeatedly without an exit condition, leading to a potentially endless cycle of function invocations. </p>
 <p>As an example, we can check my infinitive subway lines with no station. Lambda recursive loop created by wrongly invoking the lambda function using S3 object put which then invokes the same function. This invocation causes the function to write another object into the same bucket, which in turn invokes the function again. </p>
 <p>Or imagine that an Amazon SQS queue invokes your Lambda function. Your Lambda function then sends the processed event back to the same Amazon SQS queue, which invokes your function again. </p>
-<h2 id="invoking-lambda">Invoking Lambda</h2>
-<p>You can invoke Lambda functions directly using the Lambda console, a function URL HTTP(S) endpoint, the Lambda API, an AWS SDK, the AWS Command Line Interface (AWS CLI), and AWS toolkits. You can also configure other AWS services to invoke your function in response to events or external requests, or on a schedule. </p>
-<p>For another AWS service to invoke your function directly, you need to create a trigger for your Lambda. A trigger is a resource you configure to allow another AWS service to invoke your function when certain events or conditions occur. Your function can have multiple triggers. Each trigger acts as a client invoking your function independently, and each event that Lambda passes to your function has data from only one trigger.</p>
 <h2 id="aws-built-in-recursive-loop-detection-method">AWS built-in recursive loop detection method</h2>
-<p>In Jul 13, 2023 AWS introduced a new <a href="https://aws.amazon.com/about-aws/whats-new/2023/07/aws-lambda-detects-recursive-loops-lambda-functions/">feature</a> to detect and stop recursive loops in lambda functions for certain supported AWS services and SDKs. At the time of writing this blog post, the feature in question is compatible with the following services and SDKs:</p>
-<p>Lambda uses an <code>AWS X-Ray</code> trace header primitive called <code>Lineage</code> to track the number of times a function has been invoked with an event. (You do not need to configure active X-Ray tracing for this feature to work.) If your function is invoked more than 16 times in the same chain of requests, then Lambda automatically stops the next function invocation in that request chain and notifies you. If your function is configured with multiple triggers, then invocations from other triggers aren't affected.</p>
+<p>In Jul 13, 2023 AWS introduced a new <a href="https://aws.amazon.com/about-aws/whats-new/2023/07/aws-lambda-detects-recursive-loops-lambda-functions/">feature</a> to detect and stop recursive loops in lambda functions for certain supported AWS services and SDKs. </p>
+<p>Lambda uses an AWS X-Ray trace header primitive called <code>Lineage</code> to track the number of times a function has been invoked with an event. (You do not need to configure active X-Ray tracing for this feature to work.) If your function is invoked more than 16 times in the same chain of requests, then Lambda automatically stops the next function invocation in that request chain and notifies you. If your function is configured with multiple triggers, then invocations from other triggers aren't affected.</p>
+<p>At the time of writing this blog post, the feature detects recurisve loops between Lambda function and Amazon SQS, and Amazon SNS. Also it detects loops in Lambda functions, which may invoke each other synchronously or asynchronously.</p>
+<p>Also the featute only works if the lambda function code using one of the below SDKs:<br />
+- Node.js<br />
+- Python<br />
+- Java 8, Java 11 and Java 17<br />
+- NET<br />
+- Ruby  </p>
 <blockquote>
 <p>If your design intentionally uses recursive patterns, then you can raise a AWS support request to turn off Lambda recursive loop detection.</p>
 </blockquote>
+<p>Find more information here: <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html">Lambda recursive loop detection</a></p>
 <h2 id="custom-recursive-loop-detection-methods">Custom recursive loop detection methods</h2>
 <p>As we can observe, there are still some services that could potentially trigger an infinite loop, which AWS has yet to provide detection support for. The problem I faced falls into one of these scenarios.</p>
-<p>In the scenario where a Lambda function is triggered by an S3 put event, it writes an object back to the S3 bucket. This action, in turn, triggers the same Lambda function again, creating a recursive loop of invocations and writings:</p>
+<p>In the scenario where a Lambda function is triggered by an S3 put event, it writes an object back to the S3 bucket. This action, in turn, triggers the same Lambda function again, creating a recursive loop of invocations and writings.</p>
+<p><img alt="S3-lambda-loop" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/s3-recursive.png?raw=true" /></p>
 <h3 id="two-buckets">Two buckets</h3>
 <p>In my situation, I determined that the most effective way to prevent this issue was by using two separate S3 buckets: one for reading the original objects and another for storing the watermarked objects. By directing the output objects to a different bucket, I eliminated the risk of triggering additional events from the source bucket, thereby avoiding the recursive loop. But there are some scenarios that the object should write in the source bucket. </p>
 <h3 id="use-a-naming-convention-or-metadata-tagging">Use a naming convention or metadata tagging</h3>
@@ -441,7 +450,7 @@ The other solutin is to use metadata tagging. Add specific metadata to the S3 ob
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 14, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 15, 2023</span>
       
     
   </small>

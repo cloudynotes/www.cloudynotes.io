@@ -2,82 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://cloudynotes.io/index.html</loc>
-         <lastmod>2023-11-14</lastmod>
+         <lastmod>2023-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/blog/camelup.html</loc>
-         <lastmod>2023-11-14</lastmod>
+         <lastmod>2023-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/blog/coming-soon.html</loc>
-         <lastmod>2023-11-14</lastmod>
+         <lastmod>2023-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/blog/lambda-loop.html</loc>
-         <lastmod>2023-11-14</lastmod>
+         <lastmod>2023-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/blog/main.html</loc>
-         <lastmod>2023-11-14</lastmod>
+         <lastmod>2023-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/blog/rulebook.html</loc>
-         <lastmod>2023-11-14</lastmod>
+         <lastmod>2023-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/blog/tags.html</loc>
-         <lastmod>2023-11-14</lastmod>
+         <lastmod>2023-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/blog/tf-mars.html</loc>
-         <lastmod>2023-11-14</lastmod>
+         <lastmod>2023-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/trainings/docker/docker-file.html</loc>
-         <lastmod>2023-11-14</lastmod>
+         <lastmod>2023-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/trainings/docker/docker-image.html</loc>
-         <lastmod>2023-11-14</lastmod>
+         <lastmod>2023-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/trainings/docker/docker-network.html</loc>
-         <lastmod>2023-11-14</lastmod>
+         <lastmod>2023-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/trainings/docker/docker-volume.html</loc>
-         <lastmod>2023-11-14</lastmod>
+         <lastmod>2023-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/trainings/docker/intro.html</loc>
-         <lastmod>2023-11-14</lastmod>
+         <lastmod>2023-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/trainings/docker/nextgenbts.html</loc>
-         <lastmod>2023-11-14</lastmod>
+         <lastmod>2023-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/trainings/docker/private-registry.html</loc>
-         <lastmod>2023-11-14</lastmod>
+         <lastmod>2023-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cloudynotes.io/trainings/docker/under-the-hood.html</loc>
-         <lastmod>2023-11-14</lastmod>
+         <lastmod>2023-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
