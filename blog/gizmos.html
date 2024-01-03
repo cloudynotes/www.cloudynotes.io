@@ -344,6 +344,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -380,13 +387,179 @@
 <p>And finally, there's AWS EventBridge, which serves as the heart of this integration. Amazon EventBridge is a serverless event bus service designed to connect various applications and AWS services seamlessly. It plays a crucial role in decoupling the architecture and simplifying event routing. I highly recommend checking out the AWS tutorial on AWS EventBridge for more in-depth insights: <a href="https://pages.awscloud.com/AWS-Learning-Path-How-to-Use-Amazon-EventBridge-to-Build-Decoupled-Event-Driven-Architectures_2020_LP_0001-SRV.html">AWS EventBridge Learning </a></p>
 <p>Now, let's enhance the event-driven architecture diagram to reflect the changes made in this project:  </p>
 <p><img alt="Evnet Driven Gizmos" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/gizmos/event-driven-gizmos.png?raw=true" /></p>
+<h2 id="implementation">Implementation</h2>
+<p>Finally, I've reached the point of detailing the implementation steps, which happens to be the most straightforward section for me to write. As indicated by the weblog's title, the implementation is zero-code, eliminating the necessity for any custom scripting. I opt for Terraform for the entire deployment process. However, if Terraform isn't your preference, you can effortlessly utilize the AWS console instead.</p>
+<p>The below diagram shows all the services utilized in this project:</p>
+<p><img alt="High Level" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/gizmos/high-level.png?raw=true" /></p>
+<p>Firstly, we need to enable AWS CloudTrail, and for this, an AWS S3 bucket is required to store all the logs. Therefore, the initial step involves creating a bucket:</p>
+<pre><code># data blocks gather information
+data &quot;aws_caller_identity&quot; &quot;gizmos&quot; {}
+
+data &quot;aws_partition&quot; &quot;gizmos&quot; {}
+
+data &quot;aws_region&quot; &quot;gizmos&quot; {}
+
+# data block of S3 bucket iam policy document
+data &quot;aws_iam_policy_document&quot; &quot;gizmos&quot; {
+  statement {
+    sid    = &quot;AWSCloudTrailAclCheck&quot;
+    effect = &quot;Allow&quot;
+
+    principals {
+      type        = &quot;Service&quot;
+      identifiers = [&quot;cloudtrail.amazonaws.com&quot;]
+    }
+
+    actions   = [&quot;s3:GetBucketAcl&quot;]
+    resources = [aws_s3_bucket.gizmos.arn]
+    condition {
+      test     = &quot;StringEquals&quot;
+      variable = &quot;aws:SourceArn&quot;
+      values   = [&quot;arn:${data.aws_partition.gizmos.partition}:cloudtrail:${data.aws_region.gizmos.name}:${data.aws_caller_identity.gizmos.account_id}:trail/cloudynotes-gizmos-trial&quot;]
+    }
+  }
+
+  statement {
+    sid    = &quot;AWSCloudTrailWrite&quot;
+    effect = &quot;Allow&quot;
+
+    principals {
+      type        = &quot;Service&quot;
+      identifiers = [&quot;cloudtrail.amazonaws.com&quot;]
+    }
+
+    actions   = [&quot;s3:PutObject&quot;]
+    resources = [&quot;${aws_s3_bucket.gizmos.arn}/AWSLogs/${data.aws_caller_identity.gizmos.account_id}/*&quot;]
+
+    condition {
+      test     = &quot;StringEquals&quot;
+      variable = &quot;s3:x-amz-acl&quot;
+      values   = [&quot;bucket-owner-full-control&quot;]
+    }
+    condition {
+      test     = &quot;StringEquals&quot;
+      variable = &quot;aws:SourceArn&quot;
+      values   = [&quot;arn:${data.aws_partition.gizmos.partition}:cloudtrail:${data.aws_region.gizmos.name}:${data.aws_caller_identity.gizmos.account_id}:trail/cloudynotes-gizmos-trial&quot;]
+    }
+  }
+}
+
+# Create S3 bucket
+resource &quot;aws_s3_bucket&quot; &quot;gizmos&quot; {
+  bucket        = &quot;cloudynotes-gizmos-trial&quot;
+  force_destroy = true
+}
+
+# Add S3 bucket policy
+resource &quot;aws_s3_bucket_policy&quot; &quot;gizmos&quot; {
+  bucket = aws_s3_bucket.gizmos.id
+  policy = data.aws_iam_policy_document.gizmos.json
+}
+</code></pre>
+<p>And then we can enable AWS CloudTrail:</p>
+<pre><code># Enable AWS CloudTrial
+resource &quot;aws_cloudtrail&quot; &quot;gizmos&quot; {
+  depends_on = [aws_s3_bucket_policy.gizmos]
+
+  name                          = &quot;cloudynotes-gizmos-trial&quot;
+  s3_bucket_name                = aws_s3_bucket.gizmos.id
+  include_global_service_events = true
+  is_multi_region_trail         = true
+}
+</code></pre>
+<blockquote>
+<p><strong>Note</strong><br />
+- For a multi-region trail, this resource must be in the home region of the trail.<br />
+- Console login log needs capturing events from IAM, so <code>include_global_service_events</code> must be enabled.  </p>
+</blockquote>
+<p>With the producer configuration complete, the next step involves creating the consumer, which is an SNS topic. Utilize the code blocks below to create an SNS topic for sending emails upon receiving an event:</p>
+<pre><code># Create AWS SNS topic
+resource &quot;aws_sns_topic&quot; &quot;gizmos_sns_topic&quot; {
+  name         = &quot;gizmos-aws-sign-in&quot;
+  display_name = &quot;Gizmos login&quot;
+}
+
+# Add SNS policy
+resource &quot;aws_sns_topic_policy&quot; &quot;gizmos_topic_policy&quot; {
+  arn    = aws_sns_topic.gizmos_sns_topic.arn
+  policy = data.aws_iam_policy_document.gizmos_topic_policy.json
+}
+
+# data block of SNS policy document
+data &quot;aws_iam_policy_document&quot; &quot;gizmos_topic_policy&quot; {
+  statement {
+    effect  = &quot;Allow&quot;
+    actions = [&quot;SNS:Publish&quot;]
+
+    principals {
+      type        = &quot;Service&quot;
+      identifiers = [&quot;events.amazonaws.com&quot;]
+    }
+
+    resources = [aws_sns_topic.gizmos_sns_topic.arn]
+  }
+}
+</code></pre>
+<p>Now add an email topic subscription: </p>
+<pre><code>resource &quot;aws_sns_topic_subscription&quot; &quot;gizmos_sqs_subscription&quot; {
+  topic_arn = aws_sns_topic.gizmos_sns_topic.arn
+  protocol  = &quot;email&quot;
+  endpoint  = var.subscription_email
+}
+</code></pre>
+<blockquote>
+<p>You can add <code>subscription_email</code> to the Terraform varaibles or simply replace your email address in the above block:<br />
+endpoint = "gizmos@cloudynotes.io"</p>
+</blockquote>
+<p>The important and final step is to set up AWS EventBridge to capture events from AWS CloudTrail and send them to AWS SNS. Use the below code block to create event rule:</p>
+<pre><code>resource &quot;aws_cloudwatch_event_rule&quot; &quot;gizmos_event_rule&quot; {
+  name        = &quot;gizmos-aws-sign-in&quot;
+  description = &quot;Capture each AWS Console Sign In&quot;
+
+  event_pattern = &lt;&lt;PATTERN
+  {
+  &quot;source&quot;: [&quot;aws.signin&quot;],
+  &quot;detail-type&quot;: [&quot;AWS Console Sign In via CloudTrail&quot;],
+  &quot;detail&quot;: {
+    &quot;eventSource&quot;: [&quot;signin.amazonaws.com&quot;],
+    &quot;eventName&quot;: [&quot;ConsoleLogin&quot;]
+    }
+  }
+  PATTERN
+}
+</code></pre>
+<p>As you can see the Terraform resource is CloudWatch event rule, EventBridge was formerly known as CloudWatch Events. The functionality is identical.</p>
+<p>A helpful tip for finding the correct pattern for your event is to utilize the AWS EventBridge console. This tool assists in generating a sample event, allowing you to test your pattern before creating your rule. Navigate to your AWS Console, go to the EventBridge service, and select "Rule" from the left side to create a sample rule. On the next page, choose "AWS events" as sample events and then filter your sample event. In this example, you might filter for "AWS Console Sign In via CloudTrail":</p>
+<p><img alt="EventBridge Rule" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/gizmos/consol-1.png?raw=true" /></p>
+<p>Then, at the bottom of the page, you can select your method and define your event pattern.</p>
+<p><img alt="EventBridge Rule Pattern" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/gizmos/consol-2.png?raw=true" /></p>
+<p>We are approaching the final step of the configuration; adding a target to the event rule. Since we have created an SNS topic as the target, we need to include it in the event rule target. The event rule includes an excellent feature that allows for the transformation of input data, enabling the sending of custom event data to the target. This functionality proves valuable in eliminating unnecessary information from the event or customizing the event data. Read more about it <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-transform-target-input.html">here</a>.</p>
+<pre><code>resource &quot;aws_cloudwatch_event_target&quot; &quot;gizmos_event_target&quot; {
+  rule      = aws_cloudwatch_event_rule.gizmos_event_rule.name
+  target_id = &quot;gizmosLoginSNS&quot;
+  arn       = aws_sns_topic.gizmos_sns_topic.arn
+
+  input_transformer {
+    input_paths = {
+      aws_account = &quot;$.detail.awsRegion&quot;,
+      time        = &quot;$.time&quot;,
+      user        = &quot;$.detail.userIdentity.accountId&quot;
+    }
+    input_template = &lt;&lt;EOF
+        &quot;Warning! Successfully loggin to &lt;aws_account&gt; at &lt;time&gt; with user: &lt;user&gt;!&quot;
+    EOF
+  }
+}
+</code></pre>
+<p>Apply the Terraform resources and then you can test the setup by logout and loggin to your AWS account:</p>
+<p><img alt="Loggin Email" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/gizmos/email.png?raw=true" /></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 2, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 3, 2024</span>
       
     
   </small>
