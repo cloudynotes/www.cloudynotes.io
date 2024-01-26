@@ -480,7 +480,13 @@ cat /proc/[pid]/cgroup
 <h3 id="apparmor">AppArmor</h3>
 <p>AppArmor is a security module integrated into the Linux kernel, which enables system administrators to impose restrictions on the capabilities of programs through per-program profiles. These profiles define what actions a program is allowed to perform, such as granting network access, raw socket access, and read, write, or execute permissions for specific file paths. Check this <a href="https://levelup.gitconnected.com/apparmor-for-docker-kubernetes-e82ef023a10c">blog</a> for more information.</p>
 <h2 id="demo">Demo</h2>
-<pre><code class="language-bash">mount --make-rprivate / 
+<pre><code class="language-bash">#First mount a btrfs disk:
+mkfs.btrfs /dev/sdb1
+mkdir /container
+mount /dev/sdb1 /container
+mount | grep btrfs
+
+mount --make-rprivate / 
 mkdir -p images containers
 btrfs subvol create images/alpine
 wget https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64/alpine-minirootfs-3.18.0-x86_64.tar.gz
@@ -504,7 +510,7 @@ ip a
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 12, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 26, 2024</span>
       
     
   </small>
