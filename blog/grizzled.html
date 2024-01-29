@@ -6,22 +6,22 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Latest active blogs">
+        <meta name="description" content="Run Amazon Linux 2 on your infrastructure">
       
       
-      
-        <link rel="canonical" href="https://cloudynotes.io/blog/main.html">
-      
+        <meta name="author" content="Meraj Kashi">
       
       
-        <link rel="next" href="tags.html">
+        <link rel="canonical" href="https://cloudynotes.io/blog/grizzled.html">
+      
+      
       
       <link rel="icon" href="../assets/logo.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
     
     
       
-        <title>Latest - CloudyNotes</title>
+        <title>The Grizzled - CloudyNotes</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#blogs" class="md-skip">
+        <a href="#run-amazon-linux-2-on-your-infrastructure" class="md-skip">
           Skip to content
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Latest
+              The Grizzled
             
           </span>
         </div>
@@ -212,16 +212,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
       
       
       
@@ -230,7 +228,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
           Blog
@@ -241,21 +239,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="main.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="main.html" class="md-nav__link">
         Latest
       </a>
-      
     </li>
   
 
@@ -301,6 +289,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview-detect-aws-console-login" class="md-nav__link">
+    Overview; Detect AWS console login
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -314,397 +317,19 @@
                   
 
 
-<h1 id="blogs">blogs</h1>
-<p>This blog section is a place where we can explore a wide range of topics and ideas, from the latest technology trends to tips for self-improvement and personal growth. Whether you're a tech enthusiast, a curious learner, or someone seeking inspiration, there's something for everyone here.</p>
-<p>
-
-
-
-<style>
-    .md-typeset .blog-post:first-of-type h3 {
-        margin-top: 0;
-    }
-
-    .md-typeset .blog-post-title {
-        margin-bottom: 0;
-    }
-
-    .md-typeset .blog-post-extra {
-        color: var(--md-default-fg-color--light);
-    }
-
-    .md-typeset .blog-center {
-        text-align: center;
-    }
-
-    .md-typeset .blog-pagination {
-        display: inline-block;
-        margin-top: 20px;
-    }
-
-    .md-typeset .blog-pagination a {
-        color: var(--md-typeset-color);
-        float: left;
-        padding: .25em 1em;
-        text-decoration: none;
-        border-radius: 1em;
-        margin-left: .25em;
-        margin-right: .25em;
-        transition: all .15s ease-in-out;
-    }
-
-    .md-typeset .blog-pagination a.active {
-        background-color: var(--md-typeset-a-color);
-        color: white;
-        font-weight: bold;
-    }
-
-    .md-typeset .blog-pagination a:hover:not(.active) {
-        background-color: #dddddda1;
-    }
-
-    .md-typeset .blog-hidden {
-        display: none;
-    }
-</style>
-
-<style>
-    .blog-override-post {
-        padding: 30px 60px 30px 0;
-        margin-top: 10px;
-        border: 1px solid transparent;
-        cursor: default;
-    }
-
-    .blog-override-post .blog-post-title {
-        color: var(--md-typeset-a-color);
-        margin-top: 0;
-    }
-
-    .blog-post-description {
-        color: var(--md-typeset-color);
-    }
-
-    .blog-override-post:first-of-type {
-        margin-top: 0;
-    }
-
-    .blog-override-post:hover {
-        border: 1px solid #e8e8e877;
-        box-shadow: 3px 4px 10px #e8e8e8;
-    }
-
-    .blog-override-post,
-    .blog-override-post>* {
-        transition: all 0.3s ease-in-out;
-    }
-
-    .blog-override-post:hover>* {
-        transform: translateX(30px);
-    }
-
-    .blog-post-description,
-    .blog-post-extra {
-        opacity: 0.8;
-    }
-
-    .blog-override-post:hover .blog-post-description,
-    .blog-override-post:hover .blog-post-extra {
-        opacity: 1;
-    }
-
-    @media only screen and (max-width: 1000px) {
-        .blog-override-post,
-        .blog-override-post>* {
-            transition: none;
-        }
-
-        .blog-override-post:hover>* {
-            transform: none;
-        }
-
-        .blog-override-post {
-            padding: 30px 0 30px 0;
-            border: none;
-            cursor: pointer;
-        }
-
-        .blog-override-post:hover {
-            border: none;
-            box-shadow: none;
-        }
-
-        .blog-post-description,
-        .blog-post-extra,
-        .blog-override-post:hover .blog-post-description,
-        .blog-override-post:hover .blog-post-extra {
-            opacity: 1;
-        }
-    }
-</style>
-
-
-
-
-
-    
-    
-        
-    
-
-
-
-
-
-
-
-
-
-
-    <style>
-    .md-typeset .blogging-tags-grid {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 5px;
-    }
-
-    .md-typeset .blogging-tag {
-        color: var(--md-typeset-color);
-        background-color: var(--md-typeset-code-color);
-    }
-
-    .md-typeset .blogging-tag code {
-        border-radius: 5px;
-    }
-</style>
-
-    
-
-
-
-
-
-
-<div class="pages">
-    
-        
-        <div class="page" id="page1">
-
-            
-                
-                
-                
-                
-
-                
-                
-                    
-                
-
-                
-                
-                    
-                
-                
-                <a href="https://cloudynotes.io/blog/grizzled.html">
-    <div class="blog-override-post">
-        <h3 class="blog-post-title">The Grizzled</h3>
-        
-            <div class="blogging-tags-grid">
-        
-        <code style="color: var(--md-typeset-color)">#AWS</code>
-        
-    </div>
-    
-            
-
-        
-        <p class="blog-post-description">Run Amazon Linux 2 on your infrastructure</p>
-        <div class="blog-post-extra">
-            Updated at: 2024-01-29 22:41:48
-        </div>
-    </div>
-</a>
-
-                
-            
-                
-                
-                
-                
-
-                
-                
-                    
-                
-
-                
-                
-                    
-                
-                
-                <a href="https://cloudynotes.io/blog/gizmos.html">
-    <div class="blog-override-post">
-        <h3 class="blog-post-title">Gizmos</h3>
-        
-            <div class="blogging-tags-grid">
-        
-        <code style="color: var(--md-typeset-color)">#AWS</code>
-        
-        <code style="color: var(--md-typeset-color)">#Terraform</code>
-        
-    </div>
-    
-            
-
-        
-        <p class="blog-post-description">Take an action based on AWS API calls (Zero Code)</p>
-        <div class="blog-post-extra">
-            Updated at: 2024-01-03 10:38:36
-        </div>
-    </div>
-</a>
-
-                
-            
-                
-                
-                
-                
-
-                
-                
-                    
-                
-
-                
-                
-                    
-                
-                
-                <a href="https://cloudynotes.io/blog/lambda-loop.html">
-    <div class="blog-override-post">
-        <h3 class="blog-post-title">Next station is closed</h3>
-        
-            <div class="blogging-tags-grid">
-        
-        <code style="color: var(--md-typeset-color)">#Cloud</code>
-        
-        <code style="color: var(--md-typeset-color)">#AWS</code>
-        
-    </div>
-    
-            
-
-        
-        <p class="blog-post-description">Unraveling Recursive Loops in AWS Lambda</p>
-        <div class="blog-post-extra">
-            Updated at: 2023-11-15 18:49:17
-        </div>
-    </div>
-</a>
-
-                
-            
-                
-                
-                
-                
-
-                
-                
-                    
-                
-
-                
-                
-                    
-                
-                
-                <a href="https://cloudynotes.io/blog/camelup.html">
-    <div class="blog-override-post">
-        <h3 class="blog-post-title">Camel Up</h3>
-        
-            <div class="blogging-tags-grid">
-        
-        <code style="color: var(--md-typeset-color)">#Cloud</code>
-        
-    </div>
-    
-            
-
-        
-        <p class="blog-post-description">Yo-Yo attacks on cloud auto-scaling</p>
-        <div class="blog-post-extra">
-            Updated at: 2023-08-03 21:45:13
-        </div>
-    </div>
-</a>
-
-                
-            
-                
-                
-                
-                
-
-                
-                
-                    
-                
-
-                
-                
-                    
-                
-                
-                <a href="https://cloudynotes.io/blog/rulebook.html">
-    <div class="blog-override-post">
-        <h3 class="blog-post-title">Rulebook</h3>
-        
-            <div class="blogging-tags-grid">
-        
-        <code style="color: var(--md-typeset-color)">#General</code>
-        
-    </div>
-    
-            
-
-        
-        <p class="blog-post-description">Unlocking the Power of Effective Documentation</p>
-        <div class="blog-post-extra">
-            Updated at: 2023-04-13 08:57:56
-        </div>
-    </div>
-</a>
-
-                
-            
-        </div>
-    
-</div>
-
-<div class="blog-center blog-hidden">
-    <div class="blog-pagination " id="blog-pagination">
-        
-            
-                
-            
-            <a class="page-number" href="">1</a>
-        
-    </div>
-    
-</div></p>
-<p>Thank you for joining me on this adventure, and I look forward to connecting with you soon!  </p>
+<h1 id="run-amazon-linux-2-on-your-infrastructure">Run Amazon Linux 2 on your infrastructure</h1>
+<p><img alt="The Grizzled" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/grizzled/grizzled.png?raw=true" /></p>
+<blockquote>
+<p>The Grizzled is a cooperative game about survival in the trenches during the first World War where players win or lose together. For more information, visit: <a href="https://boardgamegeek.com/boardgame/171668/grizzled">boardgamegeek</a>  </p>
+</blockquote>
+<h2 id="overview-detect-aws-console-login">Overview; Detect AWS console login</h2>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 19, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 29, 2024</span>
       
     
   </small>
@@ -715,6 +340,53 @@
 
 
 
+
+  <h2 id="__comments">Comments</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+        data-repo="cloudynotes/comments"
+        data-repo-id="R_kgDOJAy0uA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJAy0uM4CUXOl"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
@@ -732,27 +404,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-        
-          
-          <a href="tags.html" class="md-footer__link md-footer__link--next" aria-label="Next: All" rel="next">
-            <div class="md-footer__title">
-              <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  Next
-                </span>
-                All
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -854,61 +505,4 @@
       
     
   </body>
-</html><script>var currentPage = 0
-const lastComponent = window.location.href.split("/").slice(-1).pop()
-
-if (lastComponent && lastComponent.slice(0, 7) == "#blog-p") {
-  const page = parseInt(lastComponent.slice(7))
-  if (page) {
-    currentPage = page - 1
-  }
-}
-
-function scrollToTop() {
-  setTimeout(function () {
-    window.scrollTo(0, 0);
-  }, 100);
-}
-
-var pagination = document.getElementById("blog-pagination");
-if (pagination) {
-  var links = pagination.getElementsByClassName("page-number");
-  if (links.length) {
-    for (var i = 0; i < links.length; i++) {
-      // Toggle pagination highlight
-      links[i].addEventListener("click", function () {
-        var current = pagination.getElementsByClassName("active");
-        if (current.length) {
-          current[0].className = current[0].className.replace(
-            " active", ""
-          );
-        }
-        this.className += " active";
-
-        // Togglg visibility of pages
-        const destPage = parseInt(this.textContent)
-        var pages = document.getElementsByClassName("page")
-        if (destPage && pages.length) {
-          for (var j = 0; j < pages.length; j++) {
-            const pageId = parseInt(pages[j].id.replace("page", ""))
-            if (pageId != destPage) {
-              // This is not the destination page
-              if (!pages[j].className.includes("blog-hidden")) {
-                pages[j].className += " blog-hidden"
-              }
-            } else {
-              // This is the destination page
-              pages[j].className = pages[j].className.replace(" blog-hidden", "")
-            }
-          }
-          scrollToTop();
-        }
-      });
-    }
-    links[currentPage].className += " active"
-    if (currentPage > 0) {
-      links[currentPage].click();
-    }
-  }
-}
-</script>
+</html>
