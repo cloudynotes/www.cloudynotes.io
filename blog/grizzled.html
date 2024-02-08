@@ -273,6 +273,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-linux" class="md-nav__link">
+    Amazon Linux
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-init" class="md-nav__link">
+    Cloud-init
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-amazon-linux-locally" class="md-nav__link">
+    Run Amazon Linux locally
+  </a>
+  
+    <nav class="md-nav" aria-label="Run Amazon Linux locally">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nocloud-datasource" class="md-nav__link">
+    NoCloud Datasource
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-linux-vm-image" class="md-nav__link">
+    Amazon Linux VM image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boot-the-vm" class="md-nav__link">
+    Boot the VM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explore-al2-and-al2023" class="md-nav__link">
+    Explore AL2 and AL2023
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -293,7 +356,141 @@
 <p>The Grizzled is a cooperative game about survival in the trenches during the first World War where players win or lose together.Players take turns either playing cards from their hand, representing threats like mortar shells or negative personality traits, or opting out of the mission. Successful progress depends on correctly playing threat cards. Too many occurrences of a threat result in mission failure, highlighting the need for planning, teamwork, and a touch of luck.
  For more information, visit: <a href="https://boardgamegeek.com/boardgame/171668/grizzled">boardgamegeek</a>  </p>
 </blockquote>
-<h1 id="coming-soon">Coming soon!</h1>
+<p>There is still a significant demand for running services on virtual machines. In the realm of the AWS cloud, utilizing AWS EC2 emerges as the prime choice for VM deployment. AWS offers a wide array of Amazon Machine Images (AMIs) suitable for installation on EC2 instances. However, AWS also presents a tailored Linux AMI known as Amazon Linux, which is crafted to furnish a stable, secure, and high-performance execution environment for applications hosted on EC2.</p>
+<p>Setting up an Ubuntu machine on a personal computer or a homelab server is a straightforward process. One simply needs to download the appropriate image tailored to their virtualization environment and initiate the VM. However, the question arises: How does one setup AWS Linux locally, facilitating testing and exploration of the image without incurring the additional expense of provisioning an EC2 instance on AWS?</p>
+<p>This blog post elucidates the steps required to configure AWS Linux within your local environment, thereby obviating the need for EC2 provisioning and facilitating cost-effective experimentation and testing.</p>
+<h2 id="amazon-linux">Amazon Linux</h2>
+<h2 id="cloud-init">Cloud-init</h2>
+<p>Managing and setting up cloud instances and servers can prove to be intricate and time-consuming. Cloud-init, an open-source initialization tool, was created to simplify the process, enabling swift setup of systems tailored to your specifications with minimal effort. Without the concept of cloud-init, we could certainly attempt to embed configurations into the image. However, this approach often results in a multitude of disparate images that require ongoing maintenance.</p>
+<p>Cloud-init can handle a range of tasks that normally happen when a new instance is created. It’s responsible for activities like setting the hostname, configuring network interfaces, creating user accounts, and even running scripts. This streamlines the deployment process; your cloud instances will all be automatically configured in the same way, which reduces the chance to introduce human error.</p>
+<p>Cloud-init operates in two distinct phases throughout the boot process. The initial phase occurs early, before networking is activated, while the subsequent phase takes place later, after cloud-init has implemented the networking configuration. The diagram below summarizes the functionalities of cloud-init:</p>
+<p><img alt="Cloud-init" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/grizzled/cloud-init.png?raw=true" /></p>
+<p>Cloud-init retrieves configuration data from a datasource, which instructs it on the necessary actions to undertake. This data typically comprises metadata, vendor data, and/or userdata. Metadata encompasses essential instance details such as hostname, machine ID, and network configuration. Cloud-init processes this metadata, caching and exposing it as a standardized and versioned JSON object known as instance-data.</p>
+<p>Vendor data, furnished by the cloud provider, facilitates hardware optimizations and enhances integration with the specific cloud platform. User data encompasses custom configurations for user management, SSH keys, and custom scripts that can be executed during the late boot stage. I recommend exploring cloud-init through the tutorial provided by the cloud-init team: <a href="https://cloudinit.readthedocs.io/en/latest/tutorial/qemu.html#tutorial-qemu">Core tutorial with QEMU.</a></p>
+<h2 id="run-amazon-linux-locally">Run Amazon Linux locally</h2>
+<p>This structure includes steps to install both Amazon Linux 2 and 2023. During this tutorial, I use the VMware virtualization platform, but the steps are similar for different platforms.  </p>
+<h3 id="nocloud-datasource">NoCloud Datasource</h3>
+<p>The NoCloud datasource is a versatile option that offers flexibility and can be employed in various scenarios. Utilizing NoCloud, users can furnish both user data and metadata to the instance without the necessity of running a network service, or even without requiring a network connection altogether. Let's proceed by crafting sample metadata and user data containing essential configurations:  </p>
+<p><strong>Sample metadata</strong>: Create a file named <code>meta-data</code> and add the following lines. You can easily replace the local hostname and network configurations:  </p>
+<pre><code>local-hostname: ams_ami
+# eth0 is the default network interface enabled in the image. You can configure static network settings with an entry like the following.
+network-interfaces: |
+  auto eth0
+  iface eth0 inet static
+  address 10.10.10.124
+  network 10.10.10.0
+  netmask 255.255.255.0
+  broadcast 10.10.10.255
+  gateway 10.10.10.1
+</code></pre>
+<blockquote>
+<p>Check if it works for 2023, and check network-config file</p>
+</blockquote>
+<p><strong>Sample user data</strong>: Create another file named <code>user-data</code> and insert the following lines. This configuration includes user settings and SSH authorization configurations. As an EC2 user, it's important to note that AMS Linux is configured with a pre-installed SSH service and configured for SSH key access only, with password login disabled. Therefore, I'm including my SSH public key in the user-data. Additionally, to simulate custom user-data during EC2 setup, I'm adding a simple script to demonstrate its functionality.  </p>
+<pre><code>#cloud-config
+users:
+# A user by the name `ec2-user` is created in the image by default.
+  - default
+chpasswd:
+  list: |
+    ec2-user:&lt; hashed_passwd: output from mkpasswd --method=SHA-512 --rounds=4096 &gt;
+# In the above line, do not add any spaces after 'ec2-user:'.
+# NOTE: Cloud-init applies network settings on every boot by default. To retain network settings
+# from first boot, add the following ‘write_files’ section:
+write_files:
+  - path: /etc/cloud/cloud.cfg.d/80_disable_network_after_firstboot.cfg
+    content: |
+      # Disable network configuration after first boot
+      network:
+        config: disabled
+ssh_authorized_keys:
+    - ssh-rsa AAAAB3NzaC1y*****
+
+runcmd:
+  - echo &quot;Hello from my local AMS Linux&quot; &gt;&gt; /etc/verify.out
+</code></pre>
+<blockquote>
+<p>Omission of default as the first item in the users list skips creation the default user. If no users key is provided the default behavior is to create the default user via this config.  </p>
+<p>Specifying a hash of a user’s password with passwd is a security risk if the cloud-config can be intercepted. SSH authentication is preferred.  </p>
+</blockquote>
+<p>The NoCloud cloud-init datasource can load an initial configuration from an ISO mounted in the Virtual Machine Guest CDROM drive. According to the <a href="https://cloudinit.readthedocs.io/en/latest/reference/datasources/nocloud.html">Cloud-Init documentation</a>, there are several methods to configure the datasource. Amazon Linux supports "local filesystem, labeled filesystem" configurations. To provide cloud-init configurations from the local filesystem, a labeled <code>vfat</code> or <code>iso9660</code> filesystem containing user data and metadata may be used. For this method to work, the filesystem volume must be labelled <code>CIDATA</code>. Therefore, we need to create an ISO file containing the metadata and userdata. Follow the steps below to generate NoCloud cloud-init datasource called <code>seed.iso</code>:  </p>
+<p>As a Linux enthusiast, you have the option to utilize either <code>mkisofs</code> or <code>genisoimage</code> to generate the <code>seed.iso</code> file. </p>
+<blockquote>
+<p>Looking at the <code>genisoimage</code> man page, and the <code>mkisofs</code> man page, There is really no difference. <code>genisoimage</code> is a carbon copy of <code>mkisofs</code>. <code>genisoimage</code> is part of cdrkit, while mkisofs is part of cdrtools.</p>
+</blockquote>
+<p>If you're using a Mac, you may employ the <code>hdiutil</code> command-line interface. Lastly, for Windows users, consider installing and utilizing <code>AnyBurn</code>: <a href="https://helpdeskgeek.com/how-to/create-an-iso-file-from-a-folder-in-windows/">Check this blog for more information</a>.</p>
+<pre><code>mkisofs -output seed.iso -volid cidata -joliet -rock user-data meta-data
+</code></pre>
+<p>If you have a separate <code>network-config</code> file:</p>
+<pre><code>mkisofs -output seed.iso -volid cidata -joliet -rock user-data meta-data network-config
+</code></pre>
+<p>If you're curious about the parameters just like me, here is the description:  </p>
+<p><code>-output</code>: This option specifies the output file name for the generated ISO image. In this case, it's set to seed.iso.<br />
+<code>-volid</code>: This option sets the volume ID of the ISO image to cidata. The volume ID is essentially the name given to the ISO image when it's mounted.<br />
+<code>-joliet</code>: This option specifies that Joliet extensions should be used when creating the ISO image. Joliet is an extension to the ISO 9660 filesystem format that allows for long filenames.<br />
+<code>-rock</code>: This option specifies the use of the Rock Ridge Interchange Protocol, which is another extension to the ISO 9660 filesystem format. Rock Ridge allows for POSIX file permissions and longer filenames than the original ISO 9660 standard.</p>
+<blockquote>
+<p>If you are interested in learning about AWS EC2 cloud-init datasource configuration, you can check here: <a href="https://cloudinit.readthedocs.io/en/latest/reference/datasources/ec2.html">Amazon EC2 Datasource</a></p>
+</blockquote>
+<h3 id="amazon-linux-vm-image">Amazon Linux VM image</h3>
+<p>At the time of writing this blog, Amazon Linux virtualization images for on-premises supports the following virtualization platforms:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>VMware vSphere</th>
+<th>KVM</th>
+<th>Oracle VirtualBox</th>
+<th>Microsft Hyper-V</th>
+<th>Container</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Amazon Linux 2</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Amazon Linux 2023</td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<p>You can view the list of supported platforms and download the correct VM image from the below links:  </p>
+<p><a href="https://cdn.amazonlinux.com/os-images/2.0.20240131.0/">Amazon Linux 2</a><br />
+<a href="https://cdn.amazonlinux.com/al2023/os-images/2023.3.20240205.2/">Amazon Linux 2023</a></p>
+<h3 id="boot-the-vm">Boot the VM</h3>
+<p>So far, we have discussed the NoCloud Datastore of cloud-init and the provision of the Amazon Linux VM image. Depending on your virtualization platform, the specific steps may vary. In general, you'll need to load the downloaded image, mount the <code>seed.iso</code>, and then boot the virtual machine. Here, I will provide steps for booting and connecting to Amazon Linux on VMware vSphere.</p>
+<ol>
+<li>Upload the <code>seed.iso</code> to an existing datastore or create a new one:</li>
+</ol>
+<p><img alt="Datastore" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/grizzled/datastore.png?raw=true" /></p>
+<ol>
+<li>Create a new VM to deploy a VM from OVF (Open Virtualization Format):</li>
+</ol>
+<p><img alt="VM-1" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/grizzled/new-vm-1.png?raw=true" /></p>
+<p><img alt="VM-2" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/grizzled/new-vm-2.png?raw=true" /></p>
+<blockquote>
+<p>The VM starts automatically, so stop it after creating it.  </p>
+</blockquote>
+<ol>
+<li>Attach a CDROM to the VM and add the <code>seed.iso</code> to it.</li>
+</ol>
+<p><img alt="VM-3" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/grizzled/new-vm-3.png?raw=true" />  </p>
+<p><img alt="VM-4" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/grizzled/new-vm-4.png?raw=true" />  </p>
+<ol>
+<li>Start the VM. Once the VM has booted up, you should be able to SSH to it:</li>
+</ol>
+<p><img alt="VM-SSH" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/grizzled/vm-ssh.png?raw=true" />  </p>
+<h2 id="explore-al2-and-al2023">Explore AL2 and AL2023</h2>
 
   <hr>
 <div class="md-source-file">
