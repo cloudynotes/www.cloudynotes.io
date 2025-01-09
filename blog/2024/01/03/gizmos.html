@@ -6,28 +6,32 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Docker Volume">
+        <meta name="description" content="Take an action based on AWS API calls (Zero Code)">
       
       
       
-        <link rel="canonical" href="https://cloudynotes.io/trainings/docker/docker-volume.html">
+        <link rel="canonical" href="https://cloudynotes.io/blog/2024/01/03/gizmos.html">
       
       
+        <link rel="prev" href="../../../2023/11/15/next-station-is-closed.html">
       
       
-        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
-        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../feed_rss_updated.xml">
+        <link rel="next" href="../../11/02/the-grizzled.html">
       
-      <link rel="icon" href="../../assets/logo.png">
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
     
     
       
-        <title>Docker Volume - CloudyNotes</title>
+        <title>Gizmos - CloudyNotes</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6f8fc17f.min.css">
       
       
   
@@ -92,7 +96,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -121,7 +125,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker-volume" class="md-skip">
+        <a href="#take-an-action-based-on-aws-api-calls" class="md-skip">
           Skip to content
         </a>
       
@@ -137,9 +141,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="CloudyNotes" class="md-header__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
+    <a href="../../../.." title="CloudyNotes" class="md-header__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -156,7 +160,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker Volume
+              Gizmos
             
           </span>
         </div>
@@ -222,7 +226,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -231,9 +237,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="CloudyNotes" class="md-nav__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
+    <a href="../../../.." title="CloudyNotes" class="md-nav__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     CloudyNotes
@@ -245,17 +251,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
@@ -269,7 +277,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Blog
@@ -280,12 +288,14 @@
                 
   
   
+    
+  
   
     
   
   
-    <li class="md-nav__item">
-      <a href="../../blog/index.html" class="md-nav__link">
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -343,7 +353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2025.html" class="md-nav__link">
+      <a href="../../../archive/2025.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -366,7 +376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2024.html" class="md-nav__link">
+      <a href="../../../archive/2024.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -389,7 +399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2023.html" class="md-nav__link">
+      <a href="../../../archive/2023.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -426,6 +436,8 @@
             
             
               
+                
+              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -445,46 +457,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#intro" class="md-nav__link">
+  <a href="#overview-detect-aws-console-login" class="md-nav__link">
     <span class="md-ellipsis">
-      Intro
+      Overview; Detect AWS console login
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#unionfs" class="md-nav__link">
+  <a href="#event-driven-architecture" class="md-nav__link">
     <span class="md-ellipsis">
-      UnionFS
+      Event-Driven Architecture
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#managing-volume" class="md-nav__link">
-    <span class="md-ellipsis">
-      Managing volume
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#practice-your-knowledge" class="md-nav__link">
-    <span class="md-ellipsis">
-      Practice your knowledge
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Practice your knowledge">
+    <nav class="md-nav" aria-label="Event-Driven Architecture">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario1" class="md-nav__link">
+  <a href="#aws-cloudtrail" class="md-nav__link">
     <span class="md-ellipsis">
-      Scenario1
+      AWS CloudTrail
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-sns" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS SNS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-eventbridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS EventBridge
     </span>
   </a>
   
@@ -492,6 +504,24 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next step
+    </span>
+  </a>
   
 </li>
       
@@ -504,131 +534,297 @@
             
           
           
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../index.html" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
                 
-                  
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://avatars.githubusercontent.com/u/55163548?v=4" alt="Meraj Kashi">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          Meraj Kashi
+                        
+                      </strong>
+                      <br>
+                      Write on the clouds Keep forever
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2024-01-03 00:00:00+00:00" class="md-ellipsis">January 3, 2024</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              7 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+  
+
+<nav class="md-tags" >
+  
+    
+    
+    
+      <span class="md-tag">AWS</span>
+    
+  
+    
+    
+    
+      <span class="md-tag">Terraform</span>
+    
+  
+</nav>
 
 
-<h1 id="docker-volume">Docker Volume</h1>
-<h2 id="intro">Intro</h2>
-<p>In Docker, a volume is a mechanism for persistently storing and managing data generated by and used by Docker containers. It provides a way to share data between containers, as well as between the host machine and containers.  </p>
-<p>A Docker volume is a directory that is managed by Docker and is isolated from the container's file system. Volumes are typically created and managed using Docker commands or through Docker Compose files.  </p>
-<p>When a volume is created, it is associated with a specific container or multiple containers. The data stored in a volume persists even if the associated container is stopped or deleted. This allows for data to be shared and reused across different container instances.  </p>
-<p>Volumes have several advantages over other mechanisms, such as bind mounts. They are not dependent on the directory structure or operating system of the host machine, making them more portable. Volumes also support features like volume drivers, which enable integration with external storage systems, and can be easily managed and backed up by Docker.  </p>
-<p>Overall, volumes provide a flexible and efficient way to manage data in Docker containers, allowing for data persistence and sharing across containers and deployments.  </p>
-<h2 id="unionfs">UnionFS</h2>
-<p>Docker volumes are created and managed using a Linux kernel technology called <strong>Union File System</strong> or <strong>UnionFS</strong>. More specifically, Docker uses a copy-on-write (CoW) implementation of UnionFS, typically leveraging one of the following file system drivers:</p>
-<ul>
-<li>
-<p>aufs (Advanced Multi-Layered Unification File System): It was the original UnionFS implementation used by Docker. However, its support has been deprecated in recent versions of Docker.</p>
-</li>
-<li>
-<p>overlay and overlay2 : These are the current default UnionFS drivers used by Docker. They provide better performance and stability compared to aufs.</p>
-</li>
-<li>
-<p>btrfs (B-Tree File System): Docker can also use btrfs as a file system driver for volumes, but it requires specific configuration and may not be as widely used as overlay or overlay2.</p>
-</li>
-</ul>
-<p>These UnionFS file system drivers allow Docker to create lightweight, isolated, and efficient file system layers for containers. Docker volumes are essentially directories created within the UnionFS that are managed by Docker, providing a separate space for persistent data storage and sharing between containers.  </p>
+
+<h1 id="take-an-action-based-on-aws-api-calls">Take an action based on AWS API calls</h1>
+<p><img alt="Gizmos" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/gizmos/gizmos.jpg?raw=true" /></p>
+<div class="admonition boardgame">
+<p class="admonition-title">Boardgame</p>
+<p>Don’t lose your energy marbles in this crazy building game. Gizmos puts players in the role of inventors. By using the four types of energy marbles, they will create their own personal Gizmo, adding on one Machine card at a time. Machines award you victory points and enable additional actions upon meeting specific conditions. As you build, new attachments can trigger chain reactions, letting you do even more on your turn. For more information, visit: <a href="https://boardgamegeek.com/boardgame/246192/gizmos">boardgamegeek</a>  </p>
+</div>
+<h2 id="overview-detect-aws-console-login">Overview; Detect AWS console login</h2>
+<p>This blog post explores the integration of AWS CloudTrail and EventBridge, forming a <code>winning combination</code>. The objective is to detect and notify logins to my AWS account. So, whenever someone successfully logs into my AWS account, I will receive an email notification containing the login details.</p>
+<p>While this blog post may seem straightforward, it serves as an insightful initiative for developing more intricate integrations. Towards the end of the post, I will present some additional ideas. Before diving into the implementation, let's first explore the concept of event-driven architecture. After gaining a solid understanding of this concept, we'll proceed to examine AWS EventBridge and CloudTrail.</p>
+<!-- more -->
+
+<h2 id="event-driven-architecture">Event-Driven Architecture</h2>
+<p>Event-driven architecture relies on events to initiate communication among loosely connected services, a common feature in modern microservices-based applications. But what exactly constitutes an event? An event can be defined as a change in state or an update, for example in this blog post example, login status. Another example could be altering the state of an EC2 machine. Or consider an e-commerce application, where events include actions like adding or removing items from the shopping cart. </p>
+<p>Within this architecture, events are generated by a producer, and actions are taken by a consumer in response to these events. The system may feature multiple consumers, necessitating the routing of events from the producer to these consumers. Event brokers play a crucial role in facilitating the seamless flow of events between producers and consumers.</p>
+<p><img alt="Evnet Driven" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/gizmos/event-driven.png?raw=true" /></p>
+<p>Let's delve into the various roles in this example. Returning to the project's objective, I aim to identify user console logins and receive an email for each successful login. In this architecture, my intention is to leverage native AWS services for login detection and email notifications (<code>Zero-Code</code> approach). The following section provides a brief overview of each party involved.</p>
+<h3 id="aws-cloudtrail">AWS CloudTrail</h3>
+<p>AWS CloudTrail is a service that allows users to monitor, log, and retain account activity within their AWS infrastructure. This service captures detailed information about actions taken through the AWS Management Console, AWS Command Line Interface (CLI), AWS SDKs, and other AWS services. By providing a transparent and comprehensive trail of events, AWS CloudTrail enhances security and compliance by enabling users to track changes, detect potential security threats, and troubleshoot operational issues. With its ability to deliver a detailed chronological record of API calls and related events, AWS CloudTrail is a valuable tool to detect user console login. According to the event-driven architecture, AWS CloudTrail acts as an event producer.</p>
+<h3 id="aws-sns">AWS SNS</h3>
+<p>Amazon Simple Notification Service (Amazon SNS) is a fully managed messaging service to facilitate the building of distributed, scalable, and reliable applications by enabling the decoupling of microservices, systems, and distributed components. With SNS, users can send messages, or notifications, to a distributed set of subscribers or endpoints via various protocols, including HTTP, HTTPS, email, SMS, and more. AWS SNS is widely used for building event-driven systems, managing workflows, and sending alerts in a scalable and efficient manner within the AWS cloud environment. I utilize AWS SNS to send notifications based on the events received from AWS CloudTrail.</p>
+<h3 id="aws-eventbridge">AWS EventBridge</h3>
+<p>And finally, there's AWS EventBridge, which serves as the heart of this integration. Amazon EventBridge is a serverless event bus service designed to connect various applications and AWS services seamlessly. It plays a crucial role in decoupling the architecture and simplifying event routing. I highly recommend checking out the AWS tutorial on AWS EventBridge for more in-depth insights: <a href="https://pages.awscloud.com/AWS-Learning-Path-How-to-Use-Amazon-EventBridge-to-Build-Decoupled-Event-Driven-Architectures_2020_LP_0001-SRV.html">AWS EventBridge Learning </a></p>
+<p>Now, let's enhance the event-driven architecture diagram to reflect the changes made in this project:  </p>
+<p><img alt="Evnet Driven Gizmos" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/gizmos/event-driven-gizmos.png?raw=true" /></p>
+<h2 id="implementation">Implementation</h2>
+<p>Finally, I've reached the point of detailing the implementation steps, which happens to be the most straightforward section for me to write. As indicated by the weblog's title, the implementation is zero-code, eliminating the necessity for any custom scripting. I opt for Terraform for the entire deployment process. However, if Terraform isn't your preference, you can effortlessly utilize the AWS console instead.</p>
+<p>The below diagram shows all the services utilized in this project:</p>
+<p><img alt="High Level" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/gizmos/high-level.png?raw=true" /></p>
+<p>Firstly, we need to enable AWS CloudTrail, and for this, an AWS S3 bucket is required to store all the logs. Therefore, the initial step involves creating a bucket:</p>
+<p><div class="highlight"><pre><span></span><code># data blocks gather information
+data &quot;aws_caller_identity&quot; &quot;gizmos&quot; {}
+
+data &quot;aws_partition&quot; &quot;gizmos&quot; {}
+
+data &quot;aws_region&quot; &quot;gizmos&quot; {}
+
+# data block of S3 bucket iam policy document
+data &quot;aws_iam_policy_document&quot; &quot;gizmos&quot; {
+  statement {
+    sid    = &quot;AWSCloudTrailAclCheck&quot;
+    effect = &quot;Allow&quot;
+
+    principals {
+      type        = &quot;Service&quot;
+      identifiers = [&quot;cloudtrail.amazonaws.com&quot;]
+    }
+
+    actions   = [&quot;s3:GetBucketAcl&quot;]
+    resources = [aws_s3_bucket.gizmos.arn]
+    condition {
+      test     = &quot;StringEquals&quot;
+      variable = &quot;aws:SourceArn&quot;
+      values   = [&quot;arn:${data.aws_partition.gizmos.partition}:cloudtrail:${data.aws_region.gizmos.name}:${data.aws_caller_identity.gizmos.account_id}:trail/cloudynotes-gizmos-trial&quot;]
+    }
+  }
+
+  statement {
+    sid    = &quot;AWSCloudTrailWrite&quot;
+    effect = &quot;Allow&quot;
+
+    principals {
+      type        = &quot;Service&quot;
+      identifiers = [&quot;cloudtrail.amazonaws.com&quot;]
+    }
+
+    actions   = [&quot;s3:PutObject&quot;]
+    resources = [&quot;${aws_s3_bucket.gizmos.arn}/AWSLogs/${data.aws_caller_identity.gizmos.account_id}/*&quot;]
+
+    condition {
+      test     = &quot;StringEquals&quot;
+      variable = &quot;s3:x-amz-acl&quot;
+      values   = [&quot;bucket-owner-full-control&quot;]
+    }
+    condition {
+      test     = &quot;StringEquals&quot;
+      variable = &quot;aws:SourceArn&quot;
+      values   = [&quot;arn:${data.aws_partition.gizmos.partition}:cloudtrail:${data.aws_region.gizmos.name}:${data.aws_caller_identity.gizmos.account_id}:trail/cloudynotes-gizmos-trial&quot;]
+    }
+  }
+}
+
+# Create S3 bucket
+resource &quot;aws_s3_bucket&quot; &quot;gizmos&quot; {
+  bucket        = &quot;cloudynotes-gizmos-trial&quot;
+  force_destroy = true
+}
+
+# Add S3 bucket policy
+resource &quot;aws_s3_bucket_policy&quot; &quot;gizmos&quot; {
+  bucket = aws_s3_bucket.gizmos.id
+  policy = data.aws_iam_policy_document.gizmos.json
+}
+</code></pre></div>
+And then we can enable AWS CloudTrail:</p>
+<div class="highlight"><pre><span></span><code># Enable AWS CloudTrial
+resource &quot;aws_cloudtrail&quot; &quot;gizmos&quot; {
+  depends_on = [aws_s3_bucket_policy.gizmos]
+
+  name                          = &quot;cloudynotes-gizmos-trial&quot;
+  s3_bucket_name                = aws_s3_bucket.gizmos.id
+  include_global_service_events = true
+  is_multi_region_trail         = true
+}
+</code></pre></div>
 <blockquote>
-<p>We will learn more about UnionFS and container volumes in Docker images section.</p>
+<p><strong>Note</strong><br />
+- For a multi-region trail, this resource must be in the home region of the trail.<br />
+- Console login log needs capturing events from IAM, so <code>include_global_service_events</code> must be enabled.  </p>
 </blockquote>
-<h2 id="managing-volume">Managing volume</h2>
-<p>This section includes some essential commands to provide a better understanding of Docker volumes. You may use the <a href="https://docs.docker.com/storage/volumes/">official Docker documentation</a> as a reference.  </p>
-<ul>
-<li>Run a Nginx container using the below command:  </li>
-</ul>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:80<span class="w"> </span>--name<span class="w"> </span>web<span class="w"> </span>nginx
+<p>With the producer configuration complete, the next step involves creating the consumer, which is an SNS topic. Utilize the code blocks below to create an SNS topic for sending emails upon receiving an event:</p>
+<div class="highlight"><pre><span></span><code># Create AWS SNS topic
+resource &quot;aws_sns_topic&quot; &quot;gizmos_sns_topic&quot; {
+  name         = &quot;gizmos-aws-sign-in&quot;
+  display_name = &quot;Gizmos login&quot;
+}
+
+# Add SNS policy
+resource &quot;aws_sns_topic_policy&quot; &quot;gizmos_topic_policy&quot; {
+  arn    = aws_sns_topic.gizmos_sns_topic.arn
+  policy = data.aws_iam_policy_document.gizmos_topic_policy.json
+}
+
+# data block of SNS policy document
+data &quot;aws_iam_policy_document&quot; &quot;gizmos_topic_policy&quot; {
+  statement {
+    effect  = &quot;Allow&quot;
+    actions = [&quot;SNS:Publish&quot;]
+
+    principals {
+      type        = &quot;Service&quot;
+      identifiers = [&quot;events.amazonaws.com&quot;]
+    }
+
+    resources = [aws_sns_topic.gizmos_sns_topic.arn]
+  }
+}
 </code></pre></div>
-<p>Open a browser and navigate to <a href="http://localhost:8080">http://localhost:8080</a>. You should see the following NGINX welcome page.  </p>
-<p><img alt="Nginx Default" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/nginx-default.png?raw=true" /></p>
-<blockquote>
-<p>If you want to modify the HTML file, what is the solution? </p>
-</blockquote>
-<ul>
-<li>Adding custom HTML using bind mounting volume:  </li>
-</ul>
-<p>Nginx, by default, searches for files to serve in the <code>/usr/share/nginx/html</code> directory within the container. To place our HTML files in this directory, we can utilize a mounted volume. This method allows us to connect a directory on our local machine and map it to the running container.  </p>
-<p>To serve a custom HTML page using the Nginx image, follow these steps:  </p>
-<ul>
-<li>Create a directory called <code>html</code>.</li>
-<li>Within this directory, add an <code>index.html</code> file.</li>
-<li>Paste the following HTML content into the <code>index.html</code> file:</li>
-</ul>
-<p><div class="highlight"><pre><span></span><code>&lt;!DOCTYPE<span class="w"> </span>html&gt;
-&lt;html&gt;
-&lt;head&gt;
-<span class="w">    </span>&lt;title&gt;CloudyNotes&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-<span class="w">    </span>&lt;h1&gt;Welcome<span class="w"> </span>to<span class="w"> </span>CloudyNotes.io&lt;/h1&gt;
-<span class="w">    </span>&lt;p&gt;This<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>Nginx<span class="w"> </span>container<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span><span class="nb">bind</span><span class="w"> </span>volume.&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre></div>
-- Run a new Nginx container with a bind volume: </p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:80<span class="w"> </span>--name<span class="w"> </span>web<span class="w"> </span>-v<span class="w"> </span>&lt;path_to_html&gt;:/usr/share/nginx/html<span class="w"> </span>nginx
-</code></pre></div>
-<blockquote>
-<p>You should remove the other Nginx first.  </p>
-<p>Replace <path_to_html> to the path of the html directory.</p>
-</blockquote>
-<p>Now open the browser and navigate to <a href="http://localhost:8080">http://localhost:8080</a> and you should see the above html rendered in your browser window:  </p>
-<p><img alt="Nginx bind volume" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/nginx-volume.png?raw=true" /></p>
-<blockquote>
-<p>Try to modify the <code>index.html</code> and refresh the browser again. Are your changes applying on the ouput? </p>
-</blockquote>
-<ul>
-<li>Inspect the container and find the binding details:  </li>
-</ul>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>inspect<span class="w"> </span>web<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Binds<span class="w"> </span>-A<span class="w"> </span><span class="m">5</span><span class="w"> </span>-B<span class="w"> </span><span class="m">5</span>
-</code></pre></div>
-<ul>
-<li>Now let's try to create a Docker volume:  </li>
-</ul>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>my_volume
-</code></pre></div>
-<ul>
-<li>Test the volume by adding a file to it:  </li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, Docker volume!&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>my_volume:/app<span class="w"> </span>busybox<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;cat &gt; /app/test.txt&#39;</span>
+<p>Now add an email topic subscription: </p>
+<div class="highlight"><pre><span></span><code>resource &quot;aws_sns_topic_subscription&quot; &quot;gizmos_sqs_subscription&quot; {
+  topic_arn = aws_sns_topic.gizmos_sns_topic.arn
+  protocol  = &quot;email&quot;
+  endpoint  = var.subscription_email
+}
 </code></pre></div>
 <blockquote>
-<p>This command creates a file named "test.txt" inside the volume using a Busybox container.</p>
+<p>You can add <code>subscription_email</code> to the Terraform varaibles or simply replace your email address in the above block:<br />
+endpoint = "gizmos@cloudynotes.io"</p>
 </blockquote>
-<ul>
-<li>Inspect the Docker volume:  </li>
-</ul>
-<p><div class="highlight"><pre><span></span><code>docker<span class="w"> </span>inspect<span class="w"> </span>my_volume
+<p>The important and final step is to set up AWS EventBridge to capture events from AWS CloudTrail and send them to AWS SNS. Use the below code block to create event rule:</p>
+<p><div class="highlight"><pre><span></span><code>resource &quot;aws_cloudwatch_event_rule&quot; &quot;gizmos_event_rule&quot; {
+  name        = &quot;gizmos-aws-sign-in&quot;
+  description = &quot;Capture each AWS Console Sign In&quot;
+
+  event_pattern = &lt;&lt;PATTERN
+  {
+  &quot;source&quot;: [&quot;aws.signin&quot;],
+  &quot;detail-type&quot;: [&quot;AWS Console Sign In via CloudTrail&quot;],
+  &quot;detail&quot;: {
+    &quot;eventSource&quot;: [&quot;signin.amazonaws.com&quot;],
+    &quot;eventName&quot;: [&quot;ConsoleLogin&quot;]
+    }
+  }
+  PATTERN
+}
 </code></pre></div>
-- Navigate to the <code>Mountpoint</code> and check the content of the volume:  </p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>su
-<span class="nb">cd</span><span class="w"> </span>/var/lib/docker/volumes/my_volume/_data
-ls
+As you can see the Terraform resource is CloudWatch event rule, EventBridge was formerly known as CloudWatch Events. The functionality is identical.</p>
+<p>A helpful tip for finding the correct pattern for your event is to utilize the AWS EventBridge console. This tool assists in generating a sample event, allowing you to test your pattern before creating your rule. Navigate to your AWS Console, go to the EventBridge service, and select "Rule" from the left side to create a sample rule. On the next page, choose "AWS events" as sample events and then filter your sample event. In this example, you might filter for "AWS Console Sign In via CloudTrail":</p>
+<p><img alt="EventBridge Rule" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/gizmos/consol-1.png?raw=true" /></p>
+<p>Then, at the bottom of the page, you can select your method and define your event pattern.</p>
+<p><img alt="EventBridge Rule Pattern" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/gizmos/consol-2.png?raw=true" /></p>
+<p>We are approaching the final step of the configuration; adding a target to the event rule. Since we have created an SNS topic as the target, we need to include it in the event rule target. The event rule includes an excellent feature that allows for the transformation of input data, enabling the sending of custom event data to the target. This functionality proves valuable in eliminating unnecessary information from the event or customizing the event data. Read more about it <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-transform-target-input.html">here</a>.</p>
+<p><div class="highlight"><pre><span></span><code>resource &quot;aws_cloudwatch_event_target&quot; &quot;gizmos_event_target&quot; {
+  rule      = aws_cloudwatch_event_rule.gizmos_event_rule.name
+  target_id = &quot;gizmosLoginSNS&quot;
+  arn       = aws_sns_topic.gizmos_sns_topic.arn
+
+  input_transformer {
+    input_paths = {
+      aws_account = &quot;$.detail.awsRegion&quot;,
+      time        = &quot;$.time&quot;,
+      user        = &quot;$.detail.userIdentity.accountId&quot;
+    }
+    input_template = &lt;&lt;EOF
+        &quot;Warning! Successfully loggin to &lt;aws_account&gt; at &lt;time&gt; with user: &lt;user&gt;!&quot;
+    EOF
+  }
+}
 </code></pre></div>
-<h2 id="practice-your-knowledge">Practice your knowledge</h2>
-<p>You can practice these tasks in a terminal or command prompt with Docker installed on your machine. Make sure you have Docker properly installed and configured before starting the practice scenario.</p>
-<p>Remember to refer to Docker's official documentation for detailed information on each command and its usage. Happy learning!  </p>
-<h3 id="scenario1">Scenario1</h3>
-<p><strong>Sharing Docker Volume Between Containers</strong></p>
-<p>In this scenario, you will practice creating a Docker volume, attaching it to two containers, and testing the sharing of the volume between the containers.  </p>
-<p><strong>Task 1: Create Docker volume</strong></p>
-<p>Create a new Docker volume named <code>my_volume</code>.</p>
-<p><strong>Task 2: Run containers with same volume</strong>  </p>
-<p>Run the first container named <code>container1</code> using the Nginx image. Attach the <code>my_volume</code> volume to the <code>/app</code> directory inside the container.</p>
-<p>Run the second container named <code>container2</code> using the Ubuntu image. Attach the same <code>my_volume</code> volume to the <code>/app</code> directory inside the container.</p>
-<p><strong>Task 3: Verify volume sharing</strong>  </p>
-<p>From <code>container1</code>, create a file named <code>test.txt</code> inside the volume with the content <code>Hello from container1</code>. </p>
-<blockquote>
-<p>Hint: <code>docker exec container1 sh -c 'echo "Hello from container1" &gt; /app/test.txt'</code></p>
-</blockquote>
-<p>Verify that the file is accessible from <code>container2</code> and display its content.</p>
-<p>Update the file from <code>container2</code> with the content <code>Hello from container2</code>.</p>
-<p>Verify that the changes are reflected when accessing the file from <code>container1</code>.</p>
-<blockquote>
-<p>There are several ways to share data between containers. The above scenario was an example of file sharing using a bind volume. You can find more information <a href="https://docs.docker.com/storage/volumes/#share-data-between-machines">here</a>.</p>
-</blockquote>
+Apply the Terraform resources and then you can test the setup by logout and loggin to your AWS account:</p>
+<p><img alt="Loggin Email" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/gizmos/email.png?raw=true" /></p>
+<h2 id="next-step">Next step</h2>
+<p>Utilize this winning combination to implement various integrations and effortlessly solve problems within your projects. For instance, I discovered the following article that demonstrates using the same solution to detect a stopped EC2 instance and initiate its restart using Terraform. Read more about this solution in this blog post: <a href="https://aws.plainenglish.io/automating-ec2-stop-protection-terraform-b2654d7bc788">Automating EC2 Stop Protection</a>  </p>
+<p><img alt="Automating EC2 Stop Protection" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/gizmos/example.png?raw=true" /></p>
 
 
 
@@ -643,6 +839,8 @@ ls
 
   
 
+
+  
 
 
 
@@ -693,10 +891,10 @@ ls
     })
   </script>
 
-                
-              </article>
-            </div>
-          
+      
+    </article>
+  </div>
+
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
@@ -711,6 +909,46 @@ ls
       
         <footer class="md-footer">
   
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../../2023/11/15/next-station-is-closed.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Next station is closed">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Next station is closed
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../11/02/the-grizzled.html" class="md-footer__link md-footer__link--next" aria-label="Next: The Grizzled">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                The Grizzled
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -806,10 +1044,10 @@ ls
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
   </body>

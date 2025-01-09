@@ -6,28 +6,32 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Docker Volume">
+        <meta name="description" content="Yo-Yo attacks on cloud auto-scaling">
       
       
       
-        <link rel="canonical" href="https://cloudynotes.io/trainings/docker/docker-volume.html">
+        <link rel="canonical" href="https://cloudynotes.io/blog/2023/08/03/camel-up.html">
       
       
+        <link rel="prev" href="../../04/13/rulebook.html">
       
       
-        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
-        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../feed_rss_updated.xml">
+        <link rel="next" href="../../11/15/next-station-is-closed.html">
       
-      <link rel="icon" href="../../assets/logo.png">
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
     
     
       
-        <title>Docker Volume - CloudyNotes</title>
+        <title>Camel Up - CloudyNotes</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6f8fc17f.min.css">
       
       
   
@@ -92,7 +96,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -121,7 +125,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker-volume" class="md-skip">
+        <a href="#yo-yo-attacks-on-cloud-auto-scaling" class="md-skip">
           Skip to content
         </a>
       
@@ -137,9 +141,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="CloudyNotes" class="md-header__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
+    <a href="../../../.." title="CloudyNotes" class="md-header__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -156,7 +160,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker Volume
+              Camel Up
             
           </span>
         </div>
@@ -222,7 +226,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -231,9 +237,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="CloudyNotes" class="md-nav__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
+    <a href="../../../.." title="CloudyNotes" class="md-nav__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     CloudyNotes
@@ -245,17 +251,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
@@ -269,7 +277,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Blog
@@ -280,12 +288,14 @@
                 
   
   
+    
+  
   
     
   
   
-    <li class="md-nav__item">
-      <a href="../../blog/index.html" class="md-nav__link">
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -343,7 +353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2025.html" class="md-nav__link">
+      <a href="../../../archive/2025.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -366,7 +376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2024.html" class="md-nav__link">
+      <a href="../../../archive/2024.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -389,7 +399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2023.html" class="md-nav__link">
+      <a href="../../../archive/2023.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -426,6 +436,8 @@
             
             
               
+                
+              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -445,53 +457,38 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#intro" class="md-nav__link">
+  <a href="#story" class="md-nav__link">
     <span class="md-ellipsis">
-      Intro
+      Story
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#unionfs" class="md-nav__link">
+  <a href="#yo-yo-attack" class="md-nav__link">
     <span class="md-ellipsis">
-      UnionFS
+      Yo-Yo attack
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#managing-volume" class="md-nav__link">
+  <a href="#related-studies" class="md-nav__link">
     <span class="md-ellipsis">
-      Managing volume
+      Related studies
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#practice-your-knowledge" class="md-nav__link">
+  <a href="#results" class="md-nav__link">
     <span class="md-ellipsis">
-      Practice your knowledge
+      Results
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Practice your knowledge">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scenario1
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -504,131 +501,149 @@
             
           
           
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../index.html" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
                 
-                  
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://avatars.githubusercontent.com/u/55163548?v=4" alt="Meraj Kashi">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          Meraj Kashi
+                        
+                      </strong>
+                      <br>
+                      Write on the clouds Keep forever
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2023-08-03 00:00:00+00:00" class="md-ellipsis">August 3, 2023</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              7 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+  
+
+<nav class="md-tags" >
+  
+    
+    
+    
+      <span class="md-tag">Cloud</span>
+    
+  
+    
+    
+    
+      <span class="md-tag">AWS</span>
+    
+  
+</nav>
 
 
-<h1 id="docker-volume">Docker Volume</h1>
-<h2 id="intro">Intro</h2>
-<p>In Docker, a volume is a mechanism for persistently storing and managing data generated by and used by Docker containers. It provides a way to share data between containers, as well as between the host machine and containers.  </p>
-<p>A Docker volume is a directory that is managed by Docker and is isolated from the container's file system. Volumes are typically created and managed using Docker commands or through Docker Compose files.  </p>
-<p>When a volume is created, it is associated with a specific container or multiple containers. The data stored in a volume persists even if the associated container is stopped or deleted. This allows for data to be shared and reused across different container instances.  </p>
-<p>Volumes have several advantages over other mechanisms, such as bind mounts. They are not dependent on the directory structure or operating system of the host machine, making them more portable. Volumes also support features like volume drivers, which enable integration with external storage systems, and can be easily managed and backed up by Docker.  </p>
-<p>Overall, volumes provide a flexible and efficient way to manage data in Docker containers, allowing for data persistence and sharing across containers and deployments.  </p>
-<h2 id="unionfs">UnionFS</h2>
-<p>Docker volumes are created and managed using a Linux kernel technology called <strong>Union File System</strong> or <strong>UnionFS</strong>. More specifically, Docker uses a copy-on-write (CoW) implementation of UnionFS, typically leveraging one of the following file system drivers:</p>
-<ul>
+
+<h1 id="yo-yo-attacks-on-cloud-auto-scaling">Yo-Yo attacks on cloud auto-scaling</h1>
+<p><img alt="Camel Up" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/camelup/camelup.jpeg?raw=true" /></p>
+<div class="admonition boardgame">
+<p class="admonition-title">Boardgame</p>
+<p>Camel Up is a popular board game designed by Steffen Bogen. It is a family-friendly, light-hearted, and entertaining game that revolves around a crazy camel racing event. What makes Camel Up particularly unique and enjoyable is the unpredictability of the race. The camels stack on top of each other when they land on the same space, creating a camel stack. The camels at the top of the stack move faster, while the ones at the bottom move slower. This adds an element of surprise and excitement, making it challenging to predict the winner until the very end.  </p>
+</div>
+<p>Camel Up board game and auto-scaling in the cloud may appear as two completely distinct area. However, the camels' movement—going up and down—in the game reminds me of the process of scaling resources in cloud auto-scaling. </p>
+<p>Cloud auto-scaling is a very powerful tool, but it can also be a double-edged sword. Without the proper scaling configuration and testing it can cost cloud users a lot. So, auto-scaling is a trade of performance and cost.</p>
+<!-- more -->
+
+<h2 id="story">Story</h2>
+<blockquote>
+<p>In this blog, the term <code>scale up/down</code> refers to scaling resources, encompassing both vertical and/or horizontal scaling.</p>
+</blockquote>
+<p>Over the past decades, DoS and DDoS attacks have emerged as a grave threat to the Internet's infrastructure. Recent data from Cloudflare indicates a dramatic surge in DDoS attacks over the past few years [<a href="https://www.comparitech.com/blog/information-security/ddos-statistics-facts/">comparitech.com</a>]. The increasing number of attacks has led to the emergence of new detection and mitigation solutions as well. In November 2020, the Alibaba Cloud Security Team detected the largest resources exhaustion DDoS attack on their cloud platform, with a peak of 5.369 million QPS (Queries Per Second). Microsoft mitigated upwards of 359,713 DDoS attacks against their Azure Cloud infrastructures during the second half of 2021 <a href="https://azure.microsoft.com/en-us/blog/azure-ddos-protection-2021-q3-and-q4-ddos-attack-trends//">[microsoft.com]</a>.</p>
+<p>On the other hand, attackers do not surrender. New kinds of DDoS attacks have emerged to exploit cloud anti-DDoS solutions. Burst attacks, also known as hit-and-run DDoS, are a new kind of DDoS attack where the attacker launches periodic bursts of traffic overload at random intervals on online targets. Burst attacks have grown significantly, to the extent that a comprehensive survey in 2017 revealed that half of the participants cited an increase in burst attacks. <a href="https://www.radware.com/blog/security/2018/02/burst-attack-protection/">[radware.com]</a>. </p>
+<p>Enterprises using cloud services mostly benefit from cloud features. Enhanced cloud scalability and elasticity through auto-scaling allow customers to dynamically scale their applications. Incoming traffic is distributed evenly across multiple endpoints, so individual backend services cannot be overwhelmed until the volume of traffic approaches the capacity of the entire network.  </p>
+<p>Hostile actors adjust their tactics to correspond to the realities posed by the cloud. The Yo-Yo attack is a new attack technique against the cloud autoscaling feature. In this method, attackers send a burst of request traffic to significantly increase the load on the cloud server, triggering the autoscaling mechanism, and causing the server to be scaled up. </p>
+<p>Therefore, during this confirmation period, the victim's system deploys resources that far exceed the required amount. Burst traffic will be stopped after scaling up and waiting for the auto-scaling mechanism to scale down the server. The attacker continues the latter attack procedure and forces the cloud services to scale up and scale down continuously. This adds extra load to the services to respond to the fake requests. In effect, the attacker forces the victim to pay for large amounts of resources that are not actually necessary to handle the legitimate workload. The Yo-Yo attack can affect any platform using auto-scaling mechanisms, such as container-based and Kubernetes platforms.</p>
+<h2 id="yo-yo-attack">Yo-Yo attack</h2>
+<p>The Yo-Yo attack is designed to exploit the cloud's auto-scaling mechanism. The attacker employs a specific strategy to create a significant load on the cloud by sending bursts of request traffic to a target running on the cloud. As a result, the auto-scaling mechanism triggers, attempting to scale up the cloud resources to handle the high traffic load.</p>
+<p>The attack operates in a cyclical manner. After the attacker notices the scaling-up process, they halt the burst attack and wait for the auto-scaling mechanism to scale down the resources. This crucial step is key to the success of the Yo-Yo attack. The attacker then resumes sending the burst traffic to trigger the auto-scaling mechanism to scale up again, perpetuating the cycle.</p>
+<p>The primary objective of the Yo-Yo attack is not necessarily to take the services offline but rather to inflict financial damage on the victim. Cloud service providers typically follow a consumption-based pricing model, wherein end-users pay for the resources they utilize. This model allows users to pay for additional resources as needed and stop paying for resources that are no longer required. The Yo-Yo attack aims to exploit this pricing model by forcing the victim's system to scale up and consume more resources during the attack cycles, leading to increased costs for the victim without actually providing any legitimate workload.</p>
+<p>During each cycle of the Yo-Yo attack, as the victim's system scales in resources, significant charges accumulate on the victim's account. The attacker forces the victim to pay for large amounts of resources that are not truly necessary to handle the current legitimate workload. For example, cloud providers like AWS charge for EC2 instances based on the time they are consumed, and partial instance-hours are billed per second. This means that after scaling in an instance, the service provider incurs charges per second, even if the scale down occurred due to a Yo-Yo attack. Consequently, the financial damage to the victim can be substantial, as they are billed for the extra resources forced upon them by the attacker during each cycle of the attack.</p>
+<blockquote>
+<p>The graph below shows the results of simulating a Yo-Yo attack towards AWS EC2 instances running on autoscaling groups. Please keep in mind that the test has been conducted under the <a href="https://aws.amazon.com/security/ddos-simulation-testing/">AWS DDoS simulation testing policy</a>.</p>
+</blockquote>
+<p><img alt="Yo-Yo attack" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/camelup/Yo-Yo.png?raw=true" /></p>
+<h2 id="related-studies">Related studies</h2>
+<p>The Yo-Yo attack is a new DDoS technique that has emerged due to the cloud auto-scaling feature. So, the number of studies in this area is very limited. In a <a href="https://ieeexplore.ieee.org/document/8057010">paper</a> published in 2017, Anat Bremler-Barr, Eli Brosh, and Mor Sides were the first to discuss the Yo-Yo attack on the autoscaling mechanism. This groundbreaking paper demonstrates that, apart from the economic effects of the attack, the Yo-Yo attack can inflict substantial performance damage.</p>
+<p>During the repetitive scale up process, which takes several minutes due to the instance startup process, the cloud service suffers from significant performance degradation. The article reveals that the autoscaling policy configuration is an important factor in minimizing the impact of the Yo-Yo attack. Therefore, the Yo-Yo attack can also be classified as a type of Reduction of Quality (RoQ) attack.</p>
+<p>Based on this study, another group published a <a href="https://www.sciencedirect.com/science/article/pii/S2352864819301440#:~:text=Efficient%20mitigation%20for%20the%20Yo,and%20launch%20Yo%2DYo%20attack.">paper</a> with the topic 'Towards Yo-Yo attack mitigation in cloud auto-scaling mechanisms'. The paper proposed a detection and mitigation system for Yo-Yo attacks in cloud auto-scaling mechanisms. The suggested approach is called Trust-based Adversarial Scanner Delaying (<code>TASD</code>). The <code>TASD</code> approach is inspired by two key factors. Firstly, in comparison to benign users, Yo-Yo attackers tend to initiate burst requests, leading to more frequent auto-scaling. Additionally, there is a substantial difference in request load between the scale up and scale down phases caused by the attackers. To address this, the <code>TASD</code> system assigns a trust value to each client based on their behavior, which represents their Quality of Service (QoS). Consequently, <code>TASD</code> introduces specific delays to suspicious requests within the QoS constraints. This manipulation of response times aims to deceive the attackers and mitigate the impact of the Yo-Yo attack.</p>
+<p>During my master's thesis, I implemented a realistic scenario to test the <code>TASD</code> approach and enhance the mitigation algorithm. In the original <code>TASD</code> system, an Additive Decrease method was used to update the trust value. To improve the system, I drew inspiration from TCP rate control mechanisms and introduced two optimization methods: <code>ADAI</code> (Additive Decrease/Additive Increase) and <code>MDAI</code> (Multiplicative Decrease/Additive Increase). These methods aim to optimize the <code>TASD</code> detection and mitigation system further.  I published the results in a paper that can be accessed <a href="https://github.com/meraj-kashi/Yo-Yo-attack-autoscaling/blob/main/paper/Yo_Yo_attack_IEEE_confernece_paper.pdf">here</a>. </p>
+<h2 id="results">Results</h2>
+<p>The study mainly focused on the difference between DDoS and Yo-Yo attacks on cloud autoscaling and implemented mitigation and detection methods. Surprisingly, I have found some interesting side results:</p>
+<ol>
 <li>
-<p>aufs (Advanced Multi-Layered Unification File System): It was the original UnionFS implementation used by Docker. However, its support has been deprecated in recent versions of Docker.</p>
+<p>The warming time of scale up is the duration it takes for an instance (VM, Container, etc.) to get ready to function, while the warming time of scale down is the duration an instance allocates to close all services and release resources. The warming time plays a significant role in the damage, especially with a simple auto-scaling policy. Whenever the scaling metric threshold was selected close to the maximum capacity of the service (e.g., web application), the service degraded during scale up due to the warming time.</p>
+<p>To address this issue, several approaches can be considered. One approach is to minimize the warming time, but this may not be feasible for all scenarios, as some services require time to initialize properly. Another approach is to scale up in two steps, where the auto-scaling increases the number of instances by two. However, a potential bottleneck with this option is the need to keep some unused capacity available for a quick response, which can result in ongoing costs for the user.</p>
+<p>An alternative option is to adopt an early scale up strategy and a slow scale down approach, allowing ample time before immediately scaling in the instances.</p>
 </li>
 <li>
-<p>overlay and overlay2 : These are the current default UnionFS drivers used by Docker. They provide better performance and stability compared to aufs.</p>
+<p>Yo-Yo attackers should approximate the auto-scaling state and configuration to maximize the damage. The attacker can send probe requests and compare response times to detect the scale up status. The same technique is suggested to detect scale down. However, the experiment's results revealed that using a probe request may not necessarily detect the scaling status accurately. For example, in my test scenario, the auto-scaling policy was configured to scale based on the<code>Request Count</code>, resulting in stable response times for the probe requests during the test. This stability prevented the attacker from effectively detecting the scaling process.</p>
 </li>
-<li>
-<p>btrfs (B-Tree File System): Docker can also use btrfs as a file system driver for volumes, but it requires specific configuration and may not be as widely used as overlay or overlay2.</p>
-</li>
-</ul>
-<p>These UnionFS file system drivers allow Docker to create lightweight, isolated, and efficient file system layers for containers. Docker volumes are essentially directories created within the UnionFS that are managed by Docker, providing a separate space for persistent data storage and sharing between containers.  </p>
-<blockquote>
-<p>We will learn more about UnionFS and container volumes in Docker images section.</p>
-</blockquote>
-<h2 id="managing-volume">Managing volume</h2>
-<p>This section includes some essential commands to provide a better understanding of Docker volumes. You may use the <a href="https://docs.docker.com/storage/volumes/">official Docker documentation</a> as a reference.  </p>
-<ul>
-<li>Run a Nginx container using the below command:  </li>
-</ul>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:80<span class="w"> </span>--name<span class="w"> </span>web<span class="w"> </span>nginx
-</code></pre></div>
-<p>Open a browser and navigate to <a href="http://localhost:8080">http://localhost:8080</a>. You should see the following NGINX welcome page.  </p>
-<p><img alt="Nginx Default" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/nginx-default.png?raw=true" /></p>
-<blockquote>
-<p>If you want to modify the HTML file, what is the solution? </p>
-</blockquote>
-<ul>
-<li>Adding custom HTML using bind mounting volume:  </li>
-</ul>
-<p>Nginx, by default, searches for files to serve in the <code>/usr/share/nginx/html</code> directory within the container. To place our HTML files in this directory, we can utilize a mounted volume. This method allows us to connect a directory on our local machine and map it to the running container.  </p>
-<p>To serve a custom HTML page using the Nginx image, follow these steps:  </p>
-<ul>
-<li>Create a directory called <code>html</code>.</li>
-<li>Within this directory, add an <code>index.html</code> file.</li>
-<li>Paste the following HTML content into the <code>index.html</code> file:</li>
-</ul>
-<p><div class="highlight"><pre><span></span><code>&lt;!DOCTYPE<span class="w"> </span>html&gt;
-&lt;html&gt;
-&lt;head&gt;
-<span class="w">    </span>&lt;title&gt;CloudyNotes&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-<span class="w">    </span>&lt;h1&gt;Welcome<span class="w"> </span>to<span class="w"> </span>CloudyNotes.io&lt;/h1&gt;
-<span class="w">    </span>&lt;p&gt;This<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>Nginx<span class="w"> </span>container<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span><span class="nb">bind</span><span class="w"> </span>volume.&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre></div>
-- Run a new Nginx container with a bind volume: </p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:80<span class="w"> </span>--name<span class="w"> </span>web<span class="w"> </span>-v<span class="w"> </span>&lt;path_to_html&gt;:/usr/share/nginx/html<span class="w"> </span>nginx
-</code></pre></div>
-<blockquote>
-<p>You should remove the other Nginx first.  </p>
-<p>Replace <path_to_html> to the path of the html directory.</p>
-</blockquote>
-<p>Now open the browser and navigate to <a href="http://localhost:8080">http://localhost:8080</a> and you should see the above html rendered in your browser window:  </p>
-<p><img alt="Nginx bind volume" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/nginx-volume.png?raw=true" /></p>
-<blockquote>
-<p>Try to modify the <code>index.html</code> and refresh the browser again. Are your changes applying on the ouput? </p>
-</blockquote>
-<ul>
-<li>Inspect the container and find the binding details:  </li>
-</ul>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>inspect<span class="w"> </span>web<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Binds<span class="w"> </span>-A<span class="w"> </span><span class="m">5</span><span class="w"> </span>-B<span class="w"> </span><span class="m">5</span>
-</code></pre></div>
-<ul>
-<li>Now let's try to create a Docker volume:  </li>
-</ul>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>my_volume
-</code></pre></div>
-<ul>
-<li>Test the volume by adding a file to it:  </li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, Docker volume!&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>my_volume:/app<span class="w"> </span>busybox<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;cat &gt; /app/test.txt&#39;</span>
-</code></pre></div>
-<blockquote>
-<p>This command creates a file named "test.txt" inside the volume using a Busybox container.</p>
-</blockquote>
-<ul>
-<li>Inspect the Docker volume:  </li>
-</ul>
-<p><div class="highlight"><pre><span></span><code>docker<span class="w"> </span>inspect<span class="w"> </span>my_volume
-</code></pre></div>
-- Navigate to the <code>Mountpoint</code> and check the content of the volume:  </p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>su
-<span class="nb">cd</span><span class="w"> </span>/var/lib/docker/volumes/my_volume/_data
-ls
-</code></pre></div>
-<h2 id="practice-your-knowledge">Practice your knowledge</h2>
-<p>You can practice these tasks in a terminal or command prompt with Docker installed on your machine. Make sure you have Docker properly installed and configured before starting the practice scenario.</p>
-<p>Remember to refer to Docker's official documentation for detailed information on each command and its usage. Happy learning!  </p>
-<h3 id="scenario1">Scenario1</h3>
-<p><strong>Sharing Docker Volume Between Containers</strong></p>
-<p>In this scenario, you will practice creating a Docker volume, attaching it to two containers, and testing the sharing of the volume between the containers.  </p>
-<p><strong>Task 1: Create Docker volume</strong></p>
-<p>Create a new Docker volume named <code>my_volume</code>.</p>
-<p><strong>Task 2: Run containers with same volume</strong>  </p>
-<p>Run the first container named <code>container1</code> using the Nginx image. Attach the <code>my_volume</code> volume to the <code>/app</code> directory inside the container.</p>
-<p>Run the second container named <code>container2</code> using the Ubuntu image. Attach the same <code>my_volume</code> volume to the <code>/app</code> directory inside the container.</p>
-<p><strong>Task 3: Verify volume sharing</strong>  </p>
-<p>From <code>container1</code>, create a file named <code>test.txt</code> inside the volume with the content <code>Hello from container1</code>. </p>
-<blockquote>
-<p>Hint: <code>docker exec container1 sh -c 'echo "Hello from container1" &gt; /app/test.txt'</code></p>
-</blockquote>
-<p>Verify that the file is accessible from <code>container2</code> and display its content.</p>
-<p>Update the file from <code>container2</code> with the content <code>Hello from container2</code>.</p>
-<p>Verify that the changes are reflected when accessing the file from <code>container1</code>.</p>
-<blockquote>
-<p>There are several ways to share data between containers. The above scenario was an example of file sharing using a bind volume. You can find more information <a href="https://docs.docker.com/storage/volumes/#share-data-between-machines">here</a>.</p>
-</blockquote>
+</ol>
 
 
 
@@ -643,6 +658,8 @@ ls
 
   
 
+
+  
 
 
 
@@ -693,10 +710,10 @@ ls
     })
   </script>
 
-                
-              </article>
-            </div>
-          
+      
+    </article>
+  </div>
+
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
@@ -711,6 +728,46 @@ ls
       
         <footer class="md-footer">
   
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../04/13/rulebook.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Rulebook">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Rulebook
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../11/15/next-station-is-closed.html" class="md-footer__link md-footer__link--next" aria-label="Next: Next station is closed">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Next station is closed
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -806,10 +863,10 @@ ls
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
   </body>

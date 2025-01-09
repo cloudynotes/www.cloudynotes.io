@@ -6,28 +6,32 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Docker Volume">
+        <meta name="description" content="Unraveling Recursive Loops in AWS Lambda">
       
       
       
-        <link rel="canonical" href="https://cloudynotes.io/trainings/docker/docker-volume.html">
+        <link rel="canonical" href="https://cloudynotes.io/blog/2023/11/15/next-station-is-closed.html">
       
       
+        <link rel="prev" href="../../08/03/camel-up.html">
       
       
-        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../feed_rss_created.xml">
-        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../feed_rss_updated.xml">
+        <link rel="next" href="../../../2024/01/03/gizmos.html">
       
-      <link rel="icon" href="../../assets/logo.png">
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
     
     
       
-        <title>Docker Volume - CloudyNotes</title>
+        <title>Next station is closed - CloudyNotes</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6f8fc17f.min.css">
       
       
   
@@ -92,7 +96,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -121,7 +125,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker-volume" class="md-skip">
+        <a href="#unraveling-recursive-loops-in-aws-lambda" class="md-skip">
           Skip to content
         </a>
       
@@ -137,9 +141,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="CloudyNotes" class="md-header__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
+    <a href="../../../.." title="CloudyNotes" class="md-header__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -156,7 +160,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker Volume
+              Next station is closed
             
           </span>
         </div>
@@ -222,7 +226,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -231,9 +237,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="CloudyNotes" class="md-nav__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
+    <a href="../../../.." title="CloudyNotes" class="md-nav__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     CloudyNotes
@@ -245,17 +251,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
@@ -269,7 +277,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Blog
@@ -280,12 +288,14 @@
                 
   
   
+    
+  
   
     
   
   
-    <li class="md-nav__item">
-      <a href="../../blog/index.html" class="md-nav__link">
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -343,7 +353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2025.html" class="md-nav__link">
+      <a href="../../../archive/2025.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -366,7 +376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2024.html" class="md-nav__link">
+      <a href="../../../archive/2024.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -389,7 +399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2023.html" class="md-nav__link">
+      <a href="../../../archive/2023.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -426,6 +436,8 @@
             
             
               
+                
+              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -445,46 +457,73 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#intro" class="md-nav__link">
+  <a href="#invoking-lambda-and-recursive-loops" class="md-nav__link">
     <span class="md-ellipsis">
-      Intro
+      Invoking Lambda and recursive loops
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#unionfs" class="md-nav__link">
+  <a href="#aws-built-in-recursive-loop-detection-method" class="md-nav__link">
     <span class="md-ellipsis">
-      UnionFS
+      AWS built-in recursive loop detection method
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#managing-volume" class="md-nav__link">
+  <a href="#custom-recursive-loop-detection-methods" class="md-nav__link">
     <span class="md-ellipsis">
-      Managing volume
+      Custom recursive loop detection methods
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#practice-your-knowledge" class="md-nav__link">
-    <span class="md-ellipsis">
-      Practice your knowledge
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Practice your knowledge">
+    <nav class="md-nav" aria-label="Custom recursive loop detection methods">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario1" class="md-nav__link">
+  <a href="#vary-source-and-destination-locations" class="md-nav__link">
     <span class="md-ellipsis">
-      Scenario1
+      Vary source and destination locations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-source-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event source filtering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-metadata-tagging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add metadata tagging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-an-aws-sqs-as-a-middleware" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using an AWS SQS as a middleware
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambda-function-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lambda function permissions
     </span>
   </a>
   
@@ -504,131 +543,199 @@
             
           
           
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../index.html" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
                 
-                  
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://avatars.githubusercontent.com/u/55163548?v=4" alt="Meraj Kashi">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          Meraj Kashi
+                        
+                      </strong>
+                      <br>
+                      Write on the clouds Keep forever
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2023-11-15 00:00:00+00:00" class="md-ellipsis">November 15, 2023</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              7 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+  
+
+<nav class="md-tags" >
+  
+    
+    
+    
+      <span class="md-tag">Cloud</span>
+    
+  
+    
+    
+    
+      <span class="md-tag">AWS</span>
+    
+  
+</nav>
 
 
-<h1 id="docker-volume">Docker Volume</h1>
-<h2 id="intro">Intro</h2>
-<p>In Docker, a volume is a mechanism for persistently storing and managing data generated by and used by Docker containers. It provides a way to share data between containers, as well as between the host machine and containers.  </p>
-<p>A Docker volume is a directory that is managed by Docker and is isolated from the container's file system. Volumes are typically created and managed using Docker commands or through Docker Compose files.  </p>
-<p>When a volume is created, it is associated with a specific container or multiple containers. The data stored in a volume persists even if the associated container is stopped or deleted. This allows for data to be shared and reused across different container instances.  </p>
-<p>Volumes have several advantages over other mechanisms, such as bind mounts. They are not dependent on the directory structure or operating system of the host machine, making them more portable. Volumes also support features like volume drivers, which enable integration with external storage systems, and can be easily managed and backed up by Docker.  </p>
-<p>Overall, volumes provide a flexible and efficient way to manage data in Docker containers, allowing for data persistence and sharing across containers and deployments.  </p>
-<h2 id="unionfs">UnionFS</h2>
-<p>Docker volumes are created and managed using a Linux kernel technology called <strong>Union File System</strong> or <strong>UnionFS</strong>. More specifically, Docker uses a copy-on-write (CoW) implementation of UnionFS, typically leveraging one of the following file system drivers:</p>
-<ul>
-<li>
-<p>aufs (Advanced Multi-Layered Unification File System): It was the original UnionFS implementation used by Docker. However, its support has been deprecated in recent versions of Docker.</p>
-</li>
-<li>
-<p>overlay and overlay2 : These are the current default UnionFS drivers used by Docker. They provide better performance and stability compared to aufs.</p>
-</li>
-<li>
-<p>btrfs (B-Tree File System): Docker can also use btrfs as a file system driver for volumes, but it requires specific configuration and may not be as widely used as overlay or overlay2.</p>
-</li>
-</ul>
-<p>These UnionFS file system drivers allow Docker to create lightweight, isolated, and efficient file system layers for containers. Docker volumes are essentially directories created within the UnionFS that are managed by Docker, providing a separate space for persistent data storage and sharing between containers.  </p>
+
+<h1 id="unraveling-recursive-loops-in-aws-lambda">Unraveling Recursive Loops in AWS Lambda</h1>
+<p><img alt="lambda-loop" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/lambda-loop.jpg?raw=true" /></p>
+<div class="admonition boardgame">
+<p class="admonition-title">Boardgame</p>
+<p>The Next Station board game series begins with a London edition, and the latest addition features Tokyo. This game tasks players with redesigning the city's underground subway system. The goal is to optimize connections, serve as many attractions as possible, and make efficient use of the tunnels under the city. One of the fundamental rule of the game is that players cannot circle back to the starting station – in other words, <strong>loop is not permitted</strong>. For more information, visit: <a href="https://boardgamegeek.com/boardgame/353545/next-station-london">boardgamegeek</a>  </p>
+</div>
+<p>Last year, I awoke to a startling email from AWS billing service. My personal AWS account had amassed charges amounting to $4,000. Initially, I dismissed it as a bizarre dream, a shepherd's nightmare, if you will. But reality struck—it was a genuine email. The AWS billing page echoed the same staggering figure.</p>
+<p>My AWS account is typically a sandbox for experimentation, with monthly expenses hovering around $100. So, what triggered this financial avalanche?</p>
+<!-- more -->
+
+<p><img alt="billing" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/billing.jpg?raw=true" /></p>
+<p>A closer inspection of the bill pinpointed an unexpected surge in costs associated with AWS S3 (Simple Storage Service) and AWS Lambda. It dawned on me—the culprit was my recent Lambda experiment. In an effort to automate object processing in a bucket, adding a watermark and re-storing, I had overlooked the need to dismantle my setup. A simple oversight, yet it nearly led to my financial undoing.</p>
+<p>Upon further investigation, the root of the problem became clear: an infinite loop. An S3 trigger was continuously invoking the Lambda function, which, in turn, saved the modified object back into the same bucket—a relentless cycle akin to an endless subway line with no stations.</p>
+<p>The purpose of this post is to illuminate the perilous potential of infinite loops within Lambda functions and to share strategies for averting, detecting, and halting such cycles before they spiral out of control.</p>
+<h2 id="invoking-lambda-and-recursive-loops">Invoking Lambda and recursive loops</h2>
+<p>AWS Lambda function is an event-driven compute service that runs the code when certain events occur. You can invoke Lambda functions directly using the Lambda console, a function URL HTTP(S) endpoint, the Lambda API, an AWS SDK, the AWS Command Line Interface (AWS CLI), and AWS toolkits. You can also configure other AWS services to invoke your function in response to events or external requests, or on a schedule. For another AWS service to invoke your function directly, you need to create a trigger for your Lambda. </p>
+<p>So, a trigger is a resource you configure to allow another AWS service to invoke your function when certain events or conditions occur. Your function can have multiple triggers. Each trigger acts as a client invoking your function independently, and each event that Lambda passes to your function has data from only one trigger. You can find a list of AWS services that can be used as Lambda triggers here: <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-services.html">Lambda invokers</a></p>
+<p>For example, when an item is added to an Amazon SQS queue or Amazon Simple Notification Service (Amazon SNS) topic. Lambda passes events to your function as JSON objects, which contain information about the change in the system state. When an event causes your function to run, this is called an invocation.</p>
+<p>An AWS Lambda recursive loop is an error that occurs when a Lambda function inadvertently calls itself repeatedly without an exit condition, leading to a potentially endless cycle of function invocations. </p>
+<p>Let's looking back to my infinitive subway lines with no station. Lambda recursive loop created by wrongly invoking the lambda function using S3 object put which then invokes the same function. This invocation causes the function to write another object into the same bucket, which in turn invokes the function again. </p>
+<p>Another example would be an Amazon SQS queue invoking your Lambda function. Your Lambda function would then send the processed event back to the same Amazon SQS queue, which would in turn invoke your function again.</p>
+<h2 id="aws-built-in-recursive-loop-detection-method">AWS built-in recursive loop detection method</h2>
+<p>In Jul 13, 2023 AWS introduced a new <a href="https://aws.amazon.com/about-aws/whats-new/2023/07/aws-lambda-detects-recursive-loops-lambda-functions/">feature</a> to detect and stop recursive loops in lambda functions for certain supported AWS services and SDKs. </p>
+<p>Lambda uses an AWS X-Ray trace header primitive called <code>Lineage</code> to track the number of times a function has been invoked with an event. (You do not need to configure active X-Ray tracing for this feature to work.) If your function is invoked more than 16 times in the same chain of requests, then Lambda automatically stops the next function invocation in that request chain and notifies you. If your function is configured with multiple triggers, then invocations from other triggers aren't affected.</p>
+<p>At the time of writing this blog post, the feature detects recurisve loops between Lambda function and <strong>Amazon SQS</strong>, and <strong>Amazon SNS</strong>. Also it detects loops in Lambda functions, which may invoke each other synchronously or asynchronously.</p>
+<p>Also the featute only works if the lambda function code using one of the below SDKs:<br />
+- Node.js<br />
+- Python<br />
+- Java 8, Java 11 and Java 17<br />
+- NET<br />
+- Ruby  </p>
 <blockquote>
-<p>We will learn more about UnionFS and container volumes in Docker images section.</p>
+<p>If your design intentionally uses recursive patterns, then you can raise a AWS support request to turn off Lambda recursive loop detection.</p>
 </blockquote>
-<h2 id="managing-volume">Managing volume</h2>
-<p>This section includes some essential commands to provide a better understanding of Docker volumes. You may use the <a href="https://docs.docker.com/storage/volumes/">official Docker documentation</a> as a reference.  </p>
-<ul>
-<li>Run a Nginx container using the below command:  </li>
-</ul>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:80<span class="w"> </span>--name<span class="w"> </span>web<span class="w"> </span>nginx
-</code></pre></div>
-<p>Open a browser and navigate to <a href="http://localhost:8080">http://localhost:8080</a>. You should see the following NGINX welcome page.  </p>
-<p><img alt="Nginx Default" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/nginx-default.png?raw=true" /></p>
-<blockquote>
-<p>If you want to modify the HTML file, what is the solution? </p>
-</blockquote>
-<ul>
-<li>Adding custom HTML using bind mounting volume:  </li>
-</ul>
-<p>Nginx, by default, searches for files to serve in the <code>/usr/share/nginx/html</code> directory within the container. To place our HTML files in this directory, we can utilize a mounted volume. This method allows us to connect a directory on our local machine and map it to the running container.  </p>
-<p>To serve a custom HTML page using the Nginx image, follow these steps:  </p>
-<ul>
-<li>Create a directory called <code>html</code>.</li>
-<li>Within this directory, add an <code>index.html</code> file.</li>
-<li>Paste the following HTML content into the <code>index.html</code> file:</li>
-</ul>
-<p><div class="highlight"><pre><span></span><code>&lt;!DOCTYPE<span class="w"> </span>html&gt;
-&lt;html&gt;
-&lt;head&gt;
-<span class="w">    </span>&lt;title&gt;CloudyNotes&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-<span class="w">    </span>&lt;h1&gt;Welcome<span class="w"> </span>to<span class="w"> </span>CloudyNotes.io&lt;/h1&gt;
-<span class="w">    </span>&lt;p&gt;This<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>Nginx<span class="w"> </span>container<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span><span class="nb">bind</span><span class="w"> </span>volume.&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre></div>
-- Run a new Nginx container with a bind volume: </p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:80<span class="w"> </span>--name<span class="w"> </span>web<span class="w"> </span>-v<span class="w"> </span>&lt;path_to_html&gt;:/usr/share/nginx/html<span class="w"> </span>nginx
-</code></pre></div>
-<blockquote>
-<p>You should remove the other Nginx first.  </p>
-<p>Replace <path_to_html> to the path of the html directory.</p>
-</blockquote>
-<p>Now open the browser and navigate to <a href="http://localhost:8080">http://localhost:8080</a> and you should see the above html rendered in your browser window:  </p>
-<p><img alt="Nginx bind volume" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/notes/docker/nginx-volume.png?raw=true" /></p>
-<blockquote>
-<p>Try to modify the <code>index.html</code> and refresh the browser again. Are your changes applying on the ouput? </p>
-</blockquote>
-<ul>
-<li>Inspect the container and find the binding details:  </li>
-</ul>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>inspect<span class="w"> </span>web<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Binds<span class="w"> </span>-A<span class="w"> </span><span class="m">5</span><span class="w"> </span>-B<span class="w"> </span><span class="m">5</span>
-</code></pre></div>
-<ul>
-<li>Now let's try to create a Docker volume:  </li>
-</ul>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>my_volume
-</code></pre></div>
-<ul>
-<li>Test the volume by adding a file to it:  </li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, Docker volume!&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>my_volume:/app<span class="w"> </span>busybox<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;cat &gt; /app/test.txt&#39;</span>
+<p>Find more information here: <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html">Lambda recursive loop detection</a></p>
+<h2 id="custom-recursive-loop-detection-methods">Custom recursive loop detection methods</h2>
+<p>As we can observe, there are still some services that could potentially trigger an infinite loop, which AWS has yet to provide detection support for. The problem I faced falls into one of these scenarios.</p>
+<p>In the scenario where a Lambda function is triggered by an S3 put event, it writes an object back to the S3 bucket. This action, in turn, triggers the same Lambda function again, creating a recursive loop of invocations and writings.</p>
+<p><img alt="S3-lambda-loop" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/s3-recursive.png?raw=true" /></p>
+<p>Below, I have gathered some possible approaches to prevent recursive loops when using AWS Lambda and S3:</p>
+<h3 id="vary-source-and-destination-locations">Vary source and destination locations</h3>
+<p>In my endless subway project, I determined that the most effective way to prevent this issue was by using two separate S3 buckets: one for reading the original objects and another for storing the watermarked objects. By directing the output objects to a different bucket, I eliminated the risk of triggering additional events from the source bucket, thereby avoiding the recursive loop. </p>
+<p>There are some scenarios that the object should write in the source bucket. The next solution describe some of them. (Ref: <a href="https://aws.amazon.com/blogs/compute/avoiding-recursive-invocation-with-amazon-s3-and-aws-lambda/">AWS blog</a>)</p>
+<p><img alt="two-s3-buckets" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/two-buckets.png?raw=true" /></p>
+<h3 id="event-source-filtering">Event source filtering</h3>
+<p>Use S3 event source filtering to trigger the Lambda function only for objects that match certain prefix and/or suffix criteria. You can use naming convention to set a specific naming convention for files that should trigger the Lambda function. When the Lambda function processes a file, it can rename the file or move it to a different folder that does not trigger the function.</p>
+<p><img alt="s3-prefix-arch" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/s3-prefix-arc.png?raw=true" /></p>
+<p>Check the below function trigger configuration:</p>
+<p><img alt="s3-prefix" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/s3-prefix.png?raw=true" /></p>
+<h3 id="add-metadata-tagging">Add metadata tagging</h3>
+<p>The other solutin is to use metadata tagging. Add specific metadata to the S3 object after processing it. The Lambda function can check this metadata before processing to determine if the object has already been processed.</p>
+<p><img alt="s3-metadata" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/s3-metadata.png?raw=true" /></p>
+<p>Here is a sample Python code that can be used in a function to check object metadata:</p>
+<div class="highlight"><pre><span></span><code>import boto3
+import json
+s3 = boto3.client(&#39;s3&#39;)
+
+def lambda_handler(event, context):
+  for record in event[&#39;Records&#39;]
+  bucket_name = record[&#39;s3&#39;][&#39;bucket&#39;][&#39;name&#39;]
+  object_key = record[&#39;s3&#39;][&#39;object&#39;][&#39;key&#39;]
+
+  # Get the object and its metadata from S3
+  response = s3.get_object(Bucket=bucket_name, Key=object_key)
+
+  # Check for the &#39;original&#39; metadata
+  metadata = response.get(&#39;Metadata&#39;, {})
+  if metadata.get(&#39;original&#39;) == &#39;true&#39;:
+      file_content = response[&#39;Body&#39;].read().decode(&#39;utf-8&#39;)
+      # Other functions
+
+  return {
+      &#39;statusCode&#39;: 200,
+      &#39;body&#39;: json.dumps(&#39;File processed successfully!&#39;)
+  }
 </code></pre></div>
 <blockquote>
-<p>This command creates a file named "test.txt" inside the volume using a Busybox container.</p>
+<p>In this solution, the Lambda function is always invoked twice for each uploaded S3 object.</p>
 </blockquote>
-<ul>
-<li>Inspect the Docker volume:  </li>
-</ul>
-<p><div class="highlight"><pre><span></span><code>docker<span class="w"> </span>inspect<span class="w"> </span>my_volume
-</code></pre></div>
-- Navigate to the <code>Mountpoint</code> and check the content of the volume:  </p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>su
-<span class="nb">cd</span><span class="w"> </span>/var/lib/docker/volumes/my_volume/_data
-ls
-</code></pre></div>
-<h2 id="practice-your-knowledge">Practice your knowledge</h2>
-<p>You can practice these tasks in a terminal or command prompt with Docker installed on your machine. Make sure you have Docker properly installed and configured before starting the practice scenario.</p>
-<p>Remember to refer to Docker's official documentation for detailed information on each command and its usage. Happy learning!  </p>
-<h3 id="scenario1">Scenario1</h3>
-<p><strong>Sharing Docker Volume Between Containers</strong></p>
-<p>In this scenario, you will practice creating a Docker volume, attaching it to two containers, and testing the sharing of the volume between the containers.  </p>
-<p><strong>Task 1: Create Docker volume</strong></p>
-<p>Create a new Docker volume named <code>my_volume</code>.</p>
-<p><strong>Task 2: Run containers with same volume</strong>  </p>
-<p>Run the first container named <code>container1</code> using the Nginx image. Attach the <code>my_volume</code> volume to the <code>/app</code> directory inside the container.</p>
-<p>Run the second container named <code>container2</code> using the Ubuntu image. Attach the same <code>my_volume</code> volume to the <code>/app</code> directory inside the container.</p>
-<p><strong>Task 3: Verify volume sharing</strong>  </p>
-<p>From <code>container1</code>, create a file named <code>test.txt</code> inside the volume with the content <code>Hello from container1</code>. </p>
+<p>The <a href="https://aws.amazon.com/blogs/compute/avoiding-recursive-invocation-with-amazon-s3-and-aws-lambda/">blog post</a> also suggested another solution using an AWS DynamoDB to store item keys, and then DynamoDB stream triggers another Lambda function to process objects.It writes the object back to the same source bucket. Because the same item is put to the DynamoDB table, this does not trigger a new DynamoDB stream event.</p>
+<p>Furthermore, building on the above solutions to prevent recursive loops in Lambda functions, I recommend some preventive measures.</p>
 <blockquote>
-<p>Hint: <code>docker exec container1 sh -c 'echo "Hello from container1" &gt; /app/test.txt'</code></p>
+<p>It is evident that programming mistakes or improper use of the service might lead to the Lambda function being triggered endlessly. </p>
 </blockquote>
-<p>Verify that the file is accessible from <code>container2</code> and display its content.</p>
-<p>Update the file from <code>container2</code> with the content <code>Hello from container2</code>.</p>
-<p>Verify that the changes are reflected when accessing the file from <code>container1</code>.</p>
-<blockquote>
-<p>There are several ways to share data between containers. The above scenario was an example of file sharing using a bind volume. You can find more information <a href="https://docs.docker.com/storage/volumes/#share-data-between-machines">here</a>.</p>
-</blockquote>
+<h3 id="using-an-aws-sqs-as-a-middleware">Using an AWS SQS as a middleware</h3>
+<p>Since AWS Lambda's built-in recursive loop supports invocation through AWS SQS, we can utilize AWS SQS to trigger a Lambda function, which in turn reads an object from S3. This approach effectively prevents unintentional recursive loops.</p>
+<p><img alt="s3-sqs-middle" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/sqs-middleware.png?raw=true" /></p>
+<h3 id="lambda-function-permissions">Lambda function permissions</h3>
+<p>Restrict your Lambda function’s permissions so it can only read from or write to specific S3 paths. This can prevent it from accidentally processing unintended files.</p>
+<p>for example:<br />
+<div class="highlight"><pre><span></span><code>&quot;arn:aws:s3:::${SourceBucket}/${SourcePrefix}/*&quot;
+&quot;arn:aws:s3:::${SourceBucket}/${SourcePrefix}&quot;
+</code></pre></div></p>
+<p>You can find more scenarios and details about possible recursive loops here: <a href="https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/recursive-runaway">Recursive patterns that cause run-away Lambda functions</a></p>
+<p>And finally, if you are curious about my billing saga, I should mention that I reached out to AWS support. The team meticulously reviewed my case, and since my account wasn't a business one, they graciously absolved me of the debt.</p>
 
 
 
@@ -643,6 +750,8 @@ ls
 
   
 
+
+  
 
 
 
@@ -693,10 +802,10 @@ ls
     })
   </script>
 
-                
-              </article>
-            </div>
-          
+      
+    </article>
+  </div>
+
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
@@ -711,6 +820,46 @@ ls
       
         <footer class="md-footer">
   
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../08/03/camel-up.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Camel Up">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Camel Up
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../2024/01/03/gizmos.html" class="md-footer__link md-footer__link--next" aria-label="Next: Gizmos">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Gizmos
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -806,10 +955,10 @@ ls
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
   </body>
