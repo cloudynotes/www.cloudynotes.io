@@ -627,7 +627,7 @@
 <p class="admonition-title">Boardgame</p>
 <p>At the outskirts of our solar system, a mysterious planet might be hiding. In The Search for Planet X, each player takes on the role of an astronomer trying to locate the hidden planet, known as Planet X. It is a deduction game where players gather clues, and as more objects are discovered, they narrow down the possible locations of Planet X. For more information, visit: <a href="https://boardgamegeek.com/boardgame/279537/the-search-for-planet-x" target="_blank">boardgamegeek</a></p>
 </div>
-<p>In August 2024, AWS <a href="https://aws.amazon.com/about-aws/whats-new/2024/08/amazon-s3-conditional-writes/">introduced AWS S3 conditional writes</a>, a feature that prevents objects from being overwritten when uploading data. This enhancement allowed Terraform to eliminate the need for consensus mechanisms to lock state file writing on S3 objects. Finally, this feature has been officially added to Terraform as General Availability (GA) in version <a href="https://github.com/hashicorp/terraform/releases/tag/v1.11.0">V1.11.0</a> this week. This blog post provides a quick guide on enabling S3 native state locking in Terraform 1.11.0.</p>
+<p>In August 2024, AWS <a href="https://aws.amazon.com/about-aws/whats-new/2024/08/amazon-s3-conditional-writes/" target="_blank">introduced AWS S3 conditional writes</a>, a feature that prevents objects from being overwritten when uploading data. This enhancement allowed Terraform to eliminate the need for consensus mechanisms to lock state file writing on S3 objects. Finally, this feature has been officially added to Terraform as General Availability (GA) in version <a href="https://github.com/hashicorp/terraform/releases/tag/v1.11.0" target="_blank">V1.11.0</a> this week. This blog post provides a quick guide on enabling S3 native state locking in Terraform 1.11.0.</p>
 <!-- more -->
 
 <h2 id="terraform-state-locking">Terraform State Locking</h2>
@@ -648,10 +648,10 @@
   }
 }
 </code></pre></div>
-<p>For more details about the Terraform S3 backend, check out the following resource: <a href="https://developer.hashicorp.com/terraform/language/backend/s3">AWS S3 Backend</a></p>
+<p>For more details about the Terraform S3 backend, check out the following resource: <a href="https://developer.hashicorp.com/terraform/language/backend/s3" target="_blank">AWS S3 Backend</a></p>
 <h2 id="by-terraform-v1110">By Terraform v1.11.0</h2>
-<p>On February 27, 2025, the Terraform provider officially released support for S3 native state locking in General Availability (GA) with version <a href="https://github.com/hashicorp/terraform/releases/tag/v1.11.0">V1.11.0</a>. </p>
-<p>To use this new feature, you must first upgrade to the latest version of Terraform, <a href="https://github.com/hashicorp/terraform/releases/tag/v1.11.0">V1.11.0</a>. If your Terraform configuration includes version constraints, keep in mind that this feature is only available in Terraform v1.11.0. Therefore, before upgrading, review any potential breaking changes when transitioning from your current version to v1.11.0. Once reviewed, update the <a href="https://developer.hashicorp.com/terraform/language/terraform#terraform-required_version">version constarins</a> in your Terraform block accordingly.</p>
+<p>On February 27, 2025, the Terraform provider officially released support for S3 native state locking in General Availability (GA) with version <a href="https://github.com/hashicorp/terraform/releases/tag/v1.11.0" target="_blank">V1.11.0</a>. </p>
+<p>To use this new feature, you must first upgrade to the latest version of Terraform, <a href="https://github.com/hashicorp/terraform/releases/tag/v1.11.0" target="_blank">V1.11.0</a>. If your Terraform configuration includes version constraints, keep in mind that this feature is only available in Terraform v1.11.0. Therefore, before upgrading, review any potential breaking changes when transitioning from your current version to v1.11.0. Once reviewed, update the <a href="https://developer.hashicorp.com/terraform/language/terraform#terraform-required_version" target="_blank">version constarins</a> in your Terraform block accordingly.</p>
 <p>Then simply modify your backend block by removing the <code>dynamodb_table</code> parameter and replacing it with the new parameter called <code>use_lockfile</code>. The code block below provides an example:</p>
 <div class="highlight"><pre><span></span><code>terraform {
   backend &quot;s3&quot; {
@@ -764,7 +764,7 @@ time_sleep.wait_60_seconds: Still creating... [50s elapsed]
 If we check the S3 bucket containing the Terraform state file, we can see that while the Terraform API is communicating with the state object, an additional <code>.tflock</code> file appears in the bucket:</p>
 <p><img alt="tflock" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/planet-x/tflock.png?raw=true" /></p>
 <h2 id="clean-up">Clean up</h2>
-<p>Since we no longer need DynamoDB in our Terraform backend, we can remove it. The cleanup process for DynamoDB depends on your initial infrastructure setup. If you used the <a href="https://github.com/cloudposse/terraform-aws-tfstate-backend">Cloud Posse</a> repository to implement your AWS Terraform state backend, you need to set <code>dynamodb_enabled</code> to false.</p>
+<p>Since we no longer need DynamoDB in our Terraform backend, we can remove it. The cleanup process for DynamoDB depends on your initial infrastructure setup. If you used the <a href="https://github.com/cloudposse/terraform-aws-tfstate-backend" target="_blank">Cloud Posse</a> repository to implement your AWS Terraform state backend, you need to set <code>dynamodb_enabled</code> to false.</p>
 <div class="highlight"><pre><span></span><code>module &quot;remote_state&quot; {
   source  = &quot;cloudposse/tfstate-backend/aws&quot;
   version = &quot;1.5.0&quot;
