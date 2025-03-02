@@ -6,28 +6,30 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-      
-      
-        <link rel="canonical" href="https://cloudynotes.io/blog/page/2/index.html">
+        <meta name="description" content="A quick guide to enable S3 native state locking in Terraform 1.11.0">
       
       
       
-        <link rel="next" href="../../archive/2025.html">
+        <link rel="canonical" href="https://cloudynotes.io/blog/2025/03/02/the-search-for-planet-x.html">
       
       
-        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../feed_rss_created.xml">
-        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../feed_rss_updated.xml">
+        <link rel="prev" href="../../01/19/reinvent.html">
       
-      <link rel="icon" href="../../../assets/logo.png">
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
     
     
       
-        <title>Blog - CloudyNotes</title>
+        <title>The Search for Planet X - CloudyNotes</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6f8fc17f.min.css">
       
       
   
@@ -92,7 +94,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -121,7 +123,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#blog" class="md-skip">
+        <a href="#a-quick-guide-to-enable-s3-native-state-locking-in-terraform-1110" class="md-skip">
           Skip to content
         </a>
       
@@ -137,9 +139,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="CloudyNotes" class="md-header__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
+    <a href="../../../.." title="CloudyNotes" class="md-header__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
       
-  <img src="../../../assets/logo.png" alt="logo">
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -156,7 +158,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Blog
+              The Search for Planet X
             
           </span>
         </div>
@@ -222,7 +224,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -231,9 +235,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="CloudyNotes" class="md-nav__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
+    <a href="../../../.." title="CloudyNotes" class="md-nav__button md-logo" aria-label="CloudyNotes" data-md-component="logo">
       
-  <img src="../../../assets/logo.png" alt="logo">
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     CloudyNotes
@@ -282,21 +286,14 @@
                 
   
   
-  
-    
-      
     
   
   
-    <li class="md-nav__item">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="../../index.html" class="md-nav__link md-nav__link--active">
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -305,7 +302,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -355,7 +351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../archive/2025.html" class="md-nav__link">
+      <a href="../../../archive/2025.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -378,7 +374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../archive/2024.html" class="md-nav__link">
+      <a href="../../../archive/2024.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -401,7 +397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../archive/2023.html" class="md-nav__link">
+      <a href="../../../archive/2023.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -438,6 +434,8 @@
             
             
               
+                
+              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -450,6 +448,74 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-state-locking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terraform State Locking
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Terraform State Locking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terraform-and-aws-s3-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terraform and AWS S3 Backend
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-terraform-v1110" class="md-nav__link">
+    <span class="md-ellipsis">
+      Before Terraform v1.11.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#by-terraform-v1110" class="md-nav__link">
+    <span class="md-ellipsis">
+      By Terraform v1.11.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clean-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clean up
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -457,220 +523,337 @@
             
           
           
-  <div class="md-content" data-md-component="content">
-    <div class="md-content__inner">
-      <header class="md-typeset">
-        <h1 id="blog">Blog</h1>
-      </header>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="https://avatars.githubusercontent.com/u/55163548?v=4" alt="Meraj Kashi">
-          </span>
-        
-      </nav>
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-11-15 00:00:00+00:00">November 15, 2023</time></li>
-        
-        
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../index.html" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://avatars.githubusercontent.com/u/55163548?v=4" alt="Meraj Kashi">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          Meraj Kashi
+                        
+                      </strong>
+                      <br>
+                      Write on the clouds Keep forever
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2025-03-02 00:00:00+00:00" class="md-ellipsis">March 2, 2025</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              6 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
           
-          <li class="md-meta__item">
-            
-              7 min read
-            
-          </li>
-        
-      </ul>
-      
+        </div>
+      </div>
     </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="unraveling-recursive-loops-in-aws-lambda"><a class="toclink" href="../../2023/11/15/next-station-is-closed.html">Unraveling Recursive Loops in AWS Lambda</a></h2>
-<p><img alt="lambda-loop" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/lambda-loop/lambda-loop.jpg?raw=true" /></p>
-<div class="admonition boardgame">
-<p class="admonition-title">Boardgame</p>
-<p>The Next Station board game series begins with a London edition, and the latest addition features Tokyo. This game tasks players with redesigning the city's underground subway system. The goal is to optimize connections, serve as many attractions as possible, and make efficient use of the tunnels under the city. One of the fundamental rule of the game is that players cannot circle back to the starting station – in other words, <strong>loop is not permitted</strong>. For more information, visit: <a href="https://boardgamegeek.com/boardgame/353545/next-station-london">boardgamegeek</a>  </p>
-</div>
-<p>Last year, I awoke to a startling email from AWS billing service. My personal AWS account had amassed charges amounting to $4,000. Initially, I dismissed it as a bizarre dream, a shepherd's nightmare, if you will. But reality struck—it was a genuine email. The AWS billing page echoed the same staggering figure.</p>
-<p>My AWS account is typically a sandbox for experimentation, with monthly expenses hovering around $100. So, what triggered this financial avalanche?</p>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+  
 
+<nav class="md-tags" >
+  
     
-      <nav class="md-post__action">
-        <a href="../../2023/11/15/next-station-is-closed.html">
-          Continue reading
-        </a>
-      </nav>
     
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
     
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="https://avatars.githubusercontent.com/u/55163548?v=4" alt="Meraj Kashi">
-          </span>
-        
-      </nav>
+      <span class="md-tag">AWS</span>
     
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-08-03 00:00:00+00:00">August 3, 2023</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              7 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="yo-yo-attacks-on-cloud-auto-scaling"><a class="toclink" href="../../2023/08/03/camel-up.html">Yo-Yo attacks on cloud auto-scaling</a></h2>
-<p><img alt="Camel Up" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/camelup/camelup.jpeg?raw=true" /></p>
-<div class="admonition boardgame">
-<p class="admonition-title">Boardgame</p>
-<p>Camel Up is a popular board game designed by Steffen Bogen. It is a family-friendly, light-hearted, and entertaining game that revolves around a crazy camel racing event. What makes Camel Up particularly unique and enjoyable is the unpredictability of the race. The camels stack on top of each other when they land on the same space, creating a camel stack. The camels at the top of the stack move faster, while the ones at the bottom move slower. This adds an element of surprise and excitement, making it challenging to predict the winner until the very end.  </p>
-</div>
-<p>Camel Up board game and auto-scaling in the cloud may appear as two completely distinct area. However, the camels' movement—going up and down—in the game reminds me of the process of scaling resources in cloud auto-scaling. </p>
-<p>Cloud auto-scaling is a very powerful tool, but it can also be a double-edged sword. Without the proper scaling configuration and testing it can cost cloud users a lot. So, auto-scaling is a trade of performance and cost.</p>
-
+  
     
-      <nav class="md-post__action">
-        <a href="../../2023/08/03/camel-up.html">
-          Continue reading
-        </a>
-      </nav>
     
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
     
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="https://avatars.githubusercontent.com/u/55163548?v=4" alt="Meraj Kashi">
-          </span>
-        
-      </nav>
+      <span class="md-tag">Terraform</span>
     
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-04-13 00:00:00+00:00">April 13, 2023</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              7 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="unlocking-the-power-of-effective-documentation"><a class="toclink" href="../../2023/04/13/rulebook.html">Unlocking the Power of Effective Documentation</a></h2>
-<p><img alt="Rulebook" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/rulebook/rulebook.jpg?raw=true" /></p>
-<div class="admonition boardgame">
-<p class="admonition-title">Boardgame</p>
-<p>Root is a strategy board game that took the tabletop world by storm upon its release in 2018. Developed by Cole Wehrle and published by Leder Games, Root is a game of woodland might and right that pits players against each other in a battle for control over a richly detailed and immersive woodland kingdom. With its unique asymmetric gameplay, gorgeous artwork, and rich thematic setting, Root offers endless hours of fun and strategic challenge for players of all skill levels. Whether you're a seasoned tabletop enthusiast or a newcomer to the world of board games, Root is sure to captivate your imagination and test your strategic abilities to their limits. Although Root is a complex game with a rating of 3.78/5, a well-designed rulebook makes it easier to learn and start playing. For more information, please visit: <a href="https://boardgamegeek.com/boardgame/237182/root">BoardGameGeek</a></p>
-</div>
-<h3 id="introduction"><a class="toclink" href="../../2023/04/13/rulebook.html#introduction">Introduction</a></h3>
-<p>Good documentation for a product is like a well-written rulebook in a boardgame - it makes the game easy to understand, enjoyable to play, and accessible to all.</p>
-<p>While a board game may be well-designed and not overly complex, it can be difficult to understand and enjoy without a good rulebook. Developers often focus on writing efficient, high-quality code that meets the requirements of the project. However, the importance of good documentation is sometimes overlooked. Good documentation is an essential component of any product, as it provides a roadmap for users to effectively understand and use it. </p>
-
-    
-      <nav class="md-post__action">
-        <a href="../../2023/04/13/rulebook.html">
-          Continue reading
-        </a>
-      </nav>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="https://avatars.githubusercontent.com/u/55163548?v=4" alt="Meraj Kashi">
-          </span>
-        
-      </nav>
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-03-31 00:00:00+00:00">March 31, 2023</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              8 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="moving-hashicorp-terraform-state-file"><a class="toclink" href="../../2023/03/31/terraforming-mars.html">Moving HashiCorp Terraform state file</a></h2>
-<p><img alt="Terraforming Mars" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/tf-mars/tf-mars.jpg?raw=true" /></p>
-<div class="admonition boardgame">
-<p class="admonition-title">Boardgame</p>
-<p>This isn't a blog about board games, but HashiCorp Terraform makes me think of the Terraforming Mars board game!</p>
-<p>Terraforming Mars is a board game designed by Jacob Fryxelius and published by FryxGames in 2016. The game is set in the future, where players take on the role of corporations that work together to terraform Mars and make it habitable for human life. You can check more here: <a href="https://boardgamegeek.com/boardgame/167791/terraforming-mars">BoardGameGeek</a></p>
-</div>
-<h3 id="terraform-state-file"><a class="toclink" href="../../2023/03/31/terraforming-mars.html#terraform-state-file">Terraform state file</a></h3>
-<p>Infrastructure as Code (IaC) enables us to use code to manage infrastructure resources. This approach makes it easier to manage complex infrastructures, reduce manual errors, and increase efficiency.</p>
-<p>These days HashiCorp Terraform is one of the popular IaC tools. It supports a wide range of Cloud providers and services including AWS, Azure, GCP, K8S, and many others. This enables infrastructure engineers to manage their infrastructure resources in a consistent way, regardless of the cloud provider they are using.</p>
-<p>Terraform provides a state management mechanism to track the state of the infrastructure resources. This allows us to understand the current state of the infrastructure, identify changes that have been made, and easily make updates. Terraform stores the current state of the infrastructure in a file called tfstate. This state is used by Terraform to map real world resources to the configuration, keep track of metadata, and to improve performance for large infrastructures.</p>
-
-    
-      <nav class="md-post__action">
-        <a href="../../2023/03/31/terraforming-mars.html">
-          Continue reading
-        </a>
-      </nav>
-    
-  </div>
-</article>
-      
-      
-        
-          
-
-
-
-<nav class="md-pagination">
-  <a class="md-pagination__link" href="../../index.html">1</a> <span class="md-pagination__current">2</span>
+  
 </nav>
-        
+
+
+
+<h1 id="a-quick-guide-to-enable-s3-native-state-locking-in-terraform-1110">A quick guide to enable S3 native state locking in Terraform 1.11.0</h1>
+<p><img alt="Planet-X" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/planet-x/planet-x.png?raw=true" /></p>
+<div class="admonition boardgame">
+<p class="admonition-title">Boardgame</p>
+<p>At the outskirts of our solar system, a mysterious planet might be hiding. In The Search for Planet X, each player takes on the role of an astronomer trying to locate the hidden planet, known as Planet X. It is a deduction game where players gather clues, and as more objects are discovered, they narrow down the possible locations of Planet X. For more information, visit: <a href="https://boardgamegeek.com/boardgame/279537/the-search-for-planet-x" target="_blank">boardgamegeek</a></p>
+</div>
+<p>In August 2024, AWS <a href="https://aws.amazon.com/about-aws/whats-new/2024/08/amazon-s3-conditional-writes/">introduced AWS S3 conditional writes</a>, a feature that prevents objects from being overwritten when uploading data. This enhancement allowed Terraform to eliminate the need for consensus mechanisms to lock state file writing on S3 objects. Finally, this feature has been officially added to Terraform as General Availability (GA) in version <a href="https://github.com/hashicorp/terraform/releases/tag/v1.11.0">V1.11.0</a> this week. This blog post provides a quick guide on enabling S3 native state locking in Terraform 1.11.0.</p>
+<!-- more -->
+
+<h2 id="terraform-state-locking">Terraform State Locking</h2>
+<p>Terraform supports various types of backends. If a backend supports state locking, Terraform will lock the state file for any operation that modifies it. Consider a scenario where one developer applies changes using Terraform, and the process takes a few minutes to create or modify resources. Meanwhile, another developer attempts to deploy new resources using the same state file. Without state locking, Terraform would allow both developers to write to the state file simultaneously, leading to potential corruption and inconsistencies. State locking prevents this by ensuring that only one operation can modify the state at a time, avoiding conflicts and maintaining data integrity.</p>
+<h3 id="terraform-and-aws-s3-backend">Terraform and AWS S3 Backend</h3>
+<p>Terraform uses persisted state data to track the resources it manages. When using Terraform with AWS, the S3 backend is an option for storing state files. Previously, state locking for the AWS S3 backend relied on DynamoDB-based locking, where Terraform used DynamoDB to manage state status and control writes to the state file.</p>
+<p>AWS has now introduced a new feature that enables Amazon S3 to support conditional writes. This allows S3 to natively manage how distributed applications with multiple clients update data concurrently across shared datasets. Each client can conditionally write objects, ensuring that one client does not overwrite data written by another. With this enhancement, Terraform no longer needs to use DynamoDB for state locking, it can rely on S3 itself.</p>
+<h2 id="before-terraform-v1110">Before Terraform v1.11.0</h2>
+<p>If you have used an earlier version of Terraform before v1.11.0, your Terraform backend block might look similar to the code block below. As shown, it includes a parameter to configure which DynamoDB table is used to store LockIDs:</p>
+<div class="highlight"><pre><span></span><code>terraform {
+  backend &quot;s3&quot; {
+    region         = &quot;eu-north-1&quot;
+    bucket         = &quot;cloudynotes-infra&quot;
+    key            = &quot;terraform.tfstate&quot;
+    encrypt        = true
+
+    dynamodb_table = &quot;cloudynotes-infra-lock&quot;
+  }
+}
+</code></pre></div>
+<p>For more details about the Terraform S3 backend, check out the following resource: <a href="https://developer.hashicorp.com/terraform/language/backend/s3">AWS S3 Backend</a></p>
+<h2 id="by-terraform-v1110">By Terraform v1.11.0</h2>
+<p>On February 27, 2025, the Terraform provider officially released support for S3 native state locking in General Availability (GA) with version <a href="https://github.com/hashicorp/terraform/releases/tag/v1.11.0">V1.11.0</a>. </p>
+<p>To use this new feature, you must first upgrade to the latest version of Terraform, <a href="https://github.com/hashicorp/terraform/releases/tag/v1.11.0">V1.11.0</a>. If your Terraform configuration includes version constraints, keep in mind that this feature is only available in Terraform v1.11.0. Therefore, before upgrading, review any potential breaking changes when transitioning from your current version to v1.11.0. Once reviewed, update the <a href="https://developer.hashicorp.com/terraform/language/terraform#terraform-required_version">version constarins</a> in your Terraform block accordingly.</p>
+<p>Then simply modify your backend block by removing the <code>dynamodb_table</code> parameter and replacing it with the new parameter called <code>use_lockfile</code>. The code block below provides an example:</p>
+<div class="highlight"><pre><span></span><code>terraform {
+  backend &quot;s3&quot; {
+    region       = &quot;eu-north-1&quot;
+    bucket       = &quot;cloudynotes-infra&quot;
+    key          = &quot;terraform.tfstate&quot;
+    encrypt = true
+
+    use_lockfile = true
+
+    # dynamodb_table = &quot;cloudynotes-infra-lock&quot;
+  }
+}
+</code></pre></div>
+<p>When you run terraform init, Terraform detects the change in your backend configuration, causing the initialization to fail:</p>
+<div class="highlight"><pre><span></span><code>&gt; terraform init
+
+Initializing the backend...
+Initializing modules...
+╷
+│ Error: Backend configuration changed
+│
+│ A change in the backend configuration has been detected, which may require migrating existing state.
+│
+│ If you wish to attempt automatic migration of the state, use &quot;terraform init -migrate-state&quot;.
+│ If you wish to store the current configuration with no changes to the state, use &quot;terraform init -reconfigure&quot;.
+</code></pre></div>
+<p>In this case, as indicated by the terraform init output, you should reinitialize Terraform using the <code>-reconfigure</code> option:</p>
+<div class="highlight"><pre><span></span><code>&gt; terraform init -reconfigure
+
+Initializing the backend...
+Backend configuration changed!
+
+Terraform has detected that the configuration specified for the backend
+has changed. Terraform will now check for existing state in the backends.
+
+
+Successfully configured the backend &quot;s3&quot;! Terraform will automatically
+use this backend unless the backend configuration changes.
+Initializing modules...
+Initializing provider plugins...
+- Reusing previous version of hashicorp/aws from the dependency lock file
+- Reusing previous version of hashicorp/time from the dependency lock file
+- Reusing previous version of hashicorp/local from the dependency lock file
+- Using previously-installed hashicorp/local v2.5.2
+- Using previously-installed hashicorp/aws v5.89.0
+- Using previously-installed hashicorp/time v0.12.1
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running &quot;terraform plan&quot; to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+</code></pre></div>
+<p>That’s it! You’ve successfully updated your backend to support AWS S3 native state locking, eliminating the need for DynamoDB to store LockIDs. You can verify your configuration by running <code>terraform plan</code>, which should confirm that no changes are detected.</p>
+<div class="highlight"><pre><span></span><code>&gt; terraform plan
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration and found no differences, so no changes are needed.
+</code></pre></div>
+<h2 id="verification">Verification</h2>
+<p>To test state locking with the new configuration, I added a sleep block for 60 seconds. While Terraform is applying the changes and sleeping, I attempt to run Terraform in a separate session to deploy a new resource. As expected, Terraform’s state locking prevents any overwriting, ensuring that the other session cannot modify the state file while it is still in use.</p>
+<p><div class="highlight"><pre><span></span><code>resource &quot;null_resource&quot; &quot;previous&quot; {
+  depends_on = [time_sleep.wait_60_seconds]
+}
+
+resource &quot;time_sleep&quot; &quot;wait_60_seconds&quot; {
+
+  create_duration = &quot;60s&quot;
+}
+</code></pre></div>
+Testing concurrent execution by running terraform apply from two different sessions simultaneously:  </p>
+<p>session -1:
+<div class="highlight"><pre><span></span><code>&gt; terraform apply
+
+time_sleep.wait_60_seconds: Still creating... [10s elapsed]
+time_sleep.wait_60_seconds: Still creating... [20s elapsed]
+time_sleep.wait_60_seconds: Still creating... [30s elapsed]
+time_sleep.wait_60_seconds: Still creating... [40s elapsed]
+time_sleep.wait_60_seconds: Still creating... [50s elapsed]
+</code></pre></div></p>
+<p>session -2:
+<div class="highlight"><pre><span></span><code>&gt; terraform apply
+╷
+│ Error: Error acquiring the state lock
+│ 
+│ Error message: operation error S3: PutObject, https response error StatusCode: 412, RequestID: RFGCMN948YRCHJG9, HostID:
+│ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx, api error PreconditionFailed: At least one of the
+│ pre-conditions you specified did not hold
+│ Lock Info:
+│   ID:        66f0aed7-a8cf-8ea2-4bea-a8f4c52b324d
+│   Path:      cloudynotes-infra/terraform.tfstate
+│   Operation: OperationTypeApply
+│   Who:       cloudynotes
+│   Version:   1.11.0
+│   Created:   2025-03-02 12:40:12.241858 +0000 UTC
+│   Info:      
+│ 
+│ 
+│ Terraform acquires a state lock to protect the state from being written
+│ by multiple users at the same time. Please resolve the issue above and try
+│ again. For most commands, you can disable locking with the &quot;-lock=false&quot;
+│ flag, but this is not recommended.
+</code></pre></div>
+If we check the S3 bucket containing the Terraform state file, we can see that while the Terraform API is communicating with the state object, an additional <code>.tflock</code> file appears in the bucket:</p>
+<p><img alt="tflock" loading="lazy" src="https://github.com/cloudynotes/www.cloudynotes.io/blob/master/custom/img/blog/planet-x/tflock.png?raw=true" /></p>
+<h2 id="clean-up">Clean up</h2>
+<p>Since we no longer need DynamoDB in our Terraform backend, we can remove it. The cleanup process for DynamoDB depends on your initial infrastructure setup. If you used the <a href="https://github.com/cloudposse/terraform-aws-tfstate-backend">Cloud Posse</a> repository to implement your AWS Terraform state backend, you need to set <code>dynamodb_enabled</code> to false.</p>
+<div class="highlight"><pre><span></span><code>module &quot;remote_state&quot; {
+  source  = &quot;cloudposse/tfstate-backend/aws&quot;
+  version = &quot;1.5.0&quot;
+
+  namespace = &quot;cloudynotes&quot;
+  name      = &quot;infra&quot;
+
+  terraform_backend_config_file_name = &quot;backend.tf&quot;
+  terraform_state_file               = &quot;terraform.tfstate&quot;
+  force_destroy                      = false
+
+  # Disable DynamoDB delete protection
+  deletion_protection_enabled        = false
+
+  # Removed DynamoDB
+  dynamodb_enabled                   = false
+}
+</code></pre></div>
+<blockquote>
+<p>If your DynamoDB table has delete protection enabled, you must first disable it before attempting to delete the table.</p>
+</blockquote>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+  
+
+
+
+  <h2 id="__comments">Comments</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+        data-repo="cloudynotes/comments"
+        data-repo-id="R_kgDOJAy0uA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJAy0uM4CUXOl"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
       
-    </div>
+    </article>
   </div>
 
           
@@ -689,24 +872,26 @@
   
     
       
+        
+      
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
-        
           
-          <a href="../../archive/2025.html" class="md-footer__link md-footer__link--next" aria-label="Next: 2025">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                2025
-              </div>
-            </div>
+          <a href="../../01/19/reinvent.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: ReInvent">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                ReInvent
+              </div>
             </div>
           </a>
+        
         
       </nav>
     
@@ -804,10 +989,10 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
   </body>
